@@ -1,0 +1,17 @@
+title: Seguridad Informática y Alta Disponibilidad
+description: > # this means to ignore newlines until "baseurl:"
+  Apuntes del módulo de Seguridad Informática y Alta Disponibilidad. Elaborados por Francisco Pérez, profesor de ciclos formativos en el I.E.S. San Vicente 
+  (San Vicente del Raspeig, Alicante)
+baseurl: "/seguridad" # the subpath of your site, e.g. /blog
+url: "http://fperezIES.github.io" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+#exclude: ["_slides"] # No funciona según lo esperado
+# Keep md files, so reveal will work
+#include:
+#  - "*.md"
+
+
+
+
