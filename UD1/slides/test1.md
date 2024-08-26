@@ -31,7 +31,7 @@ title: My Reveal.js Presentation
 ## Slide 3.2: Vertical Slide 2
 
 - This is the second vertical slide under Slide 3.
-
+<!--
 ---
 
 # Slide with Image
@@ -47,3 +47,5 @@ title: My Reveal.js Presentation
 ```python
 def hello_world():
     print("Hello, World!")
+```
+-->
