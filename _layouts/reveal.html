@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
+		<!--
 		<meta charset="utf-8">
 		<title>{{page.title}}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="{{ site.baseurl }}/reveal/dist/reveal.css">
 		<link rel="stylesheet" href="{{ site.baseurl }}/reveal/dist/theme/white.css" id="theme">
 		<link rel="stylesheet" href="{{ site.baseurl }}/reveal/plugin/highlight/custom.css">
+		-->
+
+		<meta charset="utf-8">
+		<title>{{ page.title | default: "Seguridad informática" }}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="/reveal.js/dist/theme/white.css" id="theme">
+		<script src="/reveal.js/plugin/markdown/markdown.js"></script>
+	</head>
 	</head>
 
 	<body>
+		<!--
 		<div class="reveal">
 			<div class="slides">
                 {{content}}
@@ -35,6 +46,25 @@
 				plugins: [ RevealZoom, RevealMarkdown, RevealHighlight ]
 			});
 
+		</script>
+		-->
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown="{{ page.path | relative_url }}"
+						 data-separator="^\n---\n"
+						 data-separator-vertical="^\n--\n"
+						 data-separator-notes="^Note:"
+						 data-charset="utf-8">
+				</section>
+			</div>
+		</div>
+	
+		<script src="/reveal.js/dist/reveal.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				plugins: [ RevealMarkdown ]
+			});
 		</script>
 
 	</body>
