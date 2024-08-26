@@ -1,6 +1,6 @@
 ---
 #layout: reveal
-title: My Reveal.js Presentation
+#title: My Reveal.js Presentation
 ---
 
 # Slide 1: Introduction
