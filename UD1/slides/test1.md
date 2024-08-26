@@ -1,5 +1,5 @@
 ---
-layout: reveal
+#layout: reveal
 title: My Reveal.js Presentation
 ---
 
