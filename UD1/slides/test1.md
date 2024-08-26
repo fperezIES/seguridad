@@ -1,8 +1,9 @@
+<!--
 ---
-#layout: reveal
-#title: My Reveal.js Presentation
+layout: reveal
+title: My Reveal.js Presentation
 ---
-
+-->
 # Slide 1: Introduction
 
 - Point 1
