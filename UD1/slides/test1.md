@@ -1,10 +1,9 @@
-<!--
 ---
 layout: reveal
 title: My Reveal.js Presentation
 permalink: /diapositivas/
 ---
--->
+
 # Slide 1: Introduction
 
 - Point 1
