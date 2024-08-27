@@ -1,7 +1,7 @@
 ---
 layout: reveal
 title: My Reveal.js Presentation
-permalink: /diapositivas/
+#permalink: /diapositivas/
 ---
 
 # Slide 1: Introduction
