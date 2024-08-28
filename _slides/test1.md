@@ -1,8 +1,4 @@
----
-layout: reveal
-title: My Reveal.js Presentation
-#permalink: /diapositivas/
----
+
 
 # Slide 1: Introduction
 
@@ -32,7 +28,7 @@ title: My Reveal.js Presentation
 ## Slide 3.2: Vertical Slide 2
 
 - This is the second vertical slide under Slide 3.
-<!--
+
 ---
 
 # Slide with Image
@@ -49,4 +45,3 @@ title: My Reveal.js Presentation
 def hello_world():
     print("Hello, World!")
 ```
--->
