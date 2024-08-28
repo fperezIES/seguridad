@@ -51,7 +51,7 @@
 		<div class="reveal">
 			<div class="slides">
 			<!--	<section data-markdown="{{ page.path | relative_url }}" -->
-				<section data-markdown="{{ site.eurl }}{{ site.baseurl }}/slides/test1.md"
+				<section data-markdown="{{ site.baseurl }}/slides/test1.md"
 						 data-separator="^\n---\n"
 						 data-separator-vertical="^\n--\n"
 						 data-separator-notes="^Note:"
@@ -60,7 +60,7 @@
 			</div>
 		</div>
 	
-		<script src="{{ site.baseurl }}/reveal.js/dist/reveal.js"></script>
+		<script src="{{ site.url }}{{ site.baseurl }}/reveal.js/dist/reveal.js"></script>
 		<script>
 			Reveal.initialize({
 				hash: true,
