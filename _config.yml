@@ -7,7 +7,7 @@ url: "http://fperezIES.github.io" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
-exclude: ["_slides"]
+#exclude: ["_slides"] # No funciona según lo esperado
 # Keep md files, so reveal will work
 #include:
 #  - "*.md"
