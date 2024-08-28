@@ -6,7 +6,8 @@ baseurl: "/seguridad" # the subpath of your site, e.g. /blog
 url: "http://fperezIES.github.io" # the base hostname & protocol for your site
 
 # Build settings
-#markdown: kramdown
+markdown: kramdown
+exclude: ["_slides"]
 # Keep md files, so reveal will work
 #include:
 #  - "*.md"
