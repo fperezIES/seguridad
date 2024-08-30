@@ -14,5 +14,12 @@ title: My Reveal.js Presentation
         ---
         ## Demo 1
         Slide 3
-    </script>
+    </script>    
+</section>
+
+<section data-markdown="{{ page.dir }}/data.{{ page.name}}"
+	data-separator="^\n---\n"
+	data-separator-vertical="^\n--\n"
+	data-separator-notes="^Note:"
+	data-charset="utf-8">
 </section>
