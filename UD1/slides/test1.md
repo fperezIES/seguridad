@@ -17,7 +17,7 @@ title: My Reveal.js Presentation
     </script>    
 </section>
 
-<section data-markdown="{{ page.dir }}/data.{{ page.name}}"
+<section data-markdown="{{ site.baseurl }}{{ page.dir }}data.{{ page.name}}"
 	data-separator="^\n---\n"
 	data-separator-vertical="^\n--\n"
 	data-separator-notes="^Note:"
