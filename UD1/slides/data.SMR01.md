@@ -193,7 +193,7 @@ Los 3 elementos principales a proteger :
 
 ## Capas de protección en una ciudad medieval
 
-![Carcassone](../img/01/carcassonne.jpg)
+![Carcassonne](../img/01/carcassonne.jpg)
 
 <!-- ::: notes
 https://es.wikipedia.org/wiki/Carcasona
