@@ -1,3 +1,5 @@
+
+<!-- .slide: data-background="#ffffff" -->
 # Conceptos básicos de Seguridad Informática
 
 ---
@@ -51,9 +53,9 @@ Lamentablemente no se es consciente de la falta de seguridad hasta que ya es dem
   
 * Un fallo o mal funcionamiento puede producir:
 	* Grandes **pérdidas económicas**
-  
+
 --
-  
+
 * **No se puede conseguir la seguridad absoluta**
 	* Debemos intentar alcanzar un **nivel de seguridad** razonable
 	* Diremos que un sistema es **fiable** e lugar de seguro
