@@ -193,15 +193,17 @@ Los 3 elementos principales a proteger :
 
 ## Capas de protección en una ciudad medieval
 
-![Carcassone](../img/01/carcassonne.jpg){height=90%}
+![Carcassone](../img/01/carcassonne.jpg)
 
-::: notes
+<!-- ::: notes
 https://es.wikipedia.org/wiki/Carcasona
-:::
+::: -->
 
-### Capas de protección de un sistema informático
+---
 
-![Capas de protección de un sistema informático](../img/01/defensa_profundiad.png){width=80%}
+## Capas de protección de un sistema informático
+
+![Capas de protección de un sistema informático](../img/01/defensa_profundiad.png)
 
 ---
 
