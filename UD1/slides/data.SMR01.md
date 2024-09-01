@@ -1,5 +1,5 @@
 
-<!-- .slide: data-background="#ffffff" -->
+<!-- .slide: data-background="#000000" -->
 # Conceptos básicos de Seguridad Informática
 
 ---
@@ -204,6 +204,8 @@ https://es.wikipedia.org/wiki/Carcasona
 ![Capas de protección de un sistema informático](../img/01/defensa_profundiad.png){width=80%}
 
 ---
+
+<!-- .slide: data-background="#ff0000" -->
 
 # Amenazas
 
