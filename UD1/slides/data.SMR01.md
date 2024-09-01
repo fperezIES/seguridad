@@ -101,7 +101,7 @@ Mantener un sistema seguro (o **fiable**) consiste básicamente en garantizar 3 
 
 --
 
-![CID](../../img/01/CID.png){width=40%}
+![CID](../../img/01/CIA.png){width=40%}
 
 <!--
 * **Confidencialidad**: cualidad de un mensaje, comunicación o datos, para que sólo se entiendan de manera comprensible o sean leídos por la persona o sistema que esté autorizado (privacidad y protección).
@@ -595,11 +595,12 @@ Una auditoría de seguridad informática o auditoría de sistemas de informació
 
 ## Elementos del riesgo
 
-![Los elementos del riesgo](../img/01/elementos_riesgo.tiff){width=80%}
+![Los elementos del riesgo](../img/01/elementos_riesgo.png)
 
 ---
 
 ## Análisis de riesgos:
+
 * Identificar cuáles son los **activos** a proteger 
 	* ¿Cuál es su valor? ¿Cuánto cuesta reponerlos? 
 	* ¿Es posible reponerlos?
@@ -618,14 +619,14 @@ Una auditoría de seguridad informática o auditoría de sistemas de informació
 ## Matriz de riesgos
 Cuanto mayor es el valor del activo y mayor es su grado de exposición a amenazas, mayor es su riesgo y más prioritaria la exigencia de protegerlo.
 
-![Matriz de riesgos](../img/01/matriz_riesgos.tiff){width=65%}
+![Matriz de riesgos](../img/01/matriz_riesgos.png){width=65%}
 
 ---
 
 ## Esquema de análisis de riesgos
 Existen estándares orientados a servir como base para auditorías de informática. Método Margerit:
 
-![Esquema de análisis de riesgos (método Margerit)](../img/01/analisis_riesgos.tiff){width=85%}
+![Esquema de análisis de riesgos (método Margerit)](../img/01/analisis_riesgos.png){width=85%}
 
 <!-- ::: notes
 Una auditoría se realiza basándose en un conjunto de directrices o buenas prácticas sugeridas. Existen estándares orientados a servir como base para auditorías de informática. Uno de ellos es COBIT (Objetivos de Control de las Tecnologías de la Información) y adicionalmente a él encontramos el estándar ISO 27002, que supone un código internacional de buenas prácticas de seguridad de la información. Otros estándares, como el ISO 27001, definen los requisitos de auditoría y sistemas de gestión de seguridad.
@@ -659,7 +660,7 @@ A los mecanismos utilizados para implementar esta política de seguridad se les 
 
 --
 
-![Relación entre los mecanismos de seguridad](../img/01/controles_seguridad.tiff){width=45%}
+![Relación entre los mecanismos de seguridad](../img/01/controles_seguridad.png){width=45%}
 
 ---
 
@@ -752,15 +753,15 @@ Medidas para detectar y evitar amenazas antes de que se produzcan.
 Son de este tipo todas las medidas de seguridad lógica.  
 
 
-|   **Técnicas**				|  **¿Qué previene?**                                              |
-|----------------------	|---------------------------------------------------------|
-| Contraseñas	|   Previene el acceso a recursos a usuarios no autorizados      |
-| Listas de control de acceso						|Previene acceso a ficheros a usuarios no autorizados       |
-| Encriptación	|Evita a personas no autorizadas interpretar la información|
-|Software de seguridad	|  Evita virus y accesos no deseados al sistema|
-|	Firmas y certificados digitales|  Comprueba la procedencia, autenticidad e integridad de los mensajes|
-|Sistemas de ficheros tolerantes a fallos| Previene fallos de integridad |
-|	Cuotas de disco|Previene el uso excesivo de disco por parte de algún usuario|
+| **Técnicas**                             | **¿Qué previene?**                                                  |
+| ---------------------------------------- | ------------------------------------------------------------------- |
+| Contraseñas                              | Previene el acceso a recursos a usuarios no autorizados             |
+| Listas de control de acceso              | Previene acceso a ficheros a usuarios no autorizados                |
+| Encriptación                             | Evita a personas no autorizadas interpretar la información          |
+| Software de seguridad                    | Evita virus y accesos no deseados al sistema                        |
+| Firmas y certificados digitales          | Comprueba la procedencia, autenticidad e integridad de los mensajes |
+| Sistemas de ficheros tolerantes a fallos | Previene fallos de integridad                                       |
+| Cuotas de disco                          | Previene el uso excesivo de disco por parte de algún usuario        |
 
 ---
 
