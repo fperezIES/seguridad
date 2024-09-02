@@ -1,11 +1,17 @@
 body
 {
+    text-align: justify;
+    text-justify: inter-word;
     background-color: #FFFFFF;
 }
 
 div {
-    text-align: justify;
-    text-justify: inter-word;
+    
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    text-align: left;
 }
 
 h1
