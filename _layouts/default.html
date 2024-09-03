@@ -9,12 +9,14 @@
 	</head>
 
 	<body>
-		<div class="container" font-size: 24px;>
-			<a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a>
-		</div>
+		<div class="container">
+			<div  font-size: 24px;>
+				<a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a>
+			</div>
 
-		<div style="text-align: right">
-			<a target="_blank" href="{{ site.baseurl }}{{ page.dir }}slides/{{ page.name | replace:'.md','.html' }}.html"><img src="{{ site.baseurl }}/img/diapositivas.png" width="32" /></a>&nbsp;&nbsp;
+			<div style="text-align: right">
+				<a target="_blank" href="{{ site.baseurl }}{{ page.dir }}slides/{{ page.name | replace:'.md','.html' }}"><img src="{{ site.baseurl }}/img/diapositivas.png" width="32" /></a>&nbsp;&nbsp;
+			</div>
 		</div>
 
 		<div class="container">
