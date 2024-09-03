@@ -11,7 +11,6 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-
 				<section data-markdown="{{ site.baseurl }}{{ page.dir }}data.{{ page.name}}"
 					data-separator="^\n---\n"
 					data-separator-vertical="^\n--\n"
@@ -30,8 +29,10 @@
         <script src="{{ site.baseurl }}/reveal.js/plugin/math/math.js"></script>
 
 		<script>
-
 			Reveal.initialize({
+				width: 1920,
+				height: 1080,
+				margin: 0.04,
 				controls: true,
 				progress: true,
 				history: true,
@@ -43,7 +44,6 @@
 				slideNumber: 'c/t',
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
 			});
-
 		</script>
 
 	</body>
