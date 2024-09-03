@@ -1,9 +1,9 @@
 
 <!-- .slide: data-background="#000000" -->
 
-## Seguridad y alta disponibilidad
+# Seguridad y alta disponibilidad
 
-### Conceptos básicos de Seguridad Informática
+## Conceptos básicos de Seguridad Informática
 
 ---
 
