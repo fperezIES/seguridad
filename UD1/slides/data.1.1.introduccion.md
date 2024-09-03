@@ -3,7 +3,7 @@
 
 ## Seguridad y alta disponibilidad
 
-# Conceptos básicos de Seguridad Informática
+### Conceptos básicos de Seguridad Informática
 
 ---
 
@@ -33,9 +33,8 @@ Lamentablemente no se es consciente de la falta de seguridad hasta que ya es dem
 
 ---
 
-## ¿Es posible la seguridad absoluta?
+## La seguridad absoluta no es posible
 
---
 
 > "**El único sistema verdaderamente seguro es uno que está apagado, guardado dentro de un bloque de hormigón y sellado en una habitación revestida de plomo llena de guardias armados - y aún así tengo mis dudas.**"  
 > *Gene Spafford*
@@ -62,7 +61,6 @@ Lamentablemente no se es consciente de la falta de seguridad hasta que ya es dem
 * **No se puede conseguir la seguridad absoluta**
 	* Debemos intentar alcanzar un **nivel de seguridad** razonable
 	* Diremos que un sistema es **fiable** e lugar de seguro
-
 
 ---
 
@@ -93,7 +91,6 @@ Según INFOSEC Glosssary 2000:
 
 ## CID: Confidencialidad, Integridad y Disponibilidad
 
-
 Mantener un sistema seguro (o **fiable**) consiste básicamente en garantizar 3 aspectos: 
 
 --
@@ -104,7 +101,7 @@ Mantener un sistema seguro (o **fiable**) consiste básicamente en garantizar 3 
 
 --
 
-![CID](../../img/01/CIA.png){width=40%}
+![CID](../../img/01/CIA.png){:width=40%}
 
 <!--
 * **Confidencialidad**: cualidad de un mensaje, comunicación o datos, para que sólo se entiendan de manera comprensible o sean leídos por la persona o sistema que esté autorizado (privacidad y protección).
@@ -209,3 +206,8 @@ https://es.wikipedia.org/wiki/Carcasona
 ![Capas de protección de un sistema informático](../img/01/defensa_profundiad.png)
 
 ---
+
+# Ejercicios
+
+--
+
