@@ -1,4 +1,4 @@
-
+<!-- .slide: data-background="#000000" -->
 # Slide 1: Introduction
 
 - Point 1
@@ -44,3 +44,8 @@
 def hello_world():
     print("Hello, World!")
 ```
+
+---
+
+<!-- .slide: data-background="#5555BB" -->
+## Slide with background color

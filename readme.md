@@ -1,4 +1,4 @@
-Repositorio con apuntes para el módulo Seguridad y Alta Disponibilidad
+Repositorio con apuntes para el módulo Seguridad y Alta Disponibilidad del ciclo ASIR.
 
 # Unidades didácticas
 
@@ -7,11 +7,11 @@ Repositorio con apuntes para el módulo Seguridad y Alta Disponibilidad
 
 * [1.1 Introducción a la seguridad informática](UD1/1.1.introduccion.md)
 * [1.2 Amenazas](UD1/1.2.amenazas.md)
-* [1.3 Estándares de securización de sistemas y redes](UD1/1.3.auditorias.md)
-* [1.4 # Gestión del riesgo](UD1/1.4.gestionriesgo.md)
-* [1.5 Legislación sobre ciberseguridad Española](UD1/1.5.legislacion.md)
+* [1.3 Auditorías: estándares y gestión de riesgos](UD1/1.3.auditorias.md)
+* [1.4 Normativa sobre Ciberseguridad](UD1/1.4.normativa.md)
+
  
-[test1](UD1/slides/test1.md)
+[demo](UD1/slides/demo.md)
 
 
 ## UD2 - Seguridad pasiva (10h)
@@ -42,6 +42,7 @@ Cifrado de discos
 Control de acceso
 Malware
 
+
 ## UD5 - Alta disponibilidad (10h)
 
 Balanceo de carga
@@ -71,9 +72,9 @@ Proxy
 
 Criterios de evaluación:
 
-a) Se ha valorado la importancia de asegurar la privacidad, coherencia y disponibilidad de la información en los sistemas informáticos.
+~~a) Se ha valorado la importancia de asegurar la privacidad, coherencia y disponibilidad de la información en los sistemas informáticos.~~
 
-b) Se han descrito las diferencias entre seguridad física y lógica.
+~~b) Se han descrito las diferencias entre seguridad física y lógica.~~
 
 c) Se han clasificado las principales vulnerabilidades de un sistema informático, según su tipología y origen.
 
