@@ -3,18 +3,18 @@ Repositorio con apuntes para el módulo Seguridad y Alta Disponibilidad del cicl
 # Unidades didácticas
 
 
-## UD1 - Introducción a la seguridad informática (10h)
+## UD1 - Introducción a la seguridad informática 
 
-* [1.1 Introducción a la seguridad informática](UD1/1.1.introduccion.md)
-* [1.2 Amenazas](UD1/1.2.amenazas.md)
-* [1.3 Auditorías: estándares y gestión de riesgos](UD1/1.3.auditorias.md)
-* [1.4 Normativa sobre Ciberseguridad](UD1/1.4.normativa.md)
+* [1.1 Introducción a la seguridad informática](UD1/1.introduccion.md)
+* [1.2 Amenazas](UD1/2.amenazas.md)
+* [1.3 Auditorías: estándares y gestión de riesgos](UD1/3.auditorias.md)
+* [1.4 Normativa sobre Ciberseguridad](UD1/4.normativa.md)
 
  
 [demo](UD1/slides/demo.md)
 
 
-## UD2 - Seguridad pasiva (10h)
+## UD2 - Seguridad pasiva
 
 Seguridad física
 Sistemas e alimentación ininterrumpida
@@ -25,7 +25,7 @@ Borrado de datos
 
 
 
-## UD3 - Criptografía (10h)
+## UD3 - Criptografía
 
 Funciones Hash
 Cifrado simétrico
@@ -34,7 +34,7 @@ Firma digital y certificados digitales
 Cifrado híbrido
 
 
-## UD4 - Fortificación hosts (10h)
+## UD4 - Fortificación hosts
 
 Contraseñas
 Bios / Gestores de arranque
@@ -43,14 +43,14 @@ Control de acceso
 Malware
 
 
-## UD5 - Alta disponibilidad (10h)
+## UD5 - Alta disponibilidad
 
 Balanceo de carga
 Virtualización
 Contenedores
 
 
-## UD6 - Seguridad en redes (10h)
+## UD6 - Seguridad en redes
 
 SSL/TLS
 WLAN
