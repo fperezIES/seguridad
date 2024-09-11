@@ -63,10 +63,3 @@ Repositorio con apuntes para el módulo Seguridad y Alta Disponibilidad del cicl
 
 - Firewall
 - Proxy
-
-
-[Incidentes](incidentes.md)
-
-[demo](UD1/slides/demo.md)
-
-
