@@ -27,39 +27,39 @@ Criterios de evaluación:
 
 1_4_a) Se han clasificado los principales tipos de amenazas lógicas contra un sistema informático.
 
-b) Se ha verificado el origen y la autenticidad de las aplicaciones instaladas en un equipo, así como el estado de actualización del sistema operativo.
+4_b) Se ha verificado el origen y la autenticidad de las aplicaciones instaladas en un equipo, así como el estado de actualización del sistema operativo.
 
-4c) Se han identificado la anatomía de los ataques más habituales, así como las medidas preventivas y paliativas disponibles.
+4_6_c) Se han identificado la anatomía de los ataques más habituales, así como las medidas preventivas y paliativas disponibles.
 
-4d) Se han analizado diversos tipos de amenazas, ataques y software malicioso, en entornos de ejecución controlados.
+4_6d) Se han analizado diversos tipos de amenazas, ataques y software malicioso, en entornos de ejecución controlados.
 
 4e) Se han implantado aplicaciones específicas para la detección de amenazas y la eliminación de software malicioso.
 
-f) Se han utilizado técnicas de cifrado, firmas y certificados digitales en un entorno de trabajo basado en el uso de redes públicas.
+3f) Se han utilizado técnicas de cifrado, firmas y certificados digitales en un entorno de trabajo basado en el uso de redes públicas.
 
-g) Se han evaluado las medidas de seguridad de los protocolos usados en redes inalámbricas.
+6g) Se han evaluado las medidas de seguridad de los protocolos usados en redes inalámbricas.
 
-h) Se ha reconocido la necesidad de inventariar y controlar los servicios de red que se ejecutan en un sistema.
+4h) Se ha reconocido la necesidad de inventariar y controlar los servicios de red que se ejecutan en un sistema.
 
-i) Se han descrito los tipos y características de los sistemas de detección de intrusiones.
+6i) Se han descrito los tipos y características de los sistemas de detección de intrusiones.
 
 ### 3. Implanta técnicas seguras de acceso remoto a un sistema informático, interpretando y aplicando el plan de seguridad.
 
 Criterios de evaluación:
 
-a) Se han descrito escenarios típicos de sistemas con conexión a redes públicas en los que se precisa fortificar la red interna.
+6a) Se han descrito escenarios típicos de sistemas con conexión a redes públicas en los que se precisa fortificar la red interna.
 
-b) Se han clasificado las zonas de riesgo de un sistema, según criterios de seguridad perimetral.
+6b) Se han clasificado las zonas de riesgo de un sistema, según criterios de seguridad perimetral.
 
-c) Se han identificado los protocolos seguros de comunicación y sus ámbitos de utilización.
+6c) Se han identificado los protocolos seguros de comunicación y sus ámbitos de utilización.
 
-d) Se han configurado redes privadas virtuales mediante protocolos seguros a distintos niveles.
+6d) Se han configurado redes privadas virtuales mediante protocolos seguros a distintos niveles.
 
-e) Se ha implantado un servidor como pasarela de acceso a la red interna desde ubicaciones remotas.
+6e) Se ha implantado un servidor como pasarela de acceso a la red interna desde ubicaciones remotas.
 
-f) Se han identificado y configurado los posibles métodos de autenticación en el acceso de usuarios remotos a través de la pasarela.
+6f) Se han identificado y configurado los posibles métodos de autenticación en el acceso de usuarios remotos a través de la pasarela.
 
-g) Se ha instalado, configurado e integrado en la pasarela un servidor remoto de autenticación.
+6g) Se ha instalado, configurado e integrado en la pasarela un servidor remoto de autenticación.
 
 ### 4. Implanta cortafuegos para asegurar un sistema informático, analizando sus prestaciones y controlando el tráfico hacia la red interna.
 
@@ -102,39 +102,38 @@ servidores «proxy».
 
 Criterios de evaluación:
 
-a) Se han analizado supuestos y situaciones en las que se hace necesario implementar soluciones de alta disponibilidad.
+5_a) Se han analizado supuestos y situaciones en las que se hace necesario implementar soluciones de alta disponibilidad.
 
-b) Se han identificado soluciones hardware para asegurar la continuidad en el funcionamiento de un sistema.
+5_b) Se han identificado soluciones hardware para asegurar la continuidad en el funcionamiento de un sistema.
 
-c) Se han evaluado las posibilidades de la virtualización de sistemas para implementar soluciones de alta disponibilidad.
+5_c) Se han evaluado las posibilidades de la virtualización de sistemas para implementar soluciones de alta disponibilidad.
 
-d) Se ha implantado un servidor redundante que garantice la continuidad de servicios en casos de caída del servidor principal.
+5_d) Se ha implantado un servidor redundante que garantice la continuidad de servicios en casos de caída del servidor principal.
 
-e) Se ha implantado un balanceador de carga a la entrada de la red interna.
+5_e) Se ha implantado un balanceador de carga a la entrada de la red interna.
 
-f) Se han implantado sistemas de almacenamiento redundante sobre servidores y dispositivos específicos.
+2_5_f) Se han implantado sistemas de almacenamiento redundante sobre servidores y dispositivos específicos.
 
-g) Se ha evaluado la utilidad de los sistemas de «clusters» para aumentar la fiabilidad y productividad del sistema.
+5_g) Se ha evaluado la utilidad de los sistemas de «clusters» para aumentar la fiabilidad y productividad del sistema.
 
-h) Se han analizado soluciones de futuro para un sistema con demanda creciente.
+5_h) Se han analizado soluciones de futuro para un sistema con demanda creciente.
 
-i) Se han esquematizado y documentado soluciones para diferentes supuestos con necesidades de alta disponibilidad.
+5_i) Se han esquematizado y documentado soluciones para diferentes supuestos con necesidades de alta disponibilidad.
 
 ### 7. Reconoce la legislación y normativa sobre seguridad y protección de datos valorando su importancia.
 
 Criterios de evaluación:
 
- a)  Se ha descrito la legislación sobre protección de datos de carácter personal.
+ 1a)  Se ha descrito la legislación sobre protección de datos de carácter personal.
 
- b)  Se ha determinado la necesidad de controlar el acceso a la información personal
-almacenada.
+ 1b)  Se ha determinado la necesidad de controlar el acceso a la información personal almacenada.
 
-c) Se han identificado las figuras legales que intervienen en el tratamiento y mantenimiento de los ficheros de datos.
+1c) Se han identificado las figuras legales que intervienen en el tratamiento y mantenimiento de los ficheros de datos.
 
-d) Se ha contrastado el deber de poner a disposición de las personas los datos personales que les conciernen.
+1_d) Se ha contrastado el deber de poner a disposición de las personas los datos personales que les conciernen.
 
-e) Se ha descrito la legislación actual sobre los servicios de la sociedad de la información y comercio electrónico.
+1e) Se ha descrito la legislación actual sobre los servicios de la sociedad de la información y comercio electrónico.
 
-f) Se han contrastado las normas sobre gestión de seguridad de la información.
+1f) Se han contrastado las normas sobre gestión de seguridad de la información.
 
-g) Se ha comprendido la necesidad de conocer y respetar la normativa legal aplicable.
+1g) Se ha comprendido la necesidad de conocer y respetar la normativa legal aplicable.

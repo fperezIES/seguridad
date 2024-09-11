@@ -40,6 +40,8 @@ Repositorio con apuntes para el módulo Seguridad y Alta Disponibilidad del cicl
 	- Biometría
 - Bios / Gestores de arranque
 - Cifrado de discos
+- Actualización y verificación de software
+- Monitorización
 - Malware
 
 
@@ -51,6 +53,7 @@ Repositorio con apuntes para el módulo Seguridad y Alta Disponibilidad del cicl
 
 ## UD6 - Seguridad en redes
 
+* IDS
 - SSL/TLS
 - WLAN
 - SSH
