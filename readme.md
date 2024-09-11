@@ -66,6 +66,11 @@ Firewall
 Proxy
 
 
+# Incidentes de seguridad
+
+[2020.solarwinds](incidentes/2020.solarwinds.md)
+[2024.crowdstrike](incidentes/2024.crowdstrike.md)
+
 # RA y Criterios de evaluación
 
 1. Adopta pautas y prácticas de tratamiento seguro de la información, reconociendo las vulnerabilidades de un sistema informático y la necesidad de asegurarlo.

@@ -49,3 +49,12 @@ def hello_world():
 
 <!-- .slide: data-background="#5555BB" -->
 ## Slide with background color
+
+---
+
+## Diapositiva con framentos
+
+* Este se muestra desde el principio
+* Este se muestra después <!-- .element: class="fragment" data-fragment-index="1" -->
+* Otro elemento que asciende  <!-- .element: class="fragment"  fade-up -->
+
