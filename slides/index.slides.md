@@ -94,8 +94,9 @@
 
 ---
 
-
 ## Primer trimestre
+
+--
 
 * UD1 - Introducción a la seguridad informática 
 	* [1.1 Introducción a la seguridad informática](UD1/1.introduccion.md)
@@ -138,6 +139,7 @@
 
 ## Segundo trimestre
 
+--
 
 * UD5 - Alta disponibilidad
 	* Redundancia Hardware
@@ -158,25 +160,6 @@
 *  UD 7 - Seguridad perimetral 
 	- Firewall
 	- Proxy
-
----
-
-## Evaluación trimestral 
-
-|Tarea|Porcentaje|Requisito|
-|---|---|---|
-|Exámenes|70%|>=4|
-|Ejercicios obligatorios|30%|>=4|
-|Ejercicios opcionales|10% (extra)|   |
-
----
-
-## Evaluación final
-
-|Tarea|Porcentaje|Requisito|
-|---|---|---|
-|1st trimester|50%|>=5|
-|2nd trimester|50%|>=5|
 
 ---
 
@@ -202,10 +185,34 @@
 
 ---
 
+# Evaluación
+
+--
+
+## Evaluación trimestral 
+
+|Tarea|Porcentaje|Requisito|
+|---|---|---|
+|Exámenes|70%|>=4|
+|Ejercicios obligatorios|30%|>=4|
+|Ejercicios opcionales|10% (extra)|   |
+
+--
+
+## Evaluación final
+
+|Tarea|Porcentaje|Requisito|
+|---|---|---|
+|1st trimester|50%|>=5|
+|2nd trimester|50%|>=5|
+
+---
+
 ## Tutorías presenciales obligatorias (semipresencial)
 
 - Por ley 10% de presencialidad obligatoria.
 - Se os convocará una tutoría presencial al final de cada trimestre.
+- Tendréis que defender las prácticas ante el profesor.
 
 ---
 
