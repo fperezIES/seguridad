@@ -11,30 +11,37 @@
 - Módulo de 100 horas
 - 5 horas por semana
 - 20 semanas (**2 trimestres**)
+	- 3 semanas de exámenes + Extraordinaria
 
 ---
-## RD 659/2023 nueva LFP I
+## RD 659/2023 nueva LFP I 
+### Esto no os aplica... aún
 
-•Prácticas en empresa en 1º (100 horas) y 2º (400 horas)
-	•En semipresencial se acumulan las horas en 2º (500 horas)
-
-•Nuevos módulos en 1º (2024-2025)
+- Nuevos módulos en 1º (2024-2025)
 	- Proyecto Intermodular
 	- Inglés profesional
 	- Itinerario personal para la empleabilidad I (Sustituye a FOL)
 	
-* Nuevos módulos en 2º
+- Nuevos módulos en 2º
 	- Proyecto Intermodular	
 	- Digitalización aplicada al sistema productivo GS
 	- Sostenibilidad aplicada al sistema productivo
 	- Itinerario personal para la empleabilidad II
 	- Optativa
-
 --
 
 ## RD 659/2023 nueva LFP II
 
-•Plan de transición:
+- Prácticas en empresa en 1º (100 horas) y 2º (400 horas)
+	- En semipresencial se acumulan las horas en 2º (500 horas)
+	
+- LOE: FCT 400 horas
+
+--
+
+## RD 659/2023 nueva LFP III
+
+- Plan de transición:
 	- Matrícula únicamente con módulos de primero: aplica nueva LFP	
 	- Matrícula con módulos de segundo: sigue con antigua LOE	
 	- Pendientes de primero también con antigua LOE	
@@ -200,12 +207,19 @@
 - Por ley 10% de presencialidad obligatoria.
 - Se os convocará una tutoría presencial al final de cada trimestre.
 
-## Recuperaciones
+---
 
-- Los exámenes trimestrales se recuperarán en la convocatoria ordinaria
+## Exámenes y recuperaciones
 
-- Any trimester exam will be retaken at the final, ordinary exam
-- Final, ordinary exam will be retaken at the extraordinary period
-- Any failed compulsory exercise from 1st and 2nd trimester will be retaken along the 3rd trimester
-- Any failed compulsory exercise from the 3rd trimester will be retaken in the extraordinary period
-- Final project will be retaken in the extraordinary period
+- Los exámenes trimestrales se recuperarán en la Convocatoria Ordinaria
+	- Se guardará la nota por trimestres.
+
+- Convocatoria Ordinaria
+	- Al Final de segundo trimestre
+	- Se examinará solamente de los trimestres suspendidos
+	- **Necesario aprobar para realizar FCT**
+- Convocatoria Extraordinaria
+	- En Junio
+	- Entra todo el temario, no se guardan parciales
+	
+
