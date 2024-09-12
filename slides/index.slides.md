@@ -13,26 +13,36 @@
 - 20 semanas (**2 trimestres**)
 	- 3 semanas de exámenes + Extraordinaria
 
+
 ---
 
-## RD 659/2023 nueva LFP I 
+## RD 659/2023 nueva LFP
 
 ### Esto no os aplica... aún
 
-- Nuevos módulos en 1º (2024-2025)
-	- Proyecto Intermodular
-	- Inglés profesional
-	- Itinerario personal para la empleabilidad I (Sustituye a FOL)
-- Nuevos módulos en 2º
-	- Proyecto Intermodular	
-	- Digitalización aplicada al sistema productivo GS
-	- Sostenibilidad aplicada al sistema productivo
-	- Itinerario personal para la empleabilidad II
-	- Optativa
+--
+
+### LFP: Nuevos módulos en 1º (2024-2025)
+
+- Proyecto Intermodular
+- Inglés profesional
+- Itinerario personal para la empleabilidad I (Sustituye a FOL)
 
 --
 
-## RD 659/2023 nueva LFP II
+### LFP: Nuevos módulos en 2º
+
+
+- Proyecto Intermodular	
+- Digitalización aplicada al sistema productivo GS
+- Sostenibilidad aplicada al sistema productivo
+- Itinerario personal para la empleabilidad II
+- Optativa
+
+--
+
+## LFP: FCT Dual
+
 
 - Prácticas en empresa en 1º (100 horas) y 2º (400 horas)
 	- En semipresencial se acumulan las horas en 2º (500 horas)
@@ -57,17 +67,12 @@
 
 ## Contenidos principales I
 
- - Conceptos relacionados con seguridad de la información.
- - Introducción a la gestión de riesgos.
- - Normativa relacionada con la ciberseguridad
+ - **Conceptos** relacionados con seguridad de la información.
+ - Introducción a la **gestión de riesgos**.
+ - **Normativa** relacionada con la ciberseguridad
  - Seguridad Física.
  - Almacenamiento.
  - Fortificación de Hosts.
-
---
-
-## Contenidos principales II
-
  - Fortificación de Redes.
  - Acceso remoto seguro.
  - Seguridad perimetral.
@@ -104,10 +109,10 @@
 --
 
 * UD1 - Introducción a la seguridad informática 
-	* [1.1 Introducción a la seguridad informática](UD1/1.introduccion.md)
-	* [1.2 Vulnerabilidades y Amenazas](UD1/2.amenazas.md)
-	* [1.3 Auditorías: estándares y gestión de riesgos](UD1/3.auditorias.md)
-	* [1.4 Normativa sobre Ciberseguridad](UD1/4.normativa.md)
+	* Introducción a la seguridad informática
+	* Vulnerabilidades y Amenazas
+	* Auditorías: estándares y gestión de riesgos
+	* Normativa sobre Ciberseguridad
 
 --
 
@@ -168,16 +173,6 @@
 
 ---
 
-## Exámenes
-
-- Evaluaicón Continua: Un examen por trimestre
-
-- Convocatorias oficiales:
-	- Ordianaria: al final del segundo trimestre
-	- Extraordinaria: en junio
-
----
-
 ## Ejercicios
 
 - Habrá ejercicios de clase que no habrá que entregar
@@ -189,6 +184,18 @@
 	- Pueden subir la nota hasta un punto.
 
 ---
+
+## Exámenes
+
+- Evaluación **Continua**: Un examen por trimestre
+
+- Convocatorias oficiales:
+	- **Ordianaria**: al final del segundo trimestre
+	- **Extraordinaria**: en junio
+
+---
+
+
 
 # Evaluación
 
