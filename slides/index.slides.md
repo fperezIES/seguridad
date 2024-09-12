@@ -229,4 +229,3 @@
 	- En Junio
 	- Entra todo el temario, no se guardan parciales
 	
-
