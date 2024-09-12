@@ -14,20 +14,22 @@
 	- 3 semanas de exámenes + Extraordinaria
 
 ---
+
 ## RD 659/2023 nueva LFP I 
+
 ### Esto no os aplica... aún
 
 - Nuevos módulos en 1º (2024-2025)
 	- Proyecto Intermodular
 	- Inglés profesional
 	- Itinerario personal para la empleabilidad I (Sustituye a FOL)
-	
 - Nuevos módulos en 2º
 	- Proyecto Intermodular	
 	- Digitalización aplicada al sistema productivo GS
 	- Sostenibilidad aplicada al sistema productivo
 	- Itinerario personal para la empleabilidad II
 	- Optativa
+
 --
 
 ## RD 659/2023 nueva LFP II
@@ -41,11 +43,14 @@
 
 ## RD 659/2023 nueva LFP III
 
-- Plan de transición:
-	- Matrícula únicamente con módulos de primero: aplica nueva LFP	
-	- Matrícula con módulos de segundo: sigue con antigua LOE	
+### Plan de transición:
+
+- Matrícula únicamente con módulos de primero: 
+	- Aplica nueva LFP	
+- Matrícula con módulos de segundo:
+	- Sigue con antigua LOE	
 	- Pendientes de primero también con antigua LOE	
-	- **2 años de prórroga, en 2026-2027 será todo LFP**
+- **2 años de prórroga, en 2026-2027 será todo LFP**
 
 
 ---
