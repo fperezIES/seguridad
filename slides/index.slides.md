@@ -6,11 +6,40 @@
 
 ---
 
-## Introducción: Seguridad y alta disponibilidad
+## Seguridad y alta disponibilidad (SAD)
 
 - Módulo de 100 horas
 - 5 horas por semana
-- 20 semanas (2a trimestres)
+- 20 semanas (**2 trimestres**)
+
+---
+## RD 659/2023 nueva LFP I
+
+•Prácticas en empresa en 1º (100 horas) y 2º (400 horas)
+	•En semipresencial se acumulan las horas en 2º (500 horas)
+
+•Nuevos módulos en 1º (2024-2025)
+	- Proyecto Intermodular
+	- Inglés profesional
+	- Itinerario personal para la empleabilidad I (Sustituye a FOL)
+	
+* Nuevos módulos en 2º
+	- Proyecto Intermodular	
+	- Digitalización aplicada al sistema productivo GS
+	- Sostenibilidad aplicada al sistema productivo
+	- Itinerario personal para la empleabilidad II
+	- Optativa
+
+--
+
+## RD 659/2023 nueva LFP II
+
+•Plan de transición:
+	- Matrícula únicamente con módulos de primero: aplica nueva LFP	
+	- Matrícula con módulos de segundo: sigue con antigua LOE	
+	- Pendientes de primero también con antigua LOE	
+	- **2 años de prórroga, en 2026-2027 será todo LFP**
+
 
 ---
 
@@ -23,7 +52,7 @@
  - Almacenamiento.
  - Fortificación de Hosts.
 
--- 
+--
 
 ## Contenidos principales II
 
@@ -31,6 +60,8 @@
  - Acceso remoto seguro.
  - Seguridad perimetral.
  - Técnicas de alta disponibilidad.
+
+---
 
 ## Unidades didácticas
 
@@ -51,123 +82,130 @@
 
 - Los contenidos y la planificación se publicará en la Clase Virtual (Aules)
 - En semipresencial se guiará sobre los puntos más importantes del temario y los ejercicios que se deberán ir haciendo cada semana. 
-- You will be asked to deliver some compulsory exercises in each trimester
+- Se tendrán que entregar algunos ejercicios obligatorios cada trimestre.
+- Adicionalmente puede haber ejercicios opcionales.
 
 ---
 
 
 ## Primer trimestre
 
-1. Programs, languages and compilers
-2. Integrated Development Environments
-3. Software methodologies
-4. Software analysis and design
-5. Version control using Git
+* UD1 - Introducción a la seguridad informática 
+	* [1.1 Introducción a la seguridad informática](UD1/1.introduccion.md)
+	* [1.2 Vulnerabilidades y Amenazas](UD1/2.amenazas.md)
+	* [1.3 Auditorías: estándares y gestión de riesgos](UD1/3.auditorias.md)
+	* [1.4 Normativa sobre Ciberseguridad](UD1/4.normativa.md)
+
+--
+
+*  UD2 - Seguridad pasiva
+	- Seguridad física
+	- Almacenamiento
+	- RAID
+	- Copias de seguridad
+	- Eliminación y recuperación de datos
+
+--
+
+* UD3 - Criptografía
+	- Funciones Hash
+	- Cifrado simétrico
+	- Cifrado asimétrico
+	- Firma digital
+	- Certificados digitales: Infraestructura de clave pública
+	- Cifrado híbrido
+
+--
+
+* UD4 - Fortificación hosts
+	- Control de acceso
+		- Contraseñas
+		- Biometría
+	- Bios / Gestores de arranque
+	- Cifrado de discos
+	- Actualización y verificación de software
+	- Monitorización
+	- Malware
 
 ---
 
 ## Segundo trimestre
 
 
-## 2nd trimester: Object oriented programming with Java
+* UD5 - Alta disponibilidad
+	* Redundancia Hardware
+	* Sistemas e alimentación ininterrumpida
+	* Balanceo de carga
+	- Virtualización y Contenedores
 
-1. Basic elements of a Java program
-2. Control structures
-3. Arrays and strings
-4. Functions and error handling
-5. Classes and objects in Java
-6. Abstract classes and interfaces
+--
+
+* UD6 - Seguridad en redes
+	* IDS
+	- SSL/TLS
+	- WLAN
+	- SSH
+	- VPN
+
+--
+*  UD 7 - Seguridad perimetral 
+	- Firewall
+	- Proxy
 
 ---
 
-## Evaluation rules (per trimester)
+## Evaluación trimestral 
 
-|Task|Percent|Requirements|
+|Tarea|Porcentaje|Requisito|
 |---|---|---|
-|Exam(s)|65%|>=4|
-|Compulsory exercise(s)|30%|>=4|
-|Attitude|5%|   |
-|Optional exercises|10% (extra)|   |
+|Exámenes|70%|>=4|
+|Ejercicios obligatorios|30%|>=4|
+|Ejercicios opcionales|10% (extra)|   |
 
 ---
 
-## Evaluation rules (final mark)
+## Evaluación final
 
-|Task|Percent|Requirements|
+|Tarea|Porcentaje|Requisito|
 |---|---|---|
-|1st trimester|35%|>=5|
-|2nd trimester|35%|>=5|
-|3rd trimester|20%|>=5|
-|Final project|10%|>=5|
-
+|1st trimester|50%|>=5|
+|2nd trimester|50%|>=5|
 
 ---
 
-## Exams
+## Exámenes
 
-- One exam per trimester in the blended course
-- One or more exams per trimester in the *face-to-face* course
-- In this case, each exam will be weighted for the trimester mark
+- Evaluaicón Continua: Un examen por trimestre
 
----
-
-## Exercises
-
-- Two compulsory exercises per trimester
-- There can be more (optional) exercises in each trimester
+- Convocatorias oficiales:
+	- Ordianaria: al final del segundo trimestre
+	- Extraordinaria: en junio
 
 ---
 
-## Compulsory exercises
+## Ejercicios
 
-- **1st trimester**:
-    - Unit 4
-    - Unit 5
-- **2nd trimester**:
-    - Unit 4
-    - Unit 6
-- **3rd trimester**:
-    - Unit 2
-    - Unit 4
+- Habrá ejercicios de clase que no habrá que entregar
+	- Se publicarán soluciones de ejemplo
+- Habrá varios ejercicios obligatorios por trimestre
+	- Habrá que entregarlos para aprobar el módulo
+	- Habrá que defenderlos presencialmente ante el profesor
+- Pueden haber ejercicios opcionales
+	- Pueden subir la nota hasta un punto.
 
 ---
 
-## Actitud
+## Tutorías presenciales obligatorias (semipresencial)
 
-
-- Any **copy attempt** in any exam/exercise will make you fail **the WHOLE trimester**. If you let anyone copy your work, you will also fail.
-
-
----
+- Por ley 10% de presencialidad obligatoria.
+- Se os convocará una tutoría presencial al final de cada trimestre.
 
 ## Recuperaciones
+
+- Los exámenes trimestrales se recuperarán en la convocatoria ordinaria
 
 - Any trimester exam will be retaken at the final, ordinary exam
 - Final, ordinary exam will be retaken at the extraordinary period
 - Any failed compulsory exercise from 1st and 2nd trimester will be retaken along the 3rd trimester
 - Any failed compulsory exercise from the 3rd trimester will be retaken in the extraordinary period
 - Final project will be retaken in the extraordinary period
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## The final project
-
-- A complete project that includes all the contents of the module:
-   - Software engineering (requirements, analysis, design)
-   - Software implementation for the chosen product (using Java)
-   - Other improvements (refactoring, testing...)
-- We will start this project in the 2nd trimester
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Materials needed
-
-- Through the Virtual Classroom you will be provided with all the materials
-- You will have to upload your practical exercises to this Virtual Classroom
-- You will need to use either your own laptop or an external hard drive to save your work (SDD with at least 512GB)
-</script>
-</section>

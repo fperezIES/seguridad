@@ -58,8 +58,10 @@ Repositorio con apuntes para el módulo Seguridad y Alta Disponibilidad del cicl
 - SSH
 - VPN
 
+<!--
 - Ideas ejercicios:
 - shodan
+-->
 
 ## UD 7 - Seguridad perimetral 
 
