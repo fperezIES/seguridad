@@ -12,16 +12,13 @@ Repositorio con apuntes para el módulo Seguridad y Alta Disponibilidad del cicl
 
  
 
-
 ## UD2 - Seguridad pasiva
 
 - Seguridad física
-- Sistemas e alimentación ininterrumpida
 - Almacenamiento
 - RAID
 - Copias de seguridad
 - Eliminación y recuperación de datos
-
 
 
 ## UD3 - Criptografía
@@ -29,7 +26,8 @@ Repositorio con apuntes para el módulo Seguridad y Alta Disponibilidad del cicl
 - Funciones Hash
 - Cifrado simétrico
 - Cifrado asimétrico
-- Firma digital y certificados digitales
+- Firma digital
+- Certificados digitales: Infraestructura de clave pública
 - Cifrado híbrido
 
 
@@ -48,6 +46,7 @@ Repositorio con apuntes para el módulo Seguridad y Alta Disponibilidad del cicl
 ## UD5 - Alta disponibilidad
 
 * Redundancia Hardware
+* Sistemas e alimentación ininterrumpida
 * Balanceo de carga
 - Virtualización y Contenedores
 
