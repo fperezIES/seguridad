@@ -101,6 +101,9 @@
 - En semipresencial se guiará sobre los puntos más importantes del temario y los ejercicios que se deberán ir haciendo cada semana. 
 - Se tendrán que entregar algunos ejercicios obligatorios cada trimestre.
 - Adicionalmente puede haber ejercicios opcionales.
+- Habrá ejercicios de clase que no serán corregidos con puntuación
+	-  Se publicarán soluciones de ejemplo
+	- Su contenido entre para el examen
 
 ---
 
@@ -195,8 +198,6 @@
 
 ---
 
-
-
 # Evaluación
 
 --
@@ -230,14 +231,10 @@
 
 ## Exámenes y recuperaciones
 
+- Las semanas de exámenes no habrá clase
 - Los exámenes trimestrales se recuperarán en la Convocatoria Ordinaria
+- Convocatoria **Ordinaria**: al final de segundo trimestre
 	- Se guardará la nota por trimestres.
-
-- Convocatoria Ordinaria
-	- Al Final de segundo trimestre
-	- Se examinará solamente de los trimestres suspendidos
 	- **Necesario aprobar para realizar FCT**
-- Convocatoria Extraordinaria
-	- En Junio
-	- Entra todo el temario, no se guardan parciales
-	
+- Convocatoria **Extraordinaria**: En Junio
+	- Entra todo el temario, no se guardan parciales	
