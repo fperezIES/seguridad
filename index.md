@@ -11,6 +11,8 @@ Repositorio con apuntes para el módulo Seguridad y Alta Disponibilidad del cicl
 * [1.4 Incidentes](UD1/4.incidentes.md)
 * [1.5 Cumplimiento legal](UD1/5.cumplimiento.md)
 
+Ejercicio entregable:
+[Caso práctico de Plan de seguridad.](UD1/exercises/caso_practico.md)
  
 
 ## UD2 - Seguridad pasiva
