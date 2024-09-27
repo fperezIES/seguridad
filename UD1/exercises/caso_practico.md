@@ -1,6 +1,6 @@
 
 
-# Escenarios para Supuesto Práctico
+# Supuesto Práctico: Plan de Gestión de Riesgos
 
 ## Escenario 1: Empresa de Desarrollo de Software (_TechSolutions S.L._)
 
@@ -25,7 +25,7 @@ _TechSolutions S.L._ es una empresa con sede en Valencia que se dedica al desarr
 - Proponer un **plan de mejora**: cifrado de documentos, segmentación de redes, revisión de permisos de acceso, uso de contraseñas robustas y autenticación multifactor.
 -->
 
----
+
 
 ## Escenario 2: Clínica Veterinaria (_PetCare SL_)
 
@@ -50,7 +50,7 @@ _PetCare SL_ es una pequeña clínica veterinaria en Alicante con cinco empleado
 - Proponer un **plan de mejora**: pruebas de seguridad en el servidor externo, copia de seguridad regular de los datos, protección de la página web con certificados SSL y autenticación.
 -->
 
----
+
 
 ## Escenario 3: Restaurante con Servicio de Comida a Domicilio (_GourmetExpress_)
 
@@ -75,7 +75,7 @@ _GourmetExpress_ es un restaurante en Madrid especializado en comida para llevar
 - Proponer un **plan de mejora**: implementar cifrado de datos de pago, revisar la seguridad del servidor, usar una pasarela de pago segura, realizar auditorías regulares de la web.
 -->
 
----
+
 
 ## Escenario 4: Asociación Cultural sin Ánimo de Lucro (_CulturaUrbana_)
 
@@ -128,7 +128,7 @@ _Venus SA_ es una clínica estética con sede en Ibiza que cuenta con 10 emplead
 - Proponer un **plan de mejora**: reubicar el servidor en un lugar con medidas de seguridad física adecuadas, separar los servicios del servidor (página web y herramienta de gestión), realizar auditorías de seguridad del CMS, contratar personal especializado para el mantenimiento del sistema o mejorar la formación del recepcionista.
 -->
 
----
+
 
 # Actividad: Plan de Gestión de Riesgos
 
@@ -161,7 +161,7 @@ _Venus SA_ es una clínica estética con sede en Ibiza que cuenta con 10 emplead
 
 ### Instrucciones para la entrega:
 
-- Realiza un informe que incluya el inventario de activos, el análisis de amenazas, la valoración de riesgos y un plan de mejora.
+- Realiza un **informe** que incluya el inventario de activos, el análisis de amenazas, la valoración de riesgos y un plan de mejora.
 - Propón soluciones realistas que respeten las restricciones presupuestarias planteadas en el supuesto.
 
 # Materiales a considerar
