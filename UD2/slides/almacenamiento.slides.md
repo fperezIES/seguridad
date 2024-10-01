@@ -1,0 +1,684 @@
+
+
+# Seguridad pasiva
+## Almacenamiento
+
+---
+
+## Unidades de almacenamiento
+
+--
+
+### ¿Activo más importante para una organización?
+
+#### Activos
+* **Información (datos)**
+* Personas
+* Equipos e Instalaciones
+
+#### ¿Qué pasa ante un desastre?
+* Incendio, Terremoto, Tsunami...
+* Fallo hardware
+* Ataque informático
+
+--
+
+### ¿De qué hay que proteger la información?
+
+* Proteger acceso a información
+	* **Robo** de equipos
+	* **Pérdida** de equipos portátiles
+	* Control de **acceso** 
+
+* Proteger datos ante fallos humanos y de hardware
+	* **Borrado** accidental
+	* Pérdida por fallo **hardware** de almacenamiento
+	* Pérdida por **catástrofe**, destrucción de instalaciones
+
+--
+
+### ¿Cómo proteger los datos?
+
+#### Proteger de robo
+
+* Cifrado y limites de acceso
+* Control de acceso
+* Seguridad de red
+
+#### Proteger ante pérdidas
+
+* Redundancia
+* Copias de seguridad
+
+--
+
+### Medidas de Seguridad Pasiva
+
+* **Seguridad pasiva**: medidas correctoras o paliativas. Su **objetivo es minimizar el impacto de un incidente de seguridad**. 
+	* Se intenta restablecer el funcionamiento del sistema o evitando que el impacto sea mayor. 
+
+#### Medidas de seguridad pasiva relacionadas con información  
+
+* Discos redundantes RAID
+* Clusters de servidores
+* Virtualización
+* Copias de seguridad
+
+--
+
+### Aspectos de dispositivos de almacenamiento
+
+* **Capacidad:** 
+	* Cantidad de información que pueden almacenar.
+
+* **Rendimiento:** 
+	* Velocidad a la que puede ser guardada y recuperada la información. Depende de la tecnología usada. 
+  
+* **Disponibilidad:** 
+	* Capacidad de funcionar con las menores interrupciones posibles. 
+  
+* **Acceso a la información:** 
+	* Tiempo necesario para el acceso. Ej: Secuencial vs Aleatorio
+
+--
+
+
+### Tipos de almacenamiento de información
+
+* Dispositivos de almacenamiento físicos:
+	* Discos duros
+	* SSD
+	* Cintas magnéticas
+
+* Configuraciones en **RAID**
+	*	Combinaciones de discos que permiten aumentar el rendimiento, la disponibilidad o ambas.
+
+* **Almacenamiento en red** (centralización almacenamiento)
+	* **NAS** (Almacenamiento en red)
+	* **SAN** (Red de almacenamiento)
+
+* Almacenamiento en la **nube** (deslocalización de almacenamiento)
+
+--
+
+
+
+### Características de dispositivos de almacenamiento
+
+* Capacidad
+* Velocidad
+* Precio
+* Fiabilidad
+	* **MTBF** (Mean Time Between Failures)
+	* **AFR** (Annualized Failure Rate) 
+
+
+
+--
+
+
+### Capacidad: Múltiplos binarios
+
+Unidades usadas para medir la capacidad de los discos de almacenamiento. 
+
+![Múltiplos binarios](../img/02/multiploBinario.png){:class="center"}
+
+Los fabricantes indican los tamaños de los discos duros usando multiplicadores en base 10 para que los números sean más grandes, pero en informática se mide el tamaño de los ficheros usando los multiplicadores en base 2.
+
+--
+
+
+### Fiabilidad
+
+* **MTBF y AFR**: Medidas estadísticas sobre poblaciones grandes de discos 
+	* No garantizan que un disco concreto las cumpla 
+	* MTBF y AFR se basan en los mismos datos, cambian la unidad en que se representan.
+
+#### MTBF
+* **MTBF** (Mean Time Between Failures): es el número medio de horas de servicio entre fallos. Si un disco se ha roto en un día y otro a los 3 años, la media será año y medio. 
+
+#### AFR
+* **AFR** (Annualized Failure Rate):s  es una estimación del porcentaje de productos que fallarán mientras se usan a causa del fabricante en un año.
+
+--
+
+
+### Velocidad
+
+Interfaces de conexión:
+
+* SAS (Serial Attached SCSI)
+* SATA
+* PCI-EXPRESS
+* m2
+
+--
+
+
+### Discos duros (HDD)
+* HDD: Hard Disk Drive
+* Equilibrio entre precio, capacidad y velocidad
+* Funcionamiento mecánico
+	* Con motores
+	* **Piezas móviles**
+* Existen en diferentes tamaños
+	* El tamaño más común actualmente es el de 3.5 pulgadas para sobremesa y servidores
+	* 2.5 pulgadas para portátiles (está siendo sustituido por SSDs)
+	
+#### Cómo funcionan:
+[https://www.youtube.com/watch?v=AfmTaOJMoUk](https://www.youtube.com/watch?v=AfmTaOJMoUk)
+
+--
+
+
+### Discos duros: Partes
+
+:::::::::::::: {.columns}
+::: {.column width="40%"}
+
+* Platos
+* Motor
+* Brazo lector
+* Cabezales
+* Electrónica
+* Caja
+
+:::
+::: {.column width="60%"}
+
+![](../img/02/partesHDD.png)\
+
+:::
+::::::::::::::
+
+--
+
+
+### Disco duro: Resumen componentes
+* Platos
+	* Caras recubiertas de capa sensible magnéticamente.
+	* Almacenan la información
+* Cabezales
+	* Ubicados al final del brazo, permiten leer y escribir en el disco
+* Brazo
+	* Su función es colocar los cabezales en la pista adecuada
+* Electrónica
+	* Controla componentes del HDD y la comunicación con PC
+* Motor
+	* Hace girar los discos a una velocidad constante
+* Caja
+	* Aísla los platos de radiación electromagnética (jaula de Faraday)
+
+--
+
+
+
+### Discos de estado sólido (SDD)
+
+* No tienen partes móviles, usan memorias FLASH
+* También tienen S.M.A.R.T.
+* Ventajas
+	* Muy rápidos, cientos de veces más rápidos que los mecánicos
+	* No hacen ruido
+	* Menor consumo de energía (no hay motores)
+	* Resistencia a golpes (no hay cabezales)
+	* Tiempos de búsqueda constantes (no hay que mover cabezales)
+* Inconvenientes:
+	* Precio: precio por Giga elevado comparado con mecánicos
+	* Cuando fallan no se pueden recuperar los datos, la celda perdida queda destruida
+	* **Número de escrituras/lecturas limitado**
+
+---
+
+
+### Discos de estado sólido (SDD)
+
+:::::::::::::: {.columns}
+::: {.column width="40%"}
+
+![](../img/02/SSD1.png){width=100%}\
+![](../img/02/SSD3.png){width=100%}\
+
+:::
+::: {.column width="60%"}
+
+![](../img/02/SSD2.png){width=100%}\
+
+:::
+::::::::::::::
+
+---
+
+### Estadísticas SMART
+
+* **SMART:** Self Monitoring Analysis and Reporting Technology
+	* Pretende avisar antes de que se produzca un fallo
+	* Mantiene una serie de registros con información del disco
+	* **No es infalible**
+		* Hay fallos que no se pueden detectar antes de que sucedan
+	* Pero si recibes un aviso, más vale que tengas una copia de seguridad
+
+#### Los valores de los atributos SMART 
+Van del número 1 al 253, siendo 1 el peor valor. Los valores normales son entre 100 y 200. Estos valores son guardados en un espacio reservado del disco duro.
+
+---
+
+### Estadísticas SMART. Estudio Google
+
+[https://static.googleusercontent.com/media/research.google.com/es//archive/disk_failures.pdf](https://static.googleusercontent.com/media/research.google.com/es//archive/disk_failures.pdf) 
+
+* [Failure Trends in a Large Disk Drive Population](https://static.googleusercontent.com/media/research.google.com/es//archive/disk_failures.pdf) 
+	* El **36 %** de los discos que fallaron no dieron **ningún error SMART**.
+
+	* Parámetros SMART con gran correlación con fallos:
+		* Scan errors
+		* Reallocation counts
+		* Offline reallocation counts
+		* Probational counts
+	* **MTBF**: Los datos de los fabricantes son muy optimistas y no se corresponden con la realidad (**se acerca al 50%**)
+
+
+### Recuperación de datos HDD
+
+* Empresas especializadas
+* Reemplazan partes defectuosas de discos
+* Tienen “salas blancas” en las que es seguro abrir los discos
+* No te garantizan el poder recuperar todo
+* Suele ser muy caro (1 disco entre 500 y 1000 €)
+* **Es rentable ser precavido y tener copias de seguridad**
+
+---
+
+
+## Arrays de discos (RAID)
+
+---
+
+### RAID
+
+* **RAID**: **R**edundant **A**rray of **I**ndependent **D**isks 
+	* Antes **I**nexpensive
+* **RAID**: Conjunto Redundante de discos independientes
+* Combina varias unidades de disco en un sólo volumen.
+	* Existen diferentes tipos
+	* Permiten mejorar: Capacidad, Rendimiento, Fiabilidad
+* Existen diferentes implementaciones:
+	* **hardware** (mayor rendimiento)
+	* software (menor coste)
+* **Sustitución de discos en caliente:** depende del equipo HW.
+* Disco **hot spare:** unidad reservada para reparar volumen en caso de fallo
+
+--
+
+### **RAID:** Características
+
+* Mayor **capacidad**: 
+	* Combinación de varios discos para conseguir una unidad de almacenamiento de una capacidad mayor.
+* Mayor **tolerancia a fallos**: 
+	* Posibilidad, **en algunos casos**, de recuperar la información tras el fallo de una unidad.
+	* Se pueden seguir usando mientras se recupera (en estado **degradado**)
+* Mayor **seguridad**: 
+	* Al ser tolerante a fallos y poder reparar sin detener el funcionamento, aumentaremos la **disponibilidad**.
+* Mayor **velocidad**: 
+	* Mayor ancho de banda en lectura y escritura de datos
+		* Uso de varios discos en paralelo
+
+---
+
+### RAID 0
+
+* RAID 0 es el modo **RAID más rápido** (no hace cálculos)
+	* [Vídeo explicativo](https://www.youtube.com/watch?v=mVhMhs6QR-g)  
+* Distribuye los datos equilibradamente entre las unidades de disco (**Stripping**). 
+* **No hay redundancia de información.**
+* **Mejora** el rendimiento de **lectura y escritura**
+
+![RAID 0](../img/02/Raid0.png){:class="center"}
+
+--
+
+### RAID 0
+
+* Combina **dos o más discos** en un solo volumen
+* **No proporciona redundancia**
+	* Si un disco falla, perdemos todo
+* Puede funcionar en dos modos
+	* **Striping**, reparte los ficheros entre todos los discos y permite aumentar la velocidad de escritura y lectura
+	* **Spanning**, cuando un disco se llena comienza a utilizar el siguiente (**no utilizado**)
+* Como no calcula redundancias: **no tiene penalización de rendimiento**
+* **Los discos deben ser iguales**, si no lo son, se usará el tamaño del más pequeño como límite
+	* EJ: RAID 0 de dos discos 1Gb y 3Gb, tendrá tamaño de 2Gb
+
+---
+
+### RAID 1
+
+* Consiste en una **copia exacta** de un disco físico a otro 
+* También se conoce como **espejo** o mirroring
+* **Tolerancia a fallos** (a un alto coste de espacio)
+* **Mejora** el rendimiento de **lectura**, pero no escritura.
+* Se forma con 2  o más discos
+
+![R
+
+--
+
+### RAID 1
+* Copia en **espejo**
+	* Replica el contenido en dos o más discos
+	* Solo se pierden datos si fallan todos los discos
+* **El tamaño del RAID será el del disco más pequeño**
+* Mejora el rendimiento en lectura
+* **No mejora rendimiento de escritura**
+* Problema: coste
+	* 50% de espacio dedicado a redundancia (con 2 discos)
+	* Peor si se usan más discos
+
+---
+
+### RAID 5
+* Distribuye los datos en bloques  y usa **paridad distribuida**
+	* [Vídeo explicativo](https://www.youtube.com/watch?v=5WyqvzrSsFw&t=5s) 
+* Consigue rendimiento parecido a RAID0
+* Hay tolerancia a fallos y solo pierde el tamaño de un disco 
+* **Tolerancia a fallos sin pérdida dramática de espacio **(33% con 3 discos, 25% con 4)
+* Mal rendimiento con escrituras pequeñas
+
+
+![RAID 5](../img/02/Raid5.png){:class="center"}
+
+--
+
+### RAID 5
+
+* Se necesitan como **mínimo 3 discos**
+* **Distribuye los datos** en bloques entre varios discos (**Stripe**)
+* Calcula datos de **paridad** que se distribuyen entre los discos (Los cálculos pueden hacerse por hardware)
+* Mejora velocidad de lectura y escritura
+* Se puede recuperar del fallo de un disco
+	* **Si fallan dos discos se pierde todo**
+* Tamaño del conjunto = **n-1**
+	* **Se dedica el tamaño de un disco a paridad**
+* **La reconstrucción requiere leer todos los discos**
+	* **Alta probabilidad de perder un segundo disco durante la reconstrucción**
+
+--
+
+### HOT SPARE
+
+* Disco que forma parte del array pero no se utiliza (**reservado**)
+* Reservado **hasta que falla alguno de los otros discos**
+* Permite iniciar la **reconstrucción de forma inmediata**
+* Minimiza el tiempo que está expuesto el conjunto RAID
+* El tiempo de reconstrucción del RAID puede ser grande (**días**)
+
+
+[https://www.memset.com/support/resources/raid-calculator/](https://www.memset.com/support/resources/raid-calculator/) 
+
+![Hot Spare](../img/02/RaidSpare.jpg)
+
+
+--
+
+### RAID 5. Ej Paridad XOR
+
+
+:::::::::::::: {.columns}
+::: {.column width="30%"}
+
+**Tabla de verdad XOR**
+
+XOR (0, 1) = 1
+
+XOR (1, 0) = 1
+
+XOR (0, 0) = 0
+
+XOR (1, 1) = 0
+
+
+:::
+::: {.column width="70%"}
+
+* Tenemos 3 discos:
+
+ | 101 | 010 | 011 |
+
+* Calculamos y añadimos paridad en un cuarto disco
+
+	* XOR (101, 010, 011) = 100    
+
+ | 101 | 010 | 011 | **100** |
+
+* Si ahora perdemos un disco
+
+ | 101 | _*----*_ | 011 | 100 |
+
+* Para reconstruir los datos, XOR de los datos restantes:
+
+XOR (101, 011, 100) = 010
+
+
+:::
+::::::::::::::
+
+### Ejercicio paridad XOR
+
+![Ejercicio paridad XOR](../img/02/ej_paridad_xor.jpg)
+
+---
+
+### RAID 6
+
+* RAID 6 admite hasta **dos fallos de disco sin pérdida de datos**.
+* Se usan dos bloques de paridad.
+* Reduce el riesgo de pérdida del array durante reconstrucción.
+* Peor rendimiento en escritura que RAID 5
+
+
+![RAID 6](../img/02/Raid6.png)
+
+--
+
+### RAID 6
+* Similar a RAID5, pero usa **dos elementos de paridad** en lugar de uno
+* Mínimo **4 discos**
+* Permite el **fallo de 2 discos sin perder datos**
+* Tamaño del volumen: **n-2**
+	* **Se dedica el tamaño de dos discos a paridad**
+* Igual de eficiente en lectura que RAID 5
+* **Escritura más costosa que RAID5**
+	*  Los cálculos de redundancia son mayores
+
+
+---
+
+### RAID anidados
+
+* RAID cuyos elementos son a su vez RAID
+* Necesitan **gran cantidad de discos**
+* Permiten aumentar disponibilidad y rendimiento
+* Permiten reducir tiempos en **estado degradado** 
+	* Mientras se reconstruye un disco que ha fallado
+	* Comparando los mismos discos en un solo array.
+* El rendimiento es mejor durante el **estado degradado**
+	* La mitad de los discos funciona normalmente 
+
+--
+
+### RAID anidado: RAID 10
+
+* RAID 1 + RAID 0: Primero **espejo** y luego **stripping**.
+* Permite el fallo de un disco de cada uno de los RAID 1
+* Adecuado en aplicaciones que requieren **gran rendimiento de lectura y escritura** de archivos pequeños. (Ej: Bases de datos)
+
+> Existe el RAID 01 **¿es mejor o peor que el RAID 10?**
+
+<!-- En el 01 solo puede fallar un disco, además es más lento -->
+
+![RAID 10](../img/02/Raid10.png)
+
+--
+
+### RAID anidado: RAID 50
+
+* Mejora el rendimiento de escritura de RAID 5.
+	* Stripping sobre RAID 5 
+* **Disminuye el tiempo de reconstrucción** respecto a un RAID 5 con todos los discos a la vez.
+	* La reconstrucción sólo requiere leer la mitad de los discos
+	* Mejora rendimiento del array durante reconstrucción
+* **Fallo de dos discos en una rama destruye array** 
+
+![RAID 50](../img/02/Raid50.jpg)
+
+
+---
+
+## NAS y SAN
+
+### Almacenamiento en red
+
+---
+
+### Almacenamiento en red
+
+* **NAS** (Network atached Storage)
+	* Almacenamiento conectado en red. Ficheros compartidos.
+	* Trabajan **a nivel de fichero**
+	* Protocolos de uso en LAN (de nivel de aplicación)
+		* **NFS**, Network File System (Linux)
+		* **SMB** (CIFS), Server Message Block (Windows). SAMBA, implementación en Linux (se realizó por ingeniería inversa)
+* **SAN** (Storage Area network)
+	* Red de almacenamiento. Disco duro conectado en red.
+	* Trabaja a **nivel de bloque** (Fiber Channel, iSCSI)
+		* Redes dedicadas de alta velocidad (Fibra 10Gbps, 40Gbps)
+	* Muy alto rendimiento, se emplean para: BBDD, VDI (Virtual Desktop Infraestructure)
+	* Gran capacidad de ampliación (mucho más que un NAS)
+
+--
+
+### SAN vs NAS
+
+![Diferencias entre SAN y NAS](../img/02/SAN-vs-NAS.jpg)
+
+---
+
+### NAS
+
+:::::::::::::: {.columns}
+::: {.column width="40%"}
+
+![](../img/02/NAS2.png)
+
+:::
+::: {.column width="60%"}
+
+![](../img/02/NAS1.jpg)
+
+:::
+::::::::::::::
+
+---
+
+### NAS
+
+* Servidores de ficheros
+* Protocolos: NFS, CIFS (SMB)
+
+![Red NAS](../img/02/redNAS.png)
+
+---
+
+### SAN
+
+:::::::::::::: {.columns}
+::: {.column width="50%"}
+
+![SAN HITACHI](../img/02/SAN_HITACHI.PNG)
+
+:::
+::: {.column width="50%"}
+
+![SAN DELL](../img/02/SAN_DELL.jpg)
+:::
+::::::::::::::
+
+--
+
+### SAN
+* Protocolos: Fiber channel, iSCSI
+
+![Red SAN](../img/02/redSAN.png)
+
+---
+
+### Convergencia SAN y NAS
+
+> Hoy en día es posible dar servicio con NAS que antes era solo posible con SAN.
+
+* Aumento de la velocidad de ethernet 
+	*	Algunos SAN pasan de usar canal de fibra (FC) a usar enfoque basado en IP.
+* Los NAS empiezan a ofrecer servicios SAN (iSCSI LUN)
+	*  Interfaces de red 10Gbps 
+
+---
+
+## La nube
+
+### Almacenamiento en la nube
+
+Ventajas:
+
+* Flexibilidad: 
+	* No tenemos que preocuparnos de comprar, mantener o ampliar infraestructura.
+* No necesitamos personal encargado de la gestión del almacenamiento
+
+Inconvenientes:
+
+* Datos alojados fuera de nuestras instalaciones
+* Posibles vulnerabilidades 
+
+### Amazon AWS Storage
+
+**Amazon S3**: Simple Storage System
+
+* [https://aws.amazon.com/es/s3/](https://aws.amazon.com/es/s3/)
+* Precios moderados
+* Acceso inmediato
+* Basado en almacenamiento de objetos:
+	* No usa directorios, todos los archivos en un sistema plano
+	* Los archivos tienen asociados metadatos
+
+**Amazon S3 Glacier **(Datos accedidos con poca frecuencia)
+
+* Muy barato
+* Acceso a datos puede llevar tiempo
+
+[http://www.s3-client.com/](https://aws.amazon.com/es/s3/)
+
+
+## P2P
+
+### Almacenamiento P2P
+
+![](../img/02/resilio.png){height=100%}
+
+### Almacenamiento P2P: Peer to Peer
+
+* Intercambio entre iguales: todos son servidores y clientes al mismo tiempo.
+* Alternativa a la nube
+* Información replicada en todos los hosts
+
+Ventajas:
+
+* Permite **distribuir contenido de forma rápida y barata**
+* Información no se almacena en máquina ajenas
+
+Inconvenientes:
+
+* Disponibilidad depende de clientes
+* Ancho de banda depende de clientes
+
+[https://www.resilio.com/](https://www.resilio.com/) (antes Bittorrent Sync)
+[https://syncthing.net/](https://syncthing.net/) (alternativa de código abierto)
+

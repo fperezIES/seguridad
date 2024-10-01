@@ -11,7 +11,7 @@ Repositorio con apuntes para el módulo Seguridad y Alta Disponibilidad del cicl
 * [1.4 Incidentes](UD1/4.incidentes.md)
 * [1.5 Cumplimiento legal](UD1/5.cumplimiento.md)
 
-Ejercicio entregable:
+Ejercicios entregables:
 
 - [T1.1. Noticias sobre Ciberseguridad](UD1/exercises/4.1rssSeguridad.md)
 - [T1.2. Caso práctico de Plan de seguridad.](UD1/exercises/caso_practico.md)
@@ -20,10 +20,15 @@ Ejercicio entregable:
 ## UD2 - Seguridad pasiva
 
 - Seguridad física
-- Almacenamiento y RAID
+- Unidades de almacenamiento: RAID, NAS, SAN
 - Copias de seguridad
 - Eliminación y recuperación de datos
 
+Ejercicios opcionales:
+
+Ejercicios entregables:
+
+- [T2.1 RAID 5 con TrueNAS, NAS y SAN](UD2/exercises/TrueNAS_RAID5.md)
 
 ## UD3 - Criptografía
 

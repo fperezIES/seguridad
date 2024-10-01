@@ -1,0 +1,414 @@
+## Práctica de RAID 5 con TrueNAS, NAS y SAN usando VirtualBox
+
+![](img/TrueNAS_logo.svg){:class="center"}
+
+### Objetivo de la práctica:
+
+El objetivo de esta práctica es que los estudiantes configuren un sistema RAID 5 (RAID-Z1) utilizando TrueNAS, simulen un fallo de disco y comprueben la integridad y disponibilidad de los datos durante la reconstrucción del RAID. Además, se configurará un sistema de almacenamiento compartido (NAS) y almacenamiento por bloques (SAN) para comprobar su accesibilidad antes, durante y después del fallo.
+
+
+
+---
+### Introducción a TrueNAS
+
+[**TrueNAS**](https://www.truenas.com) es una plataforma de almacenamiento en red (NAS) y almacenamiento por bloques (SAN) basada en el sistema de archivos ZFS, diseñada para ofrecer una gestión de datos robusta, segura y eficiente. Es una solución de código abierto que puede implementarse en redes locales para compartir archivos, gestionar copias de seguridad, crear volúmenes virtuales y ofrecer servicios iSCSI. Gracias a su enfoque en la redundancia y la protección de datos, TrueNAS es ideal tanto para entornos domésticos como empresariales.
+
+TrueNAS es conocido por su capacidad para gestionar grandes volúmenes de datos con alta fiabilidad, lo que lo convierte en una solución popular para administradores de sistemas que necesitan proteger y gestionar el almacenamiento de manera eficaz. Entre sus características destacan:
+
+- **Compatibilidad con RAID-Z**: Implementación avanzada de RAID que ofrece tolerancia a fallos y recuperación rápida.
+- **Almacenamiento unificado**: Soporta tanto sistemas NAS como SAN, permitiendo la gestión centralizada de múltiples tipos de almacenamiento.
+- **Snapshots y replicación**: Funcionalidades para proteger los datos contra errores humanos, corrupciones o ciberataques.
+
+### Versiones de TrueNAS
+
+TrueNAS se presenta en dos versiones principales:
+
+1. **TrueNAS CORE**:
+    
+    - Esta es la versión más conocida y está basada en FreeBSD. Está diseñada para soluciones de almacenamiento unificado, combinando NAS y SAN, con soporte completo para ZFS, RAID-Z y otros mecanismos avanzados de protección de datos.
+    - **Uso recomendado**: Ideal para pequeñas y medianas empresas, así como para usuarios domésticos avanzados que necesitan un sistema de almacenamiento robusto y eficiente.
+    - **Características destacadas**:
+        - Soporte para plugins y virtualización ligera.
+        - Enfoque en sistemas NAS tradicionales.
+        - Comunidad activa de usuarios y soporte gratuito.
+2. **TrueNAS SCALE**:
+    
+    - Basado en Linux, TrueNAS SCALE es una versión más reciente que incorpora características avanzadas como escalabilidad en clúster y soporte nativo para virtualización y contenedores (Docker y Kubernetes).
+    - **Uso recomendado**: Empresas y entornos que requieren mayor flexibilidad y escalabilidad, especialmente en almacenamiento distribuido.
+    - **Características destacadas**:
+        - Soporte nativo para máquinas virtuales y contenedores.
+        - Escalabilidad en clústeres.
+        - Flexibilidad para almacenamiento híbrido y entornos distribuidos.
+
+Ambas versiones permiten a los usuarios aprovechar las fortalezas del sistema de archivos ZFS, con su enfoque en la integridad de los datos y la protección contra fallos de hardware. Además, TrueNAS SCALE introduce nuevas posibilidades para empresas que buscan soluciones de almacenamiento escalables y flexibles en entornos modernos.
+
+### RAID-Z
+
+**RAID-Z** es una implementación de RAID (Redundant Array of Independent Disks) que utiliza el sistema de archivos **ZFS**. Fue diseñado por Sun Microsystems como una mejora sobre los niveles tradicionales de RAID, ofreciendo mayor integridad y protección de datos. RAID-Z se usa comúnmente en sistemas como **TrueNAS** debido a su capacidad para gestionar grandes volúmenes de datos con alta fiabilidad y eficiencia.
+
+### Características de RAID-Z
+
+1. **Sin escritura de paridad desalineada (write hole)**:
+   A diferencia de los niveles tradicionales de RAID, como RAID 5, RAID-Z está diseñado para evitar el problema conocido como "escritura desalineada" o "write hole". Este problema ocurre cuando una escritura interrumpida (por ejemplo, debido a un apagón) deja la paridad inconsistente, lo que puede corromper los datos. RAID-Z maneja las escrituras de manera transaccional, lo que garantiza la coherencia entre los datos y la paridad en todo momento.
+
+2. **Integridad de los datos**:
+   RAID-Z usa el sistema de archivos ZFS, que implementa una verificación de los datos con **sumas de verificación** en cada bloque almacenado. Esto permite detectar y corregir automáticamente errores de datos en caso de corrupción, lo que ofrece una protección adicional sobre los RAID tradicionales.
+
+3. **Redundancia y tolerancia a fallos**:
+   RAID-Z permite la pérdida de uno o más discos sin pérdida de datos, dependiendo de la configuración específica de RAID-Z:
+   - **RAID-Z1**: Similar a RAID 5, permite el fallo de **un solo disco**.
+   - **RAID-Z2**: Similar a RAID 6, permite el fallo de **hasta dos discos**.
+   - **RAID-Z3**: Permite  el fallo de **hasta tres discos**, proporcionando un nivel muy alto de tolerancia a fallos.
+
+4. **Gestión de espacio eficiente**:
+   RAID-Z utiliza un enfoque más eficiente en la gestión del espacio, optimizando la distribución de la paridad y los datos, lo que minimiza la sobrecarga.
+
+### Ventajas de RAID-Z frente a RAID tradicional
+
+- **Recuperación rápida**: RAID-Z está diseñado para maximizar el rendimiento de la reconstrucción de discos fallidos, reduciendo los tiempos de recuperación.
+- **Gestión de bloques variable**: A diferencia de RAID 5, que utiliza un tamaño de bloque fijo para los datos y la paridad, RAID-Z ajusta dinámicamente el tamaño de los bloques de datos, mejorando el uso del espacio y el rendimiento.
+- **No requiere escritura previa a la paridad**: RAID-Z escribe los datos y la paridad de una sola vez, eliminando la necesidad de realizar cálculos adicionales antes de la escritura.
+
+### Usos comunes de RAID-Z
+
+RAID-Z se utiliza comúnmente en entornos de almacenamiento donde la **seguridad e integridad de los datos** son fundamentales, como en servidores NAS (almacenamiento en red), servidores empresariales y centros de datos. Su implementación en sistemas como TrueNAS lo hace ideal para administrar grandes volúmenes de datos con un alto nivel de protección, siendo una elección popular para configuraciones de almacenamiento críticas.
+
+En resumen, RAID-Z es una solución avanzada de RAID que combina la flexibilidad y eficiencia del sistema de archivos ZFS con la redundancia y protección de datos, superando algunas de las limitaciones presentes en los RAID tradicionales.
+
+
+---
+
+### Parte 1: Preparación del entorno
+
+#### 1. Instalación de VirtualBox y creación de una máquina virtual para TrueNAS
+
+1. **Descargar VirtualBox**:
+    
+    - Descargar e instalar VirtualBox desde [virtualbox.org](https://www.virtualbox.org).
+2. **Crear una nueva máquina virtual**:
+    
+    - Abre VirtualBox y selecciona "Nueva".
+    - Asigna un nombre descriptivo, por ejemplo, "TrueNAS RAID".
+    - Tipo: Selecciona **BSD**.
+    - Versión: Selecciona **FreeBSD (64-bit)**.
+    - Asigna **4 GB de memoria RAM** (mínimo recomendado) y continúa.
+3. **Configuración de disco virtual**:
+    
+    - Selecciona "Crear un disco duro virtual ahora" y luego "VDI (VirtualBox Disk Image)".
+    - Tipo de almacenamiento: "Dinamicamente asignado".
+    - Tamaño del disco: Asegura al menos 20 GB para el sistema operativo TrueNAS.
+4. **Añadir discos adicionales**:
+    
+    - Selecciona la máquina virtual creada, ve a "Configuración" y selecciona "Almacenamiento".
+    - Añade tres discos adicionales para crear el RAID 5:
+        - Haciendo clic en el ícono "Añadir disco duro".
+        - Tamaño de los discos adicionales: Al menos **5 GB cada uno** (puedes usar discos de mayor capacidad si lo deseas).
+5. **Configurar red**:
+    
+    - Ve a la sección "Red" en la configuración de la máquina virtual.
+    - Asegúrate de seleccionar "Adaptador puente" para conectar TrueNAS a la red local.
+6. **Instalación del sistema TrueNAS**:
+    
+    - Descarga la ISO de **TrueNAS CORE** desde [truenas.com](https://www.truenas.com).
+    - En "Almacenamiento", selecciona la ISO de TrueNAS como unidad de arranque (óptica).
+    - Inicia la máquina virtual y sigue las instrucciones de instalación de TrueNAS.
+    - Durante la instalación, selecciona el disco de 20 GB para instalar el sistema.
+
+---
+
+### Parte 2: Configuración de TrueNAS y creación del RAID 5
+
+#### 1. Configuración inicial de TrueNAS
+
+1. **Acceso a la interfaz de TrueNAS**:
+    
+    - Después de la instalación, TrueNAS mostrará una dirección IP.
+    - Conéctate a esa IP desde un navegador en tu equipo local.
+    - Inicia sesión con las credenciales que configuraste durante la instalación.
+2. **Configuración de discos y creación del RAID 5**:
+    
+    - Ve a la pestaña "Storage" (almacenamiento) y selecciona "Pools".
+    - Haz clic en "Add" para crear un nuevo pool.
+    - Selecciona los tres discos adicionales que añadiste en VirtualBox.
+    - Elige la opción **RAID-Z1** (RAID 5) para distribuir los datos con paridad entre los discos.
+    - Asigna un nombre al pool, como "RAID5_Pool", y haz clic en "Create".
+
+---
+
+### Parte 3: Creación de carpetas compartidas (NAS) y almacenamiento por bloques (SAN)
+
+#### 1. Configuración de carpetas compartidas (NAS)
+
+1. **Crear Dataset para NAS**:
+    
+    - En "Storage" > "Pools", selecciona tu pool recién creado y haz clic en "Add Dataset".
+    - Asigna un nombre, como "Compartido_NAS".
+    - Deja las configuraciones por defecto y haz clic en "Save".
+2. **Habilitar servicio SMB para compartir archivos**:
+    
+    - Ve a "Services" en el menú principal y activa el servicio **SMB** (Samba).
+    - Haz clic en "Configure" y selecciona el Dataset creado previamente, "Compartido_NAS", como el directorio compartido.
+    - Configura las credenciales para acceder al recurso compartido (puedes crear un nuevo usuario si es necesario).
+3. **Acceso desde el equipo local**:
+    
+    - En el explorador de archivos de tu equipo local, accede a la carpeta compartida ingresando la dirección IP de TrueNAS precedida por dos barras inclinadas (por ejemplo, `\\192.168.1.100\Compartido_NAS`).
+    - Crea un archivo o carpeta dentro del recurso compartido para probar el acceso.
+
+#### 2. Configuración de almacenamiento por bloques (SAN)
+
+1. **Crear Dataset para SAN**:
+    
+    - En "Storage" > "Pools", selecciona tu pool y añade otro Dataset, llamado "Compartido_SAN".
+2. **Configurar iSCSI (SAN)**:
+    
+    - Ve a "Sharing" > "Block (iSCSI)" y selecciona "Portals".
+    - Haz clic en "Add" y usa la IP de tu TrueNAS.
+    - Luego, en "Targets", añade un nuevo Target.
+    - Crea una nueva Extent, asignando el Dataset "Compartido_SAN" como el almacenamiento asignado al Target.
+    - Enlaza el Extent al Target configurado.
+3. **Acceso desde un cliente iSCSI**:
+    
+    - Desde otro sistema, configura un cliente iSCSI para conectarte al Target y verifica que puedas acceder y escribir en el almacenamiento por bloques.
+
+---
+
+### Parte 4: Simulación de fallo y reconstrucción de RAID
+
+#### 1. Simular un fallo de disco
+
+1. **Apagar la máquina virtual**:
+    
+    - Apaga TrueNAS y ve a la configuración de la máquina virtual en VirtualBox.
+    - Ve a la pestaña "Almacenamiento" y elimina uno de los discos adicionales (simulando un fallo).
+2. **Encender la máquina virtual y comprobar el estado del RAID**:
+    
+    - Inicia TrueNAS nuevamente.
+    - Ve a "Storage" > "Pools", y deberías ver el pool en estado "Degraded" (degradado).
+    - TrueNAS te notificará del fallo en uno de los discos.
+
+#### 2. Reconstruir el RAID
+
+1. **Añadir un nuevo disco**:
+    
+    - Apaga nuevamente la máquina virtual.
+    - Añade un nuevo disco en VirtualBox como sustituto del que falló.
+2. **Reemplazar el disco fallido en TrueNAS**:
+    
+    - Inicia TrueNAS y accede a "Storage" > "Pools".
+    - Selecciona el pool degradado y elige la opción "Replace" en el disco fallido.
+    - Selecciona el disco nuevo añadido para iniciar el proceso de reconstrucción.
+
+#### 3. Verificar la accesibilidad durante la reconstrucción
+
+1. **Comprobar el acceso a la carpeta compartida (NAS)**:
+    
+    - Accede nuevamente a la carpeta compartida desde tu equipo local.
+    - Intenta crear o modificar archivos para comprobar la integridad de los datos durante la reconstrucción.
+2. **Comprobar el acceso al almacenamiento por bloques (SAN)**:
+    
+    - Accede al almacenamiento iSCSI desde el cliente configurado.
+    - Verifica que los datos siguen siendo accesibles.
+
+---
+
+## Conectar iSCSI en AlmaLinux
+
+Conectar un almacenamiento iSCSI en **AlmaLinux** implica algunos pasos clave que incluyen la instalación de los paquetes necesarios, la configuración del cliente iSCSI (iniciador), y la conexión al dispositivo de almacenamiento iSCSI (objetivo). Aquí te explico los pasos detallados para hacerlo:
+
+### Paso 1: Instalar el paquete iSCSI
+
+1. **Actualizar el sistema**:
+   Asegúrate de que tu sistema está actualizado ejecutando los siguientes comandos:
+   
+   ```bash
+   sudo dnf update
+   ```
+
+2. **Instalar los paquetes necesarios para iSCSI**:
+   Instala los paquetes que te permitirán conectarte a un dispositivo iSCSI:
+
+   ```bash
+   sudo dnf install iscsi-initiator-utils
+   ```
+
+### Paso 2: Configurar el iniciador iSCSI
+
+1. **Ver el nombre del iniciador iSCSI**:
+   El iniciador iSCSI tiene un nombre único (IQN) que se utiliza para identificar el cliente iSCSI. Para ver el IQN de tu sistema, utiliza el siguiente comando:
+
+   ```bash
+   sudo cat /etc/iscsi/initiatorname.iscsi
+   ```
+
+   Esto debería mostrar algo como:
+   ```
+   InitiatorName=iqn.1994-05.com.redhat:xxxxxxx
+   ```
+
+2. **Configurar el servicio iSCSI**:
+   Asegúrate de que el servicio iSCSI esté habilitado para iniciarse automáticamente al arrancar el sistema:
+
+   ```bash
+   sudo systemctl enable iscsid
+   sudo systemctl start iscsid
+   ```
+
+### Paso 3: Descubrir el objetivo iSCSI (Target)
+
+1. **Descubrir los dispositivos iSCSI disponibles**:
+   Para conectarte a un servidor iSCSI (Target), primero debes descubrir los objetivos disponibles. Utiliza el siguiente comando, donde `<IP_del_servidor>` es la dirección IP del servidor TrueNAS u otro dispositivo que esté actuando como servidor iSCSI.
+
+   ```bash
+   sudo iscsiadm --mode discovery --type sendtargets --portal <IP_del_servidor>
+   ```
+
+   Esto debería devolver una lista de objetivos iSCSI disponibles en el servidor.
+
+### Paso 4: Iniciar sesión en el objetivo iSCSI
+
+1. **Iniciar sesión en el dispositivo iSCSI**:
+   Después de descubrir los objetivos, puedes conectarte al objetivo deseado utilizando su IQN (identificador único del objetivo iSCSI) y el portal de destino:
+
+   ```bash
+   sudo iscsiadm --mode node --targetname <nombre_del_objetivo> --portal <IP_del_servidor> --login
+   ```
+
+   Ejemplo:
+   ```bash
+   sudo iscsiadm --mode node --targetname iqn.2005-03.com.example:storage.target01 --portal 192.168.1.100 --login
+   ```
+
+2. **Verificar la conexión**:
+   Para comprobar que la conexión se realizó correctamente, puedes utilizar el siguiente comando para listar las sesiones iSCSI activas:
+
+   ```bash
+   sudo iscsiadm --mode session
+   ```
+
+### Paso 5: Formatear y montar el dispositivo iSCSI
+
+1. **Listar los nuevos dispositivos**:
+   Una vez conectado, el sistema debería haber detectado el nuevo dispositivo de bloque asociado con el objetivo iSCSI. Para verlo, puedes utilizar `lsblk` o `fdisk`:
+
+   ```bash
+   sudo lsblk
+   ```
+
+   El nuevo dispositivo probablemente será algo como `/dev/sdb` o similar.
+
+2. **Formatear el dispositivo**:
+   Si el dispositivo iSCSI es nuevo o no tiene un sistema de archivos, puedes formatearlo con el sistema de archivos deseado, por ejemplo, ext4:
+
+   ```bash
+   sudo mkfs.ext4 /dev/sdX
+   ```
+
+   Asegúrate de reemplazar `sdX` con el identificador correcto de tu dispositivo.
+
+3. **Montar el dispositivo**:
+   Crea un punto de montaje y monta el dispositivo iSCSI:
+
+   ```bash
+   sudo mkdir /mnt/iscsi
+   sudo mount /dev/sdX /mnt/iscsi
+   ```
+
+4. **Verificar el montaje**:
+   Puedes verificar que el dispositivo esté correctamente montado con el comando `df`:
+
+   ```bash
+   df -h
+   ```
+
+   Deberías ver el nuevo dispositivo iSCSI montado en el punto de montaje que elegiste.
+
+### Paso 6: Desconectar el objetivo iSCSI
+
+Cuando ya no necesites usar el dispositivo iSCSI, puedes desconectar el objetivo de la siguiente manera:
+
+1. **Desmontar el dispositivo**:
+   Primero, desmonta el dispositivo de tu sistema:
+
+   ```bash
+   sudo umount /mnt/iscsi
+   ```
+
+2. **Cerrar la sesión del objetivo iSCSI**:
+   Luego, desconéctate del servidor iSCSI:
+
+   ```bash
+   sudo iscsiadm --mode node --targetname <nombre_del_objetivo> --portal <IP_del_servidor> --logout
+   ```
+
+
+Con estos pasos, habrás configurado un cliente iSCSI en AlmaLinux y conectado a un dispositivo iSCSI para acceder a un almacenamiento remoto. Esta técnica es útil para integrar sistemas Linux con servidores de almacenamiento en red como TrueNAS u otros sistemas SAN, permitiendo aprovechar al máximo las ventajas del almacenamiento distribuido.
+
+
+
+## Conectar volumen iSCSI desde Windows Server
+
+Para conectar un almacenamiento iSCSI desde **Windows Server**, sigue los pasos detallados a continuación. La conexión iSCSI te permitirá acceder a un dispositivo de almacenamiento remoto como si fuera un disco local.
+
+### Paso 1: Acceder al iniciador iSCSI en Windows Server
+
+1. **Abrir el iniciador iSCSI**:
+   - En el **Administrador del Servidor**, ve a **Herramientas** y selecciona **Iniciador iSCSI**.
+   - También puedes acceder al Iniciador iSCSI desde el menú de inicio buscando "Iniciador iSCSI".
+
+2. **Iniciar el servicio iSCSI**:
+   - Si es la primera vez que inicias el Iniciador iSCSI, te pedirá habilitar el servicio. Haz clic en **Sí** para que se inicie automáticamente cada vez que se arranque el servidor.
+
+### Paso 2: Descubrir el objetivo iSCSI (Target)
+
+1. **Configurar el portal de destino**:
+   - En la pestaña **Destinos**, haz clic en **Descubrir portal**.
+   - Introduce la **dirección IP** o el **nombre de dominio** del servidor iSCSI al que te quieres conectar (por ejemplo, el servidor TrueNAS).
+   - Deja el puerto por defecto en **3260**, a menos que hayas configurado un puerto diferente en el servidor iSCSI.
+
+2. **Descubrir los objetivos iSCSI**:
+   - Una vez añadido el portal, debería aparecer el objetivo (Target) iSCSI en la lista de destinos disponibles. Si no aparece de inmediato, puedes hacer clic en **Actualizar**.
+   - Verás algo similar a `iqn.2005-03.com.example:storage.target01` con el estado "Desconectado".
+
+### Paso 3: Conectarse al objetivo iSCSI
+
+1. **Conectar al objetivo**:
+   - Selecciona el objetivo iSCSI descubierto y haz clic en **Conectar**.
+   - Si no necesitas autenticación adicional (CHAP), puedes conectarte directamente. Si tu servidor iSCSI requiere autenticación, selecciona **Habilitar CHAP** e introduce las credenciales correspondientes.
+
+2. **Configuración avanzada (opcional)**:
+   - Si necesitas configurar opciones adicionales como multipathing o configurar un adaptador NIC específico, haz clic en **Avanzado** y ajusta las configuraciones según sea necesario.
+
+3. **Verificar la conexión**:
+   - Una vez conectado, el estado del objetivo debería cambiar a **Conectado**.
+
+### Paso 4: Inicializar y formatear el disco iSCSI
+
+1. **Acceder al Administrador de discos**:
+   - Después de conectar el objetivo, abre **Administrador de discos**. Puedes hacerlo haciendo clic derecho en el botón de inicio y seleccionando **Administración de discos**.
+   - Verás el nuevo disco iSCSI en la lista de discos como un dispositivo no asignado.
+
+2. **Inicializar el disco**:
+   - Si el disco no está inicializado, Windows te pedirá que lo inicialices. Selecciona **MBR** o **GPT**, dependiendo de tus necesidades.
+   
+3. **Crear un nuevo volumen**:
+   - Haz clic derecho sobre el espacio no asignado del nuevo disco iSCSI y selecciona **Nuevo volumen simple**.
+   - Sigue el asistente para formatear el disco con el sistema de archivos que prefieras (normalmente **NTFS**) y asignar una letra de unidad.
+
+4. **Verificar el montaje del disco**:
+   - Una vez formateado y montado, el disco iSCSI aparecerá en **Este equipo** como un nuevo disco, y podrás utilizarlo como cualquier otro disco local.
+
+### Paso 5: Desconectar el objetivo iSCSI
+
+1. **Desconectar el objetivo iSCSI**:
+   - Si necesitas desconectar el objetivo iSCSI en el futuro, abre nuevamente el **Iniciador iSCSI**.
+   - Selecciona el objetivo al que estás conectado y haz clic en **Desconectar**.
+
+2. **Detener el servicio iSCSI (opcional)**:
+   - Si no necesitas más la conexión iSCSI, puedes detener el servicio haciendo clic en **Detener** dentro del **Administrador de servicios**.
+
+---
+
+## Conclusiones de la práctica:
+
+- Durante esta práctica, habrás configurado un sistema RAID 5 utilizando TrueNAS, simulado un fallo de disco y verificado que los datos siguen siendo accesibles durante la reconstrucción del RAID.
+- El acceso continuo a los datos tanto en NAS como en SAN demuestra la robustez de los sistemas RAID en entornos reales.
