@@ -12,8 +12,9 @@ Repositorio con apuntes para el módulo Seguridad y Alta Disponibilidad del cicl
 * [1.5 Cumplimiento legal](UD1/5.cumplimiento.md)
 
 Ejercicio entregable:
-[T1.1. Noticias sobre Ciberseguridad](UD1/exercises/4.1rssSeguridad.md)
-[T1.2. Caso práctico de Plan de seguridad.](UD1/exercises/caso_practico.md)
+
+- [T1.1. Noticias sobre Ciberseguridad](UD1/exercises/4.1rssSeguridad.md)
+- [T1.2. Caso práctico de Plan de seguridad.](UD1/exercises/caso_practico.md)
  
 
 ## UD2 - Seguridad pasiva
