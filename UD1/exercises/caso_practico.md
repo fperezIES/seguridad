@@ -154,7 +154,7 @@ _Venus SA_ es una clínica estética con sede en Ibiza que cuenta con 10 emplead
 
 ### Preguntas clave para la actividad:
 
-1. ¿Qué activos clave has identificado en la empresa _Venus SA_? ¿Cuál es su valor?
+1. ¿Qué activos clave has identificado en la empresa? ¿Cuál es su valor?
 2. ¿Qué amenazas consideras más probables? ¿Cuáles serían las consecuencias de que se materialicen?
 3. ¿Qué riesgos se consideran inaceptables? ¿Cómo deberían gestionarse?
 4. ¿Qué medidas de seguridad añadirías para mitigar los riesgos? Considera tanto medidas técnicas como organizativas.

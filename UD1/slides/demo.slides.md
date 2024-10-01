@@ -61,3 +61,8 @@ def hello_world():
 * Este se muestra después <!-- .element: class="fragment" data-fragment-index="1" -->
 * Otro elemento que asciende  <!-- .element: class="fragment"  fade-up -->
 
+# Diapositiva con videos
+
+[Datos y seguridad en Centros de Datos de Google](https://www.google.com/about/datacenters/data-security/)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kd33UVZhnAA?si=OzwRvQ_EcCVhFmR7"" frameborder="0" allowfullscreen></iframe>
