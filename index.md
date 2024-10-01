@@ -19,16 +19,18 @@ Ejercicios entregables:
 
 ## UD2 - Seguridad pasiva
 
-- Seguridad física
-- Unidades de almacenamiento: RAID, NAS, SAN
+- 2.1 Seguridad física
+- [2.2 Unidades de almacenamiento: RAID, NAS, SAN](UD2/almacenamiento.md)
 - Copias de seguridad
 - Eliminación y recuperación de datos
 
 Ejercicios opcionales:
 
+- [OP2.1. RAID_almalinux](UD2/exercises/RAID_almalinux.md)
+
 Ejercicios entregables:
 
-- [T2.1 RAID 5 con TrueNAS, NAS y SAN](UD2/exercises/TrueNAS_RAID5.md)
+- [T2.1. RAID 5 con TrueNAS, NAS y SAN](UD2/exercises/TrueNAS_RAID5.md)
 
 ## UD3 - Criptografía
 
