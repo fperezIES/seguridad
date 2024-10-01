@@ -211,7 +211,66 @@ En resumen, RAID-Z es una solución avanzada de RAID que combina la flexibilidad
 
 ---
 
-## Conectar iSCSI en AlmaLinux
+## Configurar un **Spare Disk** en TrueNAS (Opcional)
+
+Un **Spare Disk** es un disco de reserva que se configura en un sistema RAID para reemplazar automáticamente a un disco que falle. Cuando uno de los discos en el conjunto RAID deja de funcionar, el disco de repuesto (Spare Disk) se activa y se utiliza para reemplazar el disco fallido, iniciando de manera automática el proceso de reconstrucción sin intervención manual. A continuación, te explico cómo configurar un **Spare Disk** en **TrueNAS**.
+
+#### **Pasos para configurar un Spare Disk en TrueNAS**
+
+### 1. Preparar el entorno de almacenamiento
+
+Antes de configurar un Spare Disk, es importante que ya tengas un pool configurado con algún tipo de redundancia, como RAID-Z1, RAID-Z2 o RAID-Z3, donde se pueda añadir el disco de repuesto.
+
+### 2. Añadir un disco de repuesto (Spare Disk)
+
+1. **Acceder a la interfaz de administración de TrueNAS**:
+    
+    - Inicia sesión en la interfaz web de TrueNAS utilizando tu navegador.
+2. **Ir a la sección de almacenamiento**:
+    
+    - Ve a **"Storage" (Almacenamiento)** en el menú principal y selecciona la opción **"Pools"**.
+3. **Seleccionar el pool de almacenamiento**:
+    
+    - Elige el pool de discos RAID-Z ya existente en el que deseas añadir el Spare Disk.
+    - Haz clic en los tres puntos verticales (**⋮**) al lado del nombre del pool y selecciona **"Status" (Estado)** para ver los detalles del pool.
+4. **Añadir un disco de repuesto**:
+    
+    - En la parte superior derecha de la pantalla de estado del pool, haz clic en **"Add Vdevs"**.
+    - Aparecerá una ventana emergente donde puedes añadir diferentes tipos de VDEVs (Virtual Device) al pool.
+    - Selecciona la opción **"Spare"** en el menú de la izquierda.
+5. **Seleccionar el disco a utilizar como Spare Disk**:
+    
+    - En la lista de discos disponibles, selecciona el disco que quieres usar como Spare Disk. Este disco no debe estar actualmente en uso en el pool.
+    - Asegúrate de que el disco tiene suficiente capacidad y está sin formatear, ya que se usará para reemplazar un disco en caso de fallo.
+6. **Confirmar la operación**:
+    
+    - Haz clic en **"Add" (Añadir)** para confirmar la adición del Spare Disk al pool.
+7. **Verificar el Spare Disk**:
+    
+    - Una vez añadido, deberías poder ver el disco de repuesto (Spare Disk) listado en el estado del pool. Aparecerá como un disco en reserva que no está siendo utilizado hasta que sea necesario.
+
+### 3. Probar el Spare Disk
+
+Para comprobar que el Spare Disk funciona correctamente, puedes simular un fallo de disco en el pool (como ya hiciste en la práctica de RAID-Z). Cuando un disco del pool falle, el sistema debería automáticamente activar el Spare Disk para reemplazar al disco defectuoso y comenzar el proceso de reconstrucción.
+
+1. **Simular un fallo de disco**:
+    
+    - Apaga la máquina virtual (o el servidor físico) y desconecta uno de los discos que forman parte del pool RAID-Z.
+    - Inicia TrueNAS de nuevo y observa el estado del pool. El sistema debería detectar el disco fallido y automáticamente empezar a utilizar el Spare Disk.
+2. **Verificar la reconstrucción**:
+    
+    - Ve a la sección de **"Status"** del pool en TrueNAS y deberías ver que el Spare Disk está activo y el sistema está reconstruyendo los datos desde los discos restantes.
+    - Puedes monitorizar el proceso de reconstrucción y ver cómo el Spare Disk asume el rol del disco fallido.
+
+### 4. Consideraciones adicionales
+
+- **Sustituir el disco fallido**: Aunque el Spare Disk reemplaza automáticamente al disco defectuoso, es importante que reemplaces el disco fallido lo antes posible por otro nuevo para mantener una configuración de redundancia adecuada. Una vez que añadas el nuevo disco, puedes volver a configurar un Spare Disk para futuras fallas.
+    
+- **Notificaciones**: Asegúrate de tener configuradas las notificaciones en TrueNAS (a través de correo electrónico, por ejemplo) para que te avise en caso de fallos de discos o la activación del Spare Disk.
+
+---
+
+## Conectar iSCSI en AlmaLinux (Opcional)
 
 Conectar un almacenamiento iSCSI en **AlmaLinux** implica algunos pasos clave que incluyen la instalación de los paquetes necesarios, la configuración del cliente iSCSI (iniciador), y la conexión al dispositivo de almacenamiento iSCSI (objetivo). Aquí te explico los pasos detallados para hacerlo:
 
@@ -345,7 +404,7 @@ Con estos pasos, habrás configurado un cliente iSCSI en AlmaLinux y conectado a
 
 
 
-## Conectar volumen iSCSI desde Windows Server
+## Conectar volumen iSCSI desde Windows Server (Opcional)
 
 Para conectar un almacenamiento iSCSI desde **Windows Server**, sigue los pasos detallados a continuación. La conexión iSCSI te permitirá acceder a un dispositivo de almacenamiento remoto como si fuera un disco local.
 
@@ -410,5 +469,5 @@ Para conectar un almacenamiento iSCSI desde **Windows Server**, sigue los pasos 
 
 ## Conclusiones de la práctica:
 
-- Durante esta práctica, habrás configurado un sistema RAID 5 utilizando TrueNAS, simulado un fallo de disco y verificado que los datos siguen siendo accesibles durante la reconstrucción del RAID.
+- Durante esta práctica, habrás configurado un sistema RAID 5 utilizando TrueNAS, simulado un fallo de disco y verificado que los datos siguen siendo accesibles durante la reconstrucción del RAID. Opcionalmente puedes haber configurado un "Spare disk" para que la reconstrucción del RAID sea lo más rápida posible.
 - El acceso continuo a los datos tanto en NAS como en SAN demuestra la robustez de los sistemas RAID en entornos reales.

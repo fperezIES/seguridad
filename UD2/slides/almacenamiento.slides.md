@@ -1,72 +1,15 @@
 
-
+<!-- .slide: data-background="#2C3E50" -->
 # Seguridad pasiva
 ## Almacenamiento
 
 ---
 
-## Unidades de almacenamiento
+## Dispositivos de almacenamiento
 
 --
 
-### ¿Activo más importante para una organización?
-
-#### Activos
-* **Información (datos)**
-* Personas
-* Equipos e Instalaciones
-
-#### ¿Qué pasa ante un desastre?
-* Incendio, Terremoto, Tsunami...
-* Fallo hardware
-* Ataque informático
-
---
-
-### ¿De qué hay que proteger la información?
-
-* Proteger acceso a información
-	* **Robo** de equipos
-	* **Pérdida** de equipos portátiles
-	* Control de **acceso** 
-
-* Proteger datos ante fallos humanos y de hardware
-	* **Borrado** accidental
-	* Pérdida por fallo **hardware** de almacenamiento
-	* Pérdida por **catástrofe**, destrucción de instalaciones
-
---
-
-### ¿Cómo proteger los datos?
-
-#### Proteger de robo
-
-* Cifrado y limites de acceso
-* Control de acceso
-* Seguridad de red
-
-#### Proteger ante pérdidas
-
-* Redundancia
-* Copias de seguridad
-
---
-
-### Medidas de Seguridad Pasiva
-
-* **Seguridad pasiva**: medidas correctoras o paliativas. Su **objetivo es minimizar el impacto de un incidente de seguridad**. 
-	* Se intenta restablecer el funcionamiento del sistema o evitando que el impacto sea mayor. 
-
-#### Medidas de seguridad pasiva relacionadas con información  
-
-* Discos redundantes RAID
-* Clusters de servidores
-* Virtualización
-* Copias de seguridad
-
---
-
-### Aspectos de dispositivos de almacenamiento
+### Características de dispositivos de almacenamiento
 
 * **Capacidad:** 
 	* Cantidad de información que pueden almacenar.
@@ -86,8 +29,8 @@
 ### Tipos de almacenamiento de información
 
 * Dispositivos de almacenamiento físicos:
-	* Discos duros
-	* SSD
+	* Discos duros (HDD)
+	* Unidades de Estado Sólido (SSD)
 	* Cintas magnéticas
 
 * Configuraciones en **RAID**
@@ -97,21 +40,23 @@
 	* **NAS** (Almacenamiento en red)
 	* **SAN** (Red de almacenamiento)
 
-* Almacenamiento en la **nube** (deslocalización de almacenamiento)
+* Almacenamiento en la **nube** 
+	* Deslocalización del almacenamiento que ofrece escalabilidad y accesibilidad remota.
+
+---
+
+## Unidades de Almacenamiento
 
 --
 
+## Características Principales
 
-
-### Características de dispositivos de almacenamiento
-
-* Capacidad
-* Velocidad
-* Precio
-* Fiabilidad
-	* **MTBF** (Mean Time Between Failures)
-	* **AFR** (Annualized Failure Rate) 
-
+- **Capacidad:** Medida en bytes y sus múltiplos.
+- **Velocidad:** Lectura/escritura secuencial y aleatoria.
+- **Precio:** Importante en la planificación de recursos.
+- **Fiabilidad:**
+    - **MTBF (Mean Time Between Failures):** Tiempo medio entre fallos.
+    - **AFR (Annualized Failure Rate):** Tasa anualizada de fallos.
 
 
 --
@@ -121,49 +66,49 @@
 
 Unidades usadas para medir la capacidad de los discos de almacenamiento. 
 
-![Múltiplos binarios](../img/02/multiploBinario.png){:class="center"}
+![Múltiplos binarios](../img/02/multiploBinario.png)<!-- .element: class="r-stretch" -->
+
+--
+
+## Cuidado con especificaciones
 
 Los fabricantes indican los tamaños de los discos duros usando multiplicadores en base 10 para que los números sean más grandes, pero en informática se mide el tamaño de los ficheros usando los multiplicadores en base 2.
 
 --
 
 
-### Fiabilidad
+## Fiabilidad
 
-* **MTBF y AFR**: Medidas estadísticas sobre poblaciones grandes de discos 
-	* No garantizan que un disco concreto las cumpla 
-	* MTBF y AFR se basan en los mismos datos, cambian la unidad en que se representan.
+La fiabilidad es un aspecto crítico en el almacenamiento de información.
 
-#### MTBF
-* **MTBF** (Mean Time Between Failures): es el número medio de horas de servicio entre fallos. Si un disco se ha roto en un día y otro a los 3 años, la media será año y medio. 
+### MTBF (Mean Time Between Failures)
 
-#### AFR
-* **AFR** (Annualized Failure Rate):s  es una estimación del porcentaje de productos que fallarán mientras se usan a causa del fabricante en un año.
+- Tiempo medio que transcurre entre fallos.
+- Medida estadística basada en grandes poblaciones de dispositivos.
+
+### AFR (Annualized Failure Rate)
+
+- Tasa anualizada de fallos.
+- Estima el porcentaje de unidades que fallarán en un año.
 
 --
-
 
 ### Velocidad
 
-Interfaces de conexión:
+a velocidad afecta directamente al rendimiento del sistema.
 
-* SAS (Serial Attached SCSI)
-* SATA
-* PCI-EXPRESS
-* m2
+- **Tipo de interfaz:** SATA, SAS, NVMe, etc.
+- **RPM en HDD:** Revoluciones por minuto; mayores RPM indican mayor velocidad.
+- **Tecnología en SSD:** NAND Flash, SLC, MLC, TLC, QLC.
 
---
+---
 
 
 ### Discos duros (HDD)
-* HDD: Hard Disk Drive
-* Equilibrio entre precio, capacidad y velocidad
-* Funcionamiento mecánico
-	* Con motores
-	* **Piezas móviles**
-* Existen en diferentes tamaños
-	* El tamaño más común actualmente es el de 3.5 pulgadas para sobremesa y servidores
-	* 2.5 pulgadas para portátiles (está siendo sustituido por SSDs)
+- Platos magnéticos que giran a altas velocidades.
+- Más económicos en coste por gigabyte.
+- Velocidades de acceso más lentas.
+- Susceptibles a daños físicos por partes móviles.
 	
 #### Cómo funcionan:
 [https://www.youtube.com/watch?v=AfmTaOJMoUk](https://www.youtube.com/watch?v=AfmTaOJMoUk)
@@ -173,25 +118,9 @@ Interfaces de conexión:
 
 ### Discos duros: Partes
 
-:::::::::::::: {.columns}
-::: {.column width="40%"}
 
-* Platos
-* Motor
-* Brazo lector
-* Cabezales
-* Electrónica
-* Caja
 
-:::
-::: {.column width="60%"}
-
-![](../img/02/partesHDD.png)\
-
-:::
-::::::::::::::
-
---
+![](../img/02/partesHDD.png)<!-- .element: class="r-stretch" -->
 
 
 ### Disco duro: Resumen componentes
@@ -209,43 +138,50 @@ Interfaces de conexión:
 * Caja
 	* Aísla los platos de radiación electromagnética (jaula de Faraday)
 
---
-
-
-
-### Discos de estado sólido (SDD)
-
-* No tienen partes móviles, usan memorias FLASH
-* También tienen S.M.A.R.T.
-* Ventajas
-	* Muy rápidos, cientos de veces más rápidos que los mecánicos
-	* No hacen ruido
-	* Menor consumo de energía (no hay motores)
-	* Resistencia a golpes (no hay cabezales)
-	* Tiempos de búsqueda constantes (no hay que mover cabezales)
-* Inconvenientes:
-	* Precio: precio por Giga elevado comparado con mecánicos
-	* Cuando fallan no se pueden recuperar los datos, la celda perdida queda destruida
-	* **Número de escrituras/lecturas limitado**
-
 ---
 
 
+
 ### Discos de estado sólido (SDD)
 
-:::::::::::::: {.columns}
-::: {.column width="40%"}
+- Memoria flash para almacenar datos.
+- Velocidades de lectura/escritura más rápidas.
+- Resistentes a impactos y vibraciones.
+- Coste por gigabyte más alto.
+- Vida útil limitada en ciclos de escritura.
 
-![](../img/02/SSD1.png){width=100%}\
-![](../img/02/SSD3.png){width=100%}\
+--
 
-:::
-::: {.column width="60%"}
 
-![](../img/02/SSD2.png){width=100%}\
+### Discos de estado sólido (SDD)
 
-:::
-::::::::::::::
+
+
+![](../img/02/SSD1.png)
+
+--
+### Discos de estado sólido (SDD)
+
+![](../img/02/SSD3.png)
+
+--
+
+### Discos de estado sólido (SDD)
+
+![](../img/02/SSD2.png)
+
+---
+
+## Cintas Magnéticas
+
+- Utilizadas para copias de seguridad y almacenamiento a largo plazo.
+- Alta capacidad de almacenamiento a bajo coste.
+- Tiempos de acceso más lentos.
+- Lectura/escritura secuencial.
+
+---
+
+# Estadísticas SMART
 
 ---
 
@@ -277,6 +213,28 @@ Van del número 1 al 253, siendo 1 el peor valor. Los valores normales son entre
 		* Probational counts
 	* **MTBF**: Los datos de los fabricantes son muy optimistas y no se corresponden con la realidad (**se acerca al 50%**)
 
+--
+
+## **Durabilidad de Discos Duros: Factores Clave**
+
+1. **Temperatura**:
+    
+    - No hay correlación significativa entre fallos y temperaturas moderadas.
+    - Las temperaturas altas solo afectan a discos más antiguos.
+2. **Utilización (Niveles de Actividad)**:
+    
+    - La relación entre alta utilización y fallos no es clara.
+    - Discos jóvenes y viejos muestran más sensibilidad a la utilización.
+3. **Parámetros SMART**:
+    
+    - Errores de escaneo y realocaciones aumentan la probabilidad de fallos.
+    - **Limitación**: El 56% de discos fallidos no muestran alertas SMART.
+4. **Fabricantes y Modelos**:
+    
+    - Las tasas de fallos varían significativamente según el modelo y fabricante.
+
+
+---
 
 ### Recuperación de datos HDD
 
@@ -325,7 +283,7 @@ Van del número 1 al 253, siendo 1 el peor valor. Los valores normales son entre
 
 ---
 
-### RAID 0
+### RAID 0 (Striping)
 
 * RAID 0 es el modo **RAID más rápido** (no hace cálculos)
 	* [Vídeo explicativo](https://www.youtube.com/watch?v=mVhMhs6QR-g)  
@@ -333,7 +291,7 @@ Van del número 1 al 253, siendo 1 el peor valor. Los valores normales son entre
 * **No hay redundancia de información.**
 * **Mejora** el rendimiento de **lectura y escritura**
 
-![RAID 0](../img/02/Raid0.png){:class="center"}
+![RAID 0](../img/02/Raid0.png)<!-- .element: class="r-stretch" -->
 
 --
 
@@ -385,7 +343,7 @@ Van del número 1 al 253, siendo 1 el peor valor. Los valores normales son entre
 * Mal rendimiento con escrituras pequeñas
 
 
-![RAID 5](../img/02/Raid5.png){:class="center"}
+![RAID 5](../img/02/Raid5.png)<!-- .element: class="r-stretch" -->
 
 --
 
@@ -415,7 +373,7 @@ Van del número 1 al 253, siendo 1 el peor valor. Los valores normales son entre
 
 [https://www.memset.com/support/resources/raid-calculator/](https://www.memset.com/support/resources/raid-calculator/) 
 
-![Hot Spare](../img/02/RaidSpare.jpg)
+![Hot Spare](../img/02/RaidSpare.jpg)<!-- .element: class="r-stretch" -->
 
 
 --
@@ -476,7 +434,7 @@ XOR (101, 011, 100) = 010
 * Peor rendimiento en escritura que RAID 5
 
 
-![RAID 6](../img/02/Raid6.png)
+![RAID 6](../img/02/Raid6.png)<!-- .element: class="r-stretch" -->
 
 --
 
@@ -516,7 +474,7 @@ XOR (101, 011, 100) = 010
 
 <!-- En el 01 solo puede fallar un disco, además es más lento -->
 
-![RAID 10](../img/02/Raid10.png)
+![RAID 10](../img/02/Raid10.png)<!-- .element: class="r-stretch" -->
 
 --
 
@@ -529,7 +487,7 @@ XOR (101, 011, 100) = 010
 	* Mejora rendimiento del array durante reconstrucción
 * **Fallo de dos discos en una rama destruye array** 
 
-![RAID 50](../img/02/Raid50.jpg)
+![RAID 50](../img/02/Raid50.jpg)<!-- .element: class="r-stretch" -->
 
 
 ---
@@ -559,24 +517,22 @@ XOR (101, 011, 100) = 010
 
 ### SAN vs NAS
 
-![Diferencias entre SAN y NAS](../img/02/SAN-vs-NAS.jpg)
+![Diferencias entre SAN y NAS](../img/02/SAN-vs-NAS.jpg)<!-- .element: class="r-stretch" -->
 
 ---
 
 ### NAS
 
-:::::::::::::: {.columns}
-::: {.column width="40%"}
 
-![](../img/02/NAS2.png)
 
-:::
-::: {.column width="60%"}
+![](../img/02/NAS2.png)<!-- .element: class="r-stretch" -->
 
-![](../img/02/NAS1.jpg)
+--
 
-:::
-::::::::::::::
+### NAS
+
+![](../img/02/NAS1.jpg)<!-- .element: class="r-stretch" -->
+
 
 ---
 
@@ -585,30 +541,26 @@ XOR (101, 011, 100) = 010
 * Servidores de ficheros
 * Protocolos: NFS, CIFS (SMB)
 
-![Red NAS](../img/02/redNAS.png)
+![Red NAS](../img/02/redNAS.png)<!-- .element: class="r-stretch" -->
 
 ---
 
 ### SAN
 
-:::::::::::::: {.columns}
-::: {.column width="50%"}
+--
 
-![SAN HITACHI](../img/02/SAN_HITACHI.PNG)
+![SAN HITACHI](../img/02/SAN_HITACHI.PNG)<!-- .element: class="r-stretch" -->
 
-:::
-::: {.column width="50%"}
+--
 
-![SAN DELL](../img/02/SAN_DELL.jpg)
-:::
-::::::::::::::
+![SAN DELL](../img/02/SAN_DELL.jpg)<!-- .element: class="r-stretch" -->
 
 --
 
 ### SAN
 * Protocolos: Fiber channel, iSCSI
 
-![Red SAN](../img/02/redSAN.png)
+![Red SAN](../img/02/redSAN.png)<!-- .element: class="r-stretch" -->
 
 ---
 
@@ -656,13 +608,16 @@ Inconvenientes:
 
 [http://www.s3-client.com/](https://aws.amazon.com/es/s3/)
 
-
+---
 ## P2P
+
+--
 
 ### Almacenamiento P2P
 
-![](../img/02/resilio.png){height=100%}
+![](../img/02/resilio.png)<!-- .element: class="r-stretch" -->
 
+--
 ### Almacenamiento P2P: Peer to Peer
 
 * Intercambio entre iguales: todos son servidores y clientes al mismo tiempo.
