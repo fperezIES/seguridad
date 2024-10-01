@@ -1,10 +1,51 @@
-## Práctica de RAID 5 con TrueNAS, NAS y SAN usando VirtualBox
+# Práctica de RAID 5 con TrueNAS, NAS y SAN usando VirtualBox
 
 ![](img/TrueNAS_logo.svg){:class="center"}
 
-### Objetivo de la práctica:
+## Objetivo de la práctica:
 
 El objetivo de esta práctica es que los estudiantes configuren un sistema RAID 5 (RAID-Z1) utilizando TrueNAS, simulen un fallo de disco y comprueben la integridad y disponibilidad de los datos durante la reconstrucción del RAID. Además, se configurará un sistema de almacenamiento compartido (NAS) y almacenamiento por bloques (SAN) para comprobar su accesibilidad antes, durante y después del fallo.
+
+### Informe Escrito
+
+Debes entregar un fichero PDF que contenga un informe sobre la realización de la práctica con los siguientes apartados:
+
+- **Introducción**: Descripción breve de los conceptos que han aplicado durante la práctica (RAID-Z, NAS, SAN, TrueNAS, etc.).
+    
+- **Descripción de la configuración**: Explicación detallada de cómo configuraron cada parte de la práctica:
+    
+    - **Máquina virtual en VirtualBox**: Especificaciones de la VM (memoria, discos, red).
+    - **Configuración de RAID-Z1**: Cómo crearon el RAID-Z1 (RAID 5) y el pool de discos en TrueNAS.
+    - **Configuración de NAS y SAN**: Cómo crearon el almacenamiento compartido (carpeta SMB) y por bloques (iSCSI), incluyendo los servicios que habilitaron (SMB e iSCSI).
+- **Simulación de fallo y recuperación**:
+    
+    - Explicación sobre cómo simularon el fallo de un disco, el estado del RAID tras el fallo, y el proceso de recuperación (añadir un nuevo disco y reconstruir el RAID).
+    - Comprobación de la accesibilidad a los datos durante la reconstrucción.
+
+### Capturas de Pantalla
+
+Se deben incluir en la  capturas de pantalla que documenten cada paso del proceso:
+
+1. **Configuración de la máquina virtual en VirtualBox**:
+    
+    - Muestra los discos añadidos y la memoria asignada.
+2. **Configuración de RAID-Z1 en TrueNAS**:
+    
+    - Captura de la creación del pool RAID-Z1 con los discos seleccionados.
+3. **Configuración de NAS y SAN**:
+    
+    - Captura del panel de TrueNAS mostrando la creación de los Datasets para NAS (carpeta compartida) y SAN (iSCSI).
+    - Captura de la pantalla donde habilitan los servicios SMB e iSCSI.
+4. **Simulación del fallo de disco**:
+    
+    - Captura del estado degradado del RAID en TrueNAS, donde se muestra el fallo de un disco.
+5. **Proceso de reconstrucción del RAID**:
+    
+    - Captura del proceso de sustitución del disco y reconstrucción del RAID.
+6. **Verificación de accesibilidad de los datos**:
+    
+    - Captura de la carpeta compartida (NAS) accesible desde el explorador de archivos en su equipo, con los archivos creados antes del fallo.
+    - Captura de la unidad iSCSI montada en el cliente iSCSI (Windows o Linux), mostrando que el almacenamiento por bloques es accesible.
 
 
 
