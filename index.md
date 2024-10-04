@@ -20,7 +20,7 @@ Ejercicios entregables:
 ## UD2 - Seguridad pasiva
 
 - [2.1 Seguridad física CPD](UD2/1.fisica_CPD.md)
-- [2.2 Unidades de almacenamiento: RAID, NAS, SAN](UD2/2.almacenamiento.md)
+- [2.2 Almacenamiento de la información](UD2/2.almacenamiento.md)
 - Copias de seguridad
 - Eliminación y recuperación de datos
 
