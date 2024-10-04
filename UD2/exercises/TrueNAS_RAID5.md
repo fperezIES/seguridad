@@ -209,7 +209,7 @@ En resumen, RAID-Z es una solución avanzada de RAID que combina la flexibilidad
     - Enlaza el Extent al Target configurado.
 3. **Acceso desde un cliente iSCSI**:
     
-    - Desde otro sistema, configura un cliente iSCSI para conectarte al Target y verifica que puedas acceder y escribir en el almacenamiento por bloques.
+    - Desde otro sistema, configura un cliente iSCSI para conectarte al Target y verifica que puedas acceder y escribir en el almacenamiento por bloques. Tienes instrucciones de cómo hacerlo en AlmaLinux, Windows y Windows Server más adelante.
 
 ---
 
@@ -444,6 +444,28 @@ Cuando ya no necesites usar el dispositivo iSCSI, puedes desconectar el objetivo
 Con estos pasos, habrás configurado un cliente iSCSI en AlmaLinux y conectado a un dispositivo iSCSI para acceder a un almacenamiento remoto. Esta técnica es útil para integrar sistemas Linux con servidores de almacenamiento en red como TrueNAS u otros sistemas SAN, permitiendo aprovechar al máximo las ventajas del almacenamiento distribuido.
 
 
+## Conectar un volumen iSCSI en Windows 10 o 11 (Opcional):
+
+### 1. **Acceder al iniciador iSCSI**
+
+- Abre el **Panel de control** y selecciona la opción **Herramientas administrativas**.
+- Haz clic en **Iniciador iSCSI**. Si es la primera vez que lo abres, te pedirá que inicies el servicio de iSCSI. Haz clic en **Sí** para activarlo.
+
+### 2. **Conectar a un destino iSCSI**
+
+- En la pestaña **Destino**, introduce la dirección IP o el nombre del servidor iSCSI al que deseas conectarte en el campo **Dirección del destino**.
+- Haz clic en **Rápida conexión**. Si todo está bien configurado en el servidor, el cliente se conectará al destino iSCSI.
+
+### 3. **Configurar el disco iSCSI**
+
+- Después de establecer la conexión, abre **Administración de discos** en Windows (puedes buscar "Crear y formatear particiones del disco duro" en el menú de inicio).
+- Ahí verás el nuevo disco iSCSI. Deberás inicializarlo, formatearlo y asignarle una letra de unidad, como harías con cualquier disco local.
+
+### 4. **Opciones avanzadas**
+
+- En el iniciador iSCSI, puedes configurar opciones avanzadas como autenticación CHAP, persistencia de la conexión y ajuste de las configuraciones de red, en caso de que lo necesites.
+
+---
 
 ## Conectar volumen iSCSI desde Windows Server (Opcional)
 
