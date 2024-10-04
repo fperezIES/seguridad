@@ -1,6 +1,3 @@
-**Respuestas:**
-
----
 
 ### **1. Edad y Tasas de Fallo:**
 
@@ -163,7 +160,3 @@ Recomendaciones para centros de datos:
 - **Planificación de Continuidad:** Garantiza que las operaciones críticas del negocio no se vean interrumpidas por fallos de hardware.
 
 En conclusión, aunque los modelos predictivos y el monitoreo son herramientas valiosas, no son infalibles. Por ello, es esencial implementar estrategias robustas de redundancia y copias de seguridad para asegurar la integridad y disponibilidad de los datos en todo momento.
-
----
-
-**Fin de las respuestas.**

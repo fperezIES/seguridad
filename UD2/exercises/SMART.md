@@ -1,7 +1,7 @@
 
 
 
-**Práctica: Comprobación del estado SMART de las unidades de disco**
+# Ejercicio: Comprobación del estado SMART de las unidades de disco
 
 ---
 
@@ -9,27 +9,12 @@
 
 Aprender a verificar el estado SMART (Self-Monitoring, Analysis, and Reporting Technology) de las unidades de disco para anticipar posibles fallos y garantizar la integridad de los datos.
 
----
-
 **Introducción:**
 
 SMART es una tecnología incorporada en los discos duros y unidades SSD que permite monitorizar diversos indicadores de fiabilidad y rendimiento. Al analizar estos datos, es posible predecir fallos y tomar medidas preventivas antes de que ocurran pérdidas de datos.
 
 ---
-
-**Materiales Necesarios:**
-
-- Un ordenador con sistema operativo Windows o Linux.
-- Acceso a internet (opcional, para descargar herramientas).
-- Herramientas de software:
-  - **Windows:** Símbolo del sistema, PowerShell o programas como *CrystalDiskInfo*.
-  - **Linux:** Utilidad `smartctl` del paquete *smartmontools*.
-
----
-
-**Procedimiento:**
-
-### **Para usuarios de Windows:**
+## **Para usuarios de Windows:**
 
 #### **1. Utilizando el Símbolo del sistema:**
 
@@ -49,7 +34,8 @@ a) Abre **PowerShell** como administrador:
 - Haz clic derecho en el menú Inicio y selecciona "Windows PowerShell (Administrador)".
 
 b) Ejecuta el siguiente comando:
-```
+
+```bash
 Get-WmiObject -namespace root\wmi -class MSStorageDriver_FailurePredictStatus
 ```
 
@@ -69,7 +55,7 @@ c) Analiza los detalles de los atributos SMART para identificar parámetros crí
 
 ---
 
-### **Para usuarios de Linux:**
+## **Para usuarios de Linux:**
 
 #### **1. Instalación de smartmontools:**
 
@@ -77,31 +63,38 @@ a) Abre una terminal.
 
 b) Instala el paquete *smartmontools*:
 - **Debian/Ubuntu:**
-  ```
+
+```
   sudo apt-get install smartmontools
-  ```
+```
 - **Fedora/CentOS:**
-  ```
+
+```
   sudo dnf install smartmontools
-  ```
+```
 
 #### **2. Identificación de las unidades de disco:**
 
 a) Ejecuta:
+
 ```
 sudo fdisk -l
 ```
+
 b) Anota los identificadores de las unidades (ejemplo: `/dev/sda`).
 
 #### **3. Verificación del estado SMART:**
 
 a) Activa el soporte SMART en la unidad (si no lo está):
+
 ```
 sudo smartctl -s on /dev/sdX
 ```
+
 *(Reemplaza `/dev/sdX` por el identificador de tu unidad).*
 
 b) Ejecuta un test rápido:
+
 ```
 sudo smartctl -H /dev/sdX
 ```
@@ -113,6 +106,7 @@ c) Observa el resultado:
 #### **4. Obtención de un informe detallado:**
 
 a) Ejecuta:
+
 ```
 sudo smartctl -a /dev/sdX
 ```
@@ -139,6 +133,63 @@ b) Analiza los atributos SMART para detectar valores anómalos.
 - La monitorización regular del estado SMART permite anticipar fallos y proteger los datos.
 - Herramientas como `smartctl` y *CrystalDiskInfo* facilitan la obtención y análisis de esta información.
 - Es fundamental interpretar correctamente los indicadores para tomar decisiones informadas.
+
+
+En macOS, puedes comprobar las estadísticas **SMART** (Self-Monitoring, Analysis, and Reporting Technology) de tus discos duros o unidades SSD directamente desde la aplicación de terminal. Estas estadísticas te ofrecen información sobre la salud y el estado de las unidades, lo que puede ayudar a prevenir fallos antes de que ocurran.
+
+# Para usuarios de macOS:
+
+#### 1. **Usar la Utilidad de Discos**
+La **Utilidad de Discos** es la opción gráfica más fácil para comprobar el estado SMART en macOS.
+
+1. Abre **Utilidad de Discos** (puedes encontrarla en *Aplicaciones > Utilidades* o buscándola en Spotlight).
+2. Selecciona el disco duro o SSD que quieras comprobar.
+3. En la parte inferior de la ventana, busca el campo **SMART Status** (Estado SMART), que indicará si el disco está "Verificado" o si está fallando.
+
+Aunque esta herramienta es útil, no ofrece detalles avanzados. Para obtener un análisis más profundo, puedes usar la terminal.
+
+
+
+#### 2. **Usar el comando `diskutil` en la terminal**
+El comando `diskutil` en macOS te permite verificar el estado SMART de manera rápida desde la terminal.
+
+1. Abre la **Terminal** (puedes encontrarla en *Aplicaciones > Utilidades* o buscándola en Spotlight).
+2. Ejecuta el siguiente comando para listar todos los discos conectados:
+
+   ```bash
+   diskutil list
+   ```
+
+   Esto te mostrará una lista de discos conectados y sus identificadores (por ejemplo, `/dev/disk0`, `/dev/disk1`).
+
+3. Para comprobar el estado SMART de una unidad específica, utiliza el siguiente comando:
+
+   ```bash
+   diskutil info /dev/diskX
+   ```
+
+   (Reemplaza `/dev/diskX` por el identificador del disco que quieras comprobar).
+
+4. Busca el campo que dice **SMART Status**. Las respuestas típicas pueden ser:
+   - **SMART Status: Verified**: Indica que el disco está en buen estado.
+   - **SMART Status: Failing**: Indica que el disco puede fallar pronto y debería ser reemplazado.
+
+
+
+#### 3. **Usar herramientas de terceros**
+
+Si necesitas una vista más detallada de las estadísticas SMART, puedes usar aplicaciones de terceros. Algunas de las más populares son:
+
+- [**DriveDx**](https://binaryfruit.com/drivedx): Una aplicación de pago que ofrece un análisis exhaustivo de las estadísticas SMART de tu disco. Proporciona gráficos y advertencias avanzadas.
+- [**SMART Utility**](https://www.volitans-software.com/apps/smart-utility/): Otra herramienta que ofrece información detallada sobre el estado de tu disco, con informes más completos que la utilidad de discos por defecto de macOS.
+
+Ambas aplicaciones son fáciles de usar y proporcionan un análisis mucho más detallado que las opciones nativas de macOS.
+
+---
+
+### Conclusión:
+Para un chequeo rápido, puedes utilizar la **Utilidad de Discos** o el comando `diskutil` desde la terminal. Si quieres un análisis más profundo y detallado sobre las estadísticas SMART de tu disco, las herramientas de terceros como **DriveDx** o **SMART Utility** son muy recomendables.
+
 
 ---
 
@@ -169,112 +220,3 @@ b) Analiza los atributos SMART para detectar valores anómalos.
 ---
 
 
-
-# SMART en Windows
-
-En Windows, una herramienta comúnmente utilizada para ver los datos S.M.A.R.T. (Self-Monitoring, Analysis, and Reporting Technology) de un disco es **CrystalDiskInfo**. Esta aplicación gratuita te permite monitorizar el estado de los discos duros y unidades SSD, proporcionando información detallada sobre los atributos S.M.A.R.T., como la temperatura, el número de sectores reasignados, errores de lectura y escritura, entre otros.
-
-### Pasos para usar CrystalDiskInfo:
-
-1. **Descarga e instalación**: Descarga CrystalDiskInfo desde su sitio oficial.
-2. **Ejecución**: Inicia la aplicación tras la instalación.
-3. **Visualización de los datos S.M.A.R.T.**: CrystalDiskInfo mostrará una lista de los discos conectados y su estado de salud general (por ejemplo, "Good", "Caution", o "Bad"). También puedes ver los atributos detallados, como la cantidad de horas en funcionamiento, la cantidad de errores, y otros parámetros relacionados con el rendimiento del disco.
-# SMART en Linux
-
-En Linux, puedes usar varias herramientas para consultar los datos S.M.A.R.T. de un disco. Una de las más comunes y completas es **smartmontools**, que incluye la utilidad **smartctl** para gestionar y verificar el estado S.M.A.R.T. de los discos.
-
-### Instalación de smartmontools:
-
-La mayoría de las distribuciones de Linux incluyen smartmontools en sus repositorios, por lo que puedes instalarlo fácilmente con los siguientes comandos:
-
-- **Ubuntu/Debian**:
-    
-    bash
-    
-    Copiar código
-    
-    `sudo apt-get install smartmontools`
-    
-- **Fedora**:
-    
-    bash
-    
-    Copiar código
-    
-    `sudo dnf install smartmontools`
-    
-- **Arch Linux**:
-    
-    bash
-    
-    Copiar código
-    
-    `sudo pacman -S smartmontools`
-    
-
-### Usar smartctl para ver los datos S.M.A.R.T.:
-
-1. **Verificar el estado general del disco**: Primero, debes identificar el nombre del dispositivo (por ejemplo, `/dev/sda`, `/dev/nvme0n1` para discos NVMe, etc.). Luego puedes ejecutar el siguiente comando para obtener un resumen básico del estado S.M.A.R.T.:
-    
-    bash
-    
-    Copiar código
-    
-    `sudo smartctl -H /dev/sda`
-    
-    Este comando te mostrará si el disco está en buen estado o si presenta problemas.
-    
-2. **Mostrar todos los atributos S.M.A.R.T.**: Para obtener un informe más detallado, puedes usar:
-    
-    bash
-    
-    Copiar código
-    
-    `sudo smartctl -A /dev/sda`
-    
-    Esto te mostrará una lista completa de los atributos S.M.A.R.T., incluyendo el recuento de sectores defectuosos, la temperatura, los ciclos de encendido/apagado, entre otros.
-    
-3. **Realizar un test S.M.A.R.T.**: Puedes iniciar un test corto o largo del disco para verificar más a fondo su estado:
-    
-    - **Test corto** (rápido, generalmente dura unos minutos):
-        
-        bash
-        
-        Copiar código
-        
-        `sudo smartctl -t short /dev/sda`
-        
-    - **Test largo** (más exhaustivo, puede durar varias horas dependiendo del tamaño del disco):
-        
-        bash
-        
-        Copiar código
-        
-        `sudo smartctl -t long /dev/sda`
-        
-    
-    Después de ejecutar estos tests, puedes revisar los resultados con:
-    
-    bash
-    
-    Copiar código
-    
-    `sudo smartctl -l selftest /dev/sda`
-    
-
-### Otras herramientas gráficas:
-
-Si prefieres herramientas con interfaz gráfica en lugar de línea de comandos, también puedes utilizar **GSmartControl**, que es una interfaz gráfica para smartmontools.
-
-1. **Instalación en Ubuntu/Debian**:
-    
-    bash
-    
-    Copiar código
-    
-    `sudo apt-get install gsmartcontrol`
-    
-2. **Ejecución**: Simplemente ejecuta `gsmartcontrol` desde el terminal o desde el menú de aplicaciones, y podrás ver la lista de discos conectados, su estado S.M.A.R.T., y ejecutar pruebas directamente desde la interfaz gráfica.
-    
-
-Estas herramientas son bastante fiables y te proporcionan una visión clara del estado de tus discos en Linux.
