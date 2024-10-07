@@ -142,7 +142,7 @@ En resumen, RAID-Z es una solución avanzada de RAID que combina la flexibilidad
     
     - Selecciona la máquina virtual creada, ve a "Configuración" y selecciona "Almacenamiento".
     - Añade tres discos adicionales para crear el RAID 5:
-        - Haciendo clic en el ícono "Añadir disco duro".
+        - Haciendo clic en el ícono "Añadir disco duro". (Es posible que necesites añadir un nuevo controlador también.)
         - Tamaño de los discos adicionales: Al menos **5 GB cada uno** (puedes usar discos de mayor capacidad si lo deseas).
 5. **Configurar red**:
     
@@ -165,7 +165,7 @@ En resumen, RAID-Z es una solución avanzada de RAID que combina la flexibilidad
     
     - Después de la instalación, TrueNAS mostrará una dirección IP.
     - Conéctate a esa IP desde un navegador en tu equipo local.
-    - Inicia sesión con las credenciales que configuraste durante la instalación.
+    - Inicia sesión con las credenciales que configuraste durante la instalación. (usr: root, pass: especificado durante instalación)
 2. **Configuración de discos y creación del RAID 5**:
     
     - Ve a la pestaña "Storage" (almacenamiento) y selecciona "Pools".
@@ -188,8 +188,9 @@ En resumen, RAID-Z es una solución avanzada de RAID que combina la flexibilidad
 2. **Habilitar servicio SMB para compartir archivos**:
     
     - Ve a "Services" en el menú principal y activa el servicio **SMB** (Samba).
-    - Haz clic en "Configure" y selecciona el Dataset creado previamente, "Compartido_NAS", como el directorio compartido.
-    - Configura las credenciales para acceder al recurso compartido (puedes crear un nuevo usuario si es necesario).
+    - Crea un usuario para asignarle permisos a la carpeta compartida.
+    - Ve a "Sharing" > "Windows Shares (SMB)". Haz clic en "Add" y selecciona el Dataset creado previamente, "Compartido_NAS", como el directorio compartido.
+    - Configura las credenciales (Edit Share ACL) para poder leer y escribir en el recurso compartido (tendrás que crear un nuevo usuario previamente).
 3. **Acceso desde el equipo local**:
     
     - En el explorador de archivos de tu equipo local, accede a la carpeta compartida ingresando la dirección IP de TrueNAS precedida por dos barras inclinadas (por ejemplo, `\\192.168.1.100\Compartido_NAS`).
