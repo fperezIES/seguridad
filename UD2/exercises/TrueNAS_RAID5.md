@@ -128,7 +128,7 @@ En resumen, RAID-Z es una solución avanzada de RAID que combina la flexibilidad
     - Descargar e instalar VirtualBox desde [virtualbox.org](https://www.virtualbox.org).
 2. **Crear una nueva máquina virtual**:
     
-    - Abre VirtualBox y selecciona "Nueva".
+    - Abre VirtualBox y selecciona `Nueva`.
     - Asigna un nombre descriptivo, por ejemplo, "TrueNAS RAID".
     - Tipo: Selecciona **BSD**.
     - Versión: Selecciona **FreeBSD (64-bit)**.
@@ -205,7 +205,7 @@ En resumen, RAID-Z es una solución avanzada de RAID que combina la flexibilidad
 2. **Configurar iSCSI (SAN)**:
     
     - Ve a "Sharing" > "Block Shares (iSCSI)" y usa el botón "Wizard" que te guiará por los diferentes pasos:
-		    1. "Create or Choose BlockDevice": Asigna un nombre y en "Device" usa "Create New" para elegir el dataset creado previamente (Compartido_SAN)
+		    1. "Create or Choose BlockDevice": Asigna un nombre y en "Device" usa "Create New" para elegir el dataset creado previamente (Compartido_SAN). En "Size" especifica el tamaño del disco. En "Sharin Platform" selecciona "Modern OS".
 		    2. "Portal": usa "Create New", añade un nombre y Authentication "CHAP", crea un nuevo "Discovery Authentication Group", "usa Group ID" 1, añade un nombre de usuario y un "Secret". Elige la IP en la que se anuncirá Puedes usar 0.0.0.0 para que se anuncie en todas las interfaces)
 		    3. En "Initiators" puedes limitar los hosts y redes desde los que se conectará el dispositivo. En nuestro caso lo dejaremos sin cambiar.
 		    4. Confirma los ajustes.
@@ -230,19 +230,10 @@ En resumen, RAID-Z es una solución avanzada de RAID que combina la flexibilidad
     - Ve a "Storage" > "Pools", y deberías ver el pool en estado "Degraded" (degradado).
     - TrueNAS te notificará del fallo en uno de los discos.
 
-#### 2. Reconstruir el RAID
 
-1. **Añadir un nuevo disco**:
-    
-    - Apaga nuevamente la máquina virtual.
-    - Añade un nuevo disco en VirtualBox como sustituto del que falló.
-2. **Reemplazar el disco fallido en TrueNAS**:
-    
-    - Inicia TrueNAS y accede a "Storage" > "Pools".
-    - Selecciona el pool degradado y elige la opción "Replace" en el disco fallido.
-    - Selecciona el disco nuevo añadido para iniciar el proceso de reconstrucción.
+#### 2. Verificar la accesibilidad durante la reconstrucción
 
-#### 3. Verificar la accesibilidad durante la reconstrucción
+Aunque el RAID esté  en estado degradado es posible seguir usándolo, mientras se reconstruye. Esto aumentará el tiempo de reconstrucción.
 
 1. **Comprobar el acceso a la carpeta compartida (NAS)**:
     
@@ -252,6 +243,19 @@ En resumen, RAID-Z es una solución avanzada de RAID que combina la flexibilidad
     
     - Accede al almacenamiento iSCSI desde el cliente configurado.
     - Verifica que los datos siguen siendo accesibles.
+#### 3. Reconstruir el RAID
+
+1. **Añadir un nuevo disco**:
+    
+    - Apaga nuevamente la máquina virtual.
+    - Añade un nuevo disco en VirtualBox como sustituto del que falló.
+2. **Reemplazar el disco fallido en TrueNAS**:
+    
+    - Inicia TrueNAS y accede a "Storage" > "Pools".
+    - Selecciona el pool degradado y elige la opción "Status" desde el menú de la rueda dentada. Busca el disco duro que falla y usa la opción "Replace" en el disco fallido.
+    - Selecciona el disco nuevo añadido para iniciar el proceso de reconstrucción.
+
+
 
 ---
 
@@ -276,12 +280,12 @@ Antes de configurar un Spare Disk, es importante que ya tengas un pool configura
 3. **Seleccionar el pool de almacenamiento**:
     
     - Elige el pool de discos RAID-Z ya existente en el que deseas añadir el Spare Disk.
-    - Haz clic en los tres puntos verticales (**⋮**) al lado del nombre del pool y selecciona **"Status" (Estado)** para ver los detalles del pool.
+    - Haz clic en la rueda dentada al lado del nombre del pool y selecciona **"Status" (Estado)** para ver los detalles del pool.
 4. **Añadir un disco de repuesto**:
     
-    - En la parte superior derecha de la pantalla de estado del pool, haz clic en **"Add Vdevs"**.
+    - En la parte superior derecha de la pantalla de estado del pool haz click en la rueda dentada, luego, haz clic en **"Add Vdevs"**.
     - Aparecerá una ventana emergente donde puedes añadir diferentes tipos de VDEVs (Virtual Device) al pool.
-    - Selecciona la opción **"Spare"** en el menú de la izquierda.
+    - Selecciona la opción **"Hot Spare"** en el menú de la izquierda.
 5. **Seleccionar el disco a utilizar como Spare Disk**:
     
     - En la lista de discos disponibles, selecciona el disco que quieres usar como Spare Disk. Este disco no debe estar actualmente en uso en el pool.
@@ -308,7 +312,7 @@ Para comprobar que el Spare Disk funciona correctamente, puedes simular un fallo
 
 ### 4. Consideraciones adicionales
 
-- **Sustituir el disco fallido**: Aunque el Spare Disk reemplaza automáticamente al disco defectuoso, es importante que reemplaces el disco fallido lo antes posible por otro nuevo para mantener una configuración de redundancia adecuada. Una vez que añadas el nuevo disco, puedes volver a configurar un Spare Disk para futuras fallas.
+- **Sustituir el disco fallido**: Aunque el Spare Disk reemplaza automáticamente al disco defectuoso, es importante que reemplaces el disco fallido lo antes posible por otro nuevo para mantener una configuración de redundancia adecuada. Una vez que añadas el nuevo disco, puedes volver a configurar un Spare Disk para futuras fallos.
     
 - **Notificaciones**: Asegúrate de tener configuradas las notificaciones en TrueNAS (a través de correo electrónico, por ejemplo) para que te avise en caso de fallos de discos o la activación del Spare Disk.
 
@@ -456,8 +460,10 @@ Con estos pasos, habrás configurado un cliente iSCSI en AlmaLinux y conectado a
 
 ### 2. **Conectar a un destino iSCSI**
 
-- En la pestaña **Destino**, introduce la dirección IP o el nombre del servidor iSCSI al que deseas conectarte en el campo **Dirección del destino**.
-- Haz clic en **Rápida conexión**. Si todo está bien configurado en el servidor, el cliente se conectará al destino iSCSI.
+* En la pestaña "Detección", pulsa el botón "Detectar portal", introduce la ip y las credenciales CHAP (si lo has configurado) usando el botón "Opciones avanzadas..."
+
+- En la pestaña **Destinos** pulsa "Actualizar", debería aparecer el disco compartido.
+- Seleccionalo y haz click **Conectar**. Si todo está bien configurado en el servidor, el cliente se conectará al destino iSCSI.
 
 ### 3. **Configurar el disco iSCSI**
 
