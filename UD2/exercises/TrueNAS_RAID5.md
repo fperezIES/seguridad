@@ -206,7 +206,7 @@ En resumen, RAID-Z es una solución avanzada de RAID que combina la flexibilidad
     
     - Ve a "Sharing" > "Block Shares (iSCSI)" y usa el botón "Wizard" que te guiará por los diferentes pasos:
 		    1. "Create or Choose BlockDevice": Asigna un nombre y en "Device" usa "Create New" para elegir el dataset creado previamente (Compartido_SAN). En "Size" especifica el tamaño del disco. En "Sharin Platform" selecciona "Modern OS".
-		    2. "Portal": usa "Create New", añade un nombre y Authentication "CHAP", crea un nuevo "Discovery Authentication Group", "usa Group ID" 1, añade un nombre de usuario y un "Secret". Elige la IP en la que se anuncirá Puedes usar 0.0.0.0 para que se anuncie en todas las interfaces)
+		    2. "Portal": usa "Create New", añade un nombre y Authentication "CHAP", crea un nuevo "Discovery Authentication Group", "usa Group ID" 1, añade un nombre de usuario y un "Secret". Elige la IP en la que se anuncirá Puedes usar 0.0.0.0 para que se anuncie en todas las interfaces). Opcionalmente puedes crear 
 		    3. En "Initiators" puedes limitar los hosts y redes desde los que se conectará el dispositivo. En nuestro caso lo dejaremos sin cambiar.
 		    4. Confirma los ajustes.
         
@@ -340,19 +340,8 @@ Conectar un almacenamiento iSCSI en **AlmaLinux** implica algunos pasos clave qu
 
 ### Paso 2: Configurar el iniciador iSCSI
 
-1. **Ver el nombre del iniciador iSCSI**:
-   El iniciador iSCSI tiene un nombre único (IQN) que se utiliza para identificar el cliente iSCSI. Para ver el IQN de tu sistema, utiliza el siguiente comando:
 
-   ```bash
-   sudo cat /etc/iscsi/initiatorname.iscsi
-   ```
-
-   Esto debería mostrar algo como:
-   ```
-   InitiatorName=iqn.1994-05.com.redhat:xxxxxxx
-   ```
-
-2. **Configurar el servicio iSCSI**:
+1. **Configurar el servicio iSCSI**:
    Asegúrate de que el servicio iSCSI esté habilitado para iniciarse automáticamente al arrancar el sistema:
 
    ```bash
@@ -360,7 +349,40 @@ Conectar un almacenamiento iSCSI en **AlmaLinux** implica algunos pasos clave qu
    sudo systemctl start iscsid
    ```
 
-### Paso 3: Descubrir el objetivo iSCSI (Target)
+2. **Ver el nombre del iniciador iSCSI**:
+   El iniciador iSCSI tiene un nombre único (IQN) que se utiliza para identificar el cliente iSCSI. Para ver el IQN de tu sistema, utiliza el siguiente comando:
+
+   ```bash
+   sudo cat /etc/iscsi/initiatorname.iscsi
+   ```
+
+   Esto debería mostrar algo como:
+
+```bash
+   InitiatorName=iqn.1994-05.com.redhat:xxxxxxx
+```
+
+### Paso 3.1 Configurar la autenticación CHAP (Si es necesario)
+
+Una vez que hayas identificado el destino iSCSI correcto, configura la autenticación CHAP (Si es necesario). Necesitarás editar el archivo de configuración iSCSI para agregar las credenciales CHAP.
+
+1. **Editar la configuración de iSCSI:**
+	Abre el archivo de configuración del objetivo iSCSI:
+
+``` bash
+    `sudo nano /etc/iscsi/iscsid.conf
+```
+
+2. **Habilitar la autenticación CHAP** comentando o descomentando las siguientes líneas (dependiendo de tu configuración actual):
+    
+```bash 
+node.session.auth.authmethod = CHAP 
+node.session.auth.chap_algs = SHA3-256,SHA256,SHA1,MD5
+node.session.auth.username = <tu_usuario_CHAP> node.session.auth.password = <tu_password_CHAP
+```
+
+3. **Guardar los cambios** y cerrar el editor. (Ctrl+O, Ctrl+X)
+### Paso 3.2: Descubrir el objetivo iSCSI (Target)
 
 1. **Descubrir los dispositivos iSCSI disponibles**:
    Para conectarte a un servidor iSCSI (Target), primero debes descubrir los objetivos disponibles. Utiliza el siguiente comando, donde `<IP_del_servidor>` es la dirección IP del servidor TrueNAS u otro dispositivo que esté actuando como servidor iSCSI.
@@ -370,6 +392,7 @@ Conectar un almacenamiento iSCSI en **AlmaLinux** implica algunos pasos clave qu
    ```
 
    Esto debería devolver una lista de objetivos iSCSI disponibles en el servidor.
+
 
 ### Paso 4: Iniciar sesión en el objetivo iSCSI
 
@@ -549,3 +572,7 @@ Para conectar un almacenamiento iSCSI desde **Windows Server**, sigue los pasos 
 - [Documentación TrueNAS Core](https://www.truenas.com/docs/core/)
 	- [Configuración de almacenamiento](https://www.truenas.com/docs/core/gettingstarted/storingdata/)
 	- *[Cómo compartir almacenamiento](https://www.truenas.com/docs/core/gettingstarted/sharingstorage/)*
+	- [Cómo configurar iSCSI](https://www.truenas.com/docs/core/coretutorials/sharing/iscsi/addingiscsishare/)
+- [RedHat 9 iSCSI initiator](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_storage_devices/configuring-an-iscsi-initiator_managing-storage-devices)
+- [AlmaLinux 9 iSCI initiator](https://www.server-world.info/en/note?os=AlmaLinux_9&p=iscsi&f=2#google_vignette)
+- [Iniciador iSCSI Windows Server 2016](https://www.sqlshack.com/how-to-configure-an-iscsi-initiator-on-windows-server-2016/)
