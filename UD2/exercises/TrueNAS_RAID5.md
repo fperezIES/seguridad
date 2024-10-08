@@ -132,7 +132,7 @@ En resumen, RAID-Z es una solución avanzada de RAID que combina la flexibilidad
     - Asigna un nombre descriptivo, por ejemplo, "TrueNAS RAID".
     - Tipo: Selecciona **BSD**.
     - Versión: Selecciona **FreeBSD (64-bit)**.
-    - Asigna **4 GB de memoria RAM** (mínimo recomendado) y continúa.
+    - Asigna **2 GB de memoria RAM** ( 8 GB mínimo recomendado en producción) y continúa.
 3. **Configuración de disco virtual**:
     
     - Selecciona "Crear un disco duro virtual ahora" y luego "VDI (VirtualBox Disk Image)".
@@ -189,8 +189,9 @@ En resumen, RAID-Z es una solución avanzada de RAID que combina la flexibilidad
     
     - Ve a "Services" en el menú principal y activa el servicio **SMB** (Samba).
     - Crea un usuario para asignarle permisos a la carpeta compartida.
+    -  Configura las credenciales (Edit Share ACL) para poder leer y escribir en el recurso compartido (tendrás que crear un nuevo usuario previamente).
     - Ve a "Sharing" > "Windows Shares (SMB)". Haz clic en "Add" y selecciona el Dataset creado previamente, "Compartido_NAS", como el directorio compartido.
-    - Configura las credenciales (Edit Share ACL) para poder leer y escribir en el recurso compartido (tendrás que crear un nuevo usuario previamente).
+    -
 3. **Acceso desde el equipo local**:
     
     - En el explorador de archivos de tu equipo local, accede a la carpeta compartida ingresando la dirección IP de TrueNAS precedida por dos barras inclinadas (por ejemplo, `\\192.168.1.100\Compartido_NAS`).
@@ -203,11 +204,12 @@ En resumen, RAID-Z es una solución avanzada de RAID que combina la flexibilidad
     - En "Storage" > "Pools", selecciona tu pool y añade otro Dataset, llamado "Compartido_SAN".
 2. **Configurar iSCSI (SAN)**:
     
-    - Ve a "Sharing" > "Block (iSCSI)" y selecciona "Portals".
-    - Haz clic en "Add" y usa la IP de tu TrueNAS.
-    - Luego, en "Targets", añade un nuevo Target.
-    - Crea una nueva Extent, asignando el Dataset "Compartido_SAN" como el almacenamiento asignado al Target.
-    - Enlaza el Extent al Target configurado.
+    - Ve a "Sharing" > "Block Shares (iSCSI)" y usa el botón "Wizard" que te guiará por los diferentes pasos:
+		    1. "Create or Choose BlockDevice": Asigna un nombre y en "Device" usa "Create New" para elegir el dataset creado previamente (Compartido_SAN)
+		    2. "Portal": usa "Create New", añade un nombre y Authentication "CHAP", crea un nuevo "Discovery Authentication Group", "usa Group ID" 1, añade un nombre de usuario y un "Secret". Elige la IP en la que se anuncirá Puedes usar 0.0.0.0 para que se anuncie en todas las interfaces)
+		    3. En "Initiators" puedes limitar los hosts y redes desde los que se conectará el dispositivo. En nuestro caso lo dejaremos sin cambiar.
+		    4. Confirma los ajustes.
+        
 3. **Acceso desde un cliente iSCSI**:
     
     - Desde otro sistema, configura un cliente iSCSI para conectarte al Target y verifica que puedas acceder y escribir en el almacenamiento por bloques. Tienes instrucciones de cómo hacerlo en AlmaLinux, Windows y Windows Server más adelante.
@@ -535,3 +537,9 @@ Para conectar un almacenamiento iSCSI desde **Windows Server**, sigue los pasos 
 
 - Durante esta práctica, habrás configurado un sistema RAID 5 utilizando TrueNAS, simulado un fallo de disco y verificado que los datos siguen siendo accesibles durante la reconstrucción del RAID. Opcionalmente puedes haber configurado un "Spare disk" para que la reconstrucción del RAID sea lo más rápida posible.
 - El acceso continuo a los datos tanto en NAS como en SAN demuestra la robustez de los sistemas RAID en entornos reales.
+
+# Bibliografía
+
+- [Documentación TrueNAS Core](https://www.truenas.com/docs/core/)
+	- [Configuración de almacenamiento](https://www.truenas.com/docs/core/gettingstarted/storingdata/)
+	- *[Cómo compartir almacenamiento](https://www.truenas.com/docs/core/gettingstarted/sharingstorage/)*
