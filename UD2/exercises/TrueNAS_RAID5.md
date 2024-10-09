@@ -205,10 +205,12 @@ En resumen, RAID-Z es una solución avanzada de RAID que combina la flexibilidad
 2. **Configurar iSCSI (SAN)**:
     
     - Ve a "Sharing" > "Block Shares (iSCSI)" y usa el botón "Wizard" que te guiará por los diferentes pasos:
+    -
 		    1. "Create or Choose BlockDevice": Asigna un nombre y en "Device" usa "Create New" para elegir el dataset creado previamente (Compartido_SAN). En "Size" especifica el tamaño del disco. En "Sharin Platform" selecciona "Modern OS".
-		    2. "Portal": usa "Create New", añade un nombre y Authentication "CHAP", crea un nuevo "Discovery Authentication Group", "usa Group ID" 1, añade un nombre de usuario y un "Secret". Elige la IP en la que se anuncirá Puedes usar 0.0.0.0 para que se anuncie en todas las interfaces). Opcionalmente puedes crear 
-		    3. En "Initiators" puedes limitar los hosts y redes desde los que se conectará el dispositivo. En nuestro caso lo dejaremos sin cambiar.
-		    4. Confirma los ajustes.
+		    2. "Portal": usa "Create New", añade un nombre y Authentication "NONE". Elige la IP en la que se anuncirá. Puedes usar 0.0.0.0 para que se anuncie en todas las interfaces). 
+		    3. (Opcional) Alternativamente puedes usar autenticación CHAP: crea un nuevo "Discovery Authentication Group", "usa Group ID" 1, añade un nombre de usuario y un "Secret", luego tendrás que usar estas credenciales al descubrir el volumen desde el cliente.
+		    4. En "Initiators" puedes limitar los hosts y redes desde los que se conectará el dispositivo. En nuestro caso lo dejaremos sin cambiar.
+		    5. Confirma los ajustes.
         
 3. **Acceso desde un cliente iSCSI**:
     
