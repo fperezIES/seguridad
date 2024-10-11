@@ -21,7 +21,7 @@ Ejercicios entregables:
 
 - [2.1 Seguridad física CPD](UD2/1.fisica_CPD.md)
 - [2.2 Almacenamiento de la información](UD2/2.almacenamiento.md)
-- Copias de seguridad
+- [2.3 Copias de seguridad](UD2/3.backup.md)
 - Eliminación y recuperación de datos
 
 Ejercicios opcionales:
