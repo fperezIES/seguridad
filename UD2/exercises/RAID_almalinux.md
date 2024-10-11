@@ -449,7 +449,7 @@ Si el arreglo RAID ha cambiado de configuración o dispositivo, verifica que la 
 
 Si tienes más preguntas o necesitas asistencia adicional, no dudes en preguntar.
 
-# Cómo Configurar Alertas de Correo Electrónico para el Monitoreo de RAID en AlmaLinux
+# (Opcional) Cómo Configurar Alertas de Correo Electrónico para el Monitoreo de RAID en AlmaLinux
 
 Configurar alertas de correo electrónico es fundamental para monitorear el estado de tus arreglos RAID y ser notificado inmediatamente en caso de fallos o problemas. A continuación, te mostraré cómo configurar `mdadm` para enviar alertas por correo electrónico en AlmaLinux.
 
@@ -619,11 +619,80 @@ Si estás utilizando Gmail y SSMTP, recuerda que Google ha deshabilitado el acce
 
 ---
 
+# (Opcional) Ampliar el número de discos de un RAID 5
 
+Para aumentar el número de discos en un RAID 5 con `mdadm`, es posible añadir discos adicionales al arreglo existente y expandir la capacidad del RAID. A continuación, te presento una guía paso a paso para lograrlo:
+
+### Prerrequisitos
+
+- **Arreglo RAID 5 existente**: Debe haber un RAID 5 ya configurado con `mdadm`.
+- **Disco(s) adicional(es)**: Necesitarás uno o más discos nuevos para añadir al RAID.
+- **Copias de seguridad**: Es recomendable tener una copia de seguridad actualizada de los datos antes de modificar el RAID.
+
+### Pasos para añadir un disco a un RAID 5 con `mdadm`
+
+1. **Verifica el estado actual del RAID**  
+   Antes de hacer cualquier cambio, comprueba que el RAID esté en buen estado.
+
+   ```bash
+   sudo mdadm --detail /dev/md0
+   ```
+
+   Sustituye `/dev/md0` con el nombre de tu dispositivo RAID si es diferente.
+
+2. **Añade el nuevo disco al RAID**  
+   Supongamos que el disco que deseas añadir es `/dev/sde`.
+
+   ```bash
+   sudo mdadm --manage /dev/md0 --add /dev/sde
+   ```
+
+   Esto agregará el disco al arreglo, pero todavía no formará parte activa del RAID 5. Para integrarlo completamente, es necesario expandir el RAID.
+
+3. **Expandir el arreglo RAID**  
+   Para ampliar el arreglo RAID para que incluya el nuevo disco, utiliza el siguiente comando:
+
+   ```bash
+   sudo mdadm --grow /dev/md0 --raid-devices=4
+   ```
+
+   Aquí, `--raid-devices=4` indica el nuevo número total de discos en el RAID. Ajusta el número según la cantidad total de discos que deseas tener en el arreglo.
+
+4. **Ampliar el sistema de archivos**  
+   Después de expandir el arreglo, también es necesario ampliar el sistema de archivos para utilizar el nuevo espacio disponible. Si estás utilizando `ext4`, puedes hacer lo siguiente:
+
+   ```bash
+   sudo resize2fs /dev/md0
+   ```
+
+   Si estás utilizando otro sistema de archivos, usa el comando adecuado para ampliar su tamaño.
+
+5. **Verificar el estado del RAID**  
+   Es recomendable monitorizar el progreso de la expansión del RAID, que puede tardar algún tiempo dependiendo del tamaño de los discos y de la cantidad de datos.
+
+   ```bash
+   watch -n 1 cat /proc/mdstat
+   ```
+
+   Presiona `Ctrl+C` para salir una vez que el proceso de expansión haya finalizado.
+
+6. **Confirmar la nueva configuración**  
+   Una vez completado el proceso, verifica que el RAID ha sido ampliado correctamente.
+
+   ```bash
+   sudo mdadm --detail /dev/md0
+   ```
+
+   Deberías ver el nuevo disco añadido como parte activa del arreglo y el espacio total disponible reflejando la capacidad adicional.
+
+### Consideraciones adicionales
+
+- **Tiempo de reconstrucción**: La expansión del RAID puede tardar bastante tiempo, durante el cual el rendimiento del sistema podría verse afectado.
+- **Pruebas regulares**: Después de cualquier modificación en el RAID, asegúrate de hacer pruebas periódicas para verificar la integridad del arreglo.
+- **Copia de seguridad**: Siempre es recomendable tener una copia de seguridad antes de realizar cambios en un RAID.
 
 
 ---
-
 
 ## Conclusión
 
@@ -632,3 +701,9 @@ Has aprendido a configurar RAID 5 y RAID 6 en AlmaLinux utilizando `mdadm`. Esta
 Has configurado con éxito alertas de correo electrónico para el monitoreo de tus arreglos RAID en AlmaLinux. Esta configuración te permitirá recibir notificaciones inmediatas en caso de fallos, lo que es crucial para mantener la integridad y disponibilidad de tus datos.
 
 Añadir un disco de repuesto a tu arreglo RAID es una práctica recomendada para mejorar la resiliencia y disponibilidad de tus datos. Con `mdadm`, puedes gestionar de forma flexible los discos activos y de repuesto en tus arreglos RAID, permitiendo una respuesta automática ante fallos y minimizando el tiempo de inactividad.
+
+---
+
+# Bibliografía
+
+[Guía RAID de RedHat 9](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_storage_devices/managing-raid_managing-storage-devices#creating-a-software-raid-on-an-installed-system_managing-raid)
