@@ -166,6 +166,9 @@ Genera claves SSH en la máquina cliente:
 ssh-keygen
 ```
 
+- El proceso te preguntará dónde guardar la clave, pulsa enter para guardarla en la ubicación sugerida por defecto.
+- Después, te preguntará una clave para proteger tu clave privada. Habitualmente escribiríamos una contraseña, pero en este caso queremos poder usarla sin intervención humana. Así que dejaremos esta contraseña en blanco, pulsando enter.
+
 Copia la clave pública al servidor:
 
 ```sh
@@ -242,11 +245,11 @@ Añade la siguiente línea al final del archivo:
 ### Preguntas adicionales
 
 - ¿Qué configuración necesitas para que la tarea se ejecute el primer día de cada mes a las 00:30?
+
+Para configurar la periodicidad de la tarea puedes usar [esta página](https://crontab.guru/examples.html)
+
 - ¿Cuántas copias diferenciales se guardan en este sistema? ¿Qué hace la opción `--backup-dir`?
 
----
-
-Con esta actualización, la práctica debería funcionar sin problemas en **AlmaLinux 9**.
 
 ## Bibliografía
 
