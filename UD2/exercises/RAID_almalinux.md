@@ -706,4 +706,6 @@ Añadir un disco de repuesto a tu arreglo RAID es una práctica recomendada para
 
 # Bibliografía
 
-[Guía RAID de RedHat 9](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_storage_devices/managing-raid_managing-storage-devices#creating-a-software-raid-on-an-installed-system_managing-raid)
+- [Guía RAID de RedHat 9](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_storage_devices/managing-raid_managing-storage-devices#creating-a-software-raid-on-an-installed-system_managing-raid)
+
+- [Guía RAID mdadm Debian](https://www.digitalocean.com/community/tutorials/how-to-create-raid-arrays-with-mdadm-on-debian-9#creating-a-complex-raid-10-array)

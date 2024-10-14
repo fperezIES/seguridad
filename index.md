@@ -26,11 +26,15 @@ Ejercicios entregables:
 
 Ejercicios opcionales:
 
-- [OPT.2.1. RAID_almalinux](UD2/exercises/RAID_almalinux.md)
+- [OPT.2.1 RAID AlmaLinux](UD2/exercises/RAID_almalinux.md)
+- [OPT.2.1 RAID Windows 11](UD2/exercises/RAID_windows11.md)
+- [OPT.2.2 Clonezilla](UD2/exercises/clonezilla.md)
 
 Ejercicios entregables:
 
 - [T2.1. RAID 5 con TrueNAS, NAS y SAN](UD2/exercises/TrueNAS_RAID5.md)
+
+- [T2.2 Backup con rsync](UD2/exercises/backup_rsync.md)
 
 ## UD3 - Criptografía
 
