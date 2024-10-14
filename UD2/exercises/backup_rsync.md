@@ -234,6 +234,8 @@ Configura cron para que el script se ejecute automáticamente cada día a las 12
 crontab -e
 ```
 
+Se abrirá un editor 'vi', puedes consultar cómo usarlo [aquí](https://www.dc.fi.udc.es/~afyanez/info-vi/fun.html)
+
 Añade la siguiente línea al final del archivo:
 
 ```sh
@@ -279,8 +281,12 @@ Configuración de SSH con certificados:
 
 Cron y crontab:
 
-* [Cron y crontab:](https://www.redeszone.net/2017/01/09/utilizar-cron-crontab-linux-programar-tareas/
-https://crontab.guru/)
+* [Cron y crontab:](https://www.redeszone.net/2017/01/09/utilizar-cron-crontab-linux-programar-tareas/)
+* [Crontab guru](https://crontab.guru/)
+
+Uso de vi:
+
+- [Uso del editor vi](https://www.dc.fi.udc.es/~afyanez/info-vi/fun.html)
 
 Formato de fechas:
 
