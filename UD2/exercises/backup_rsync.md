@@ -228,6 +228,21 @@ Ejecuta el script manualmente para verificar que funciona:
 
 ### Automatización con cron
 
+
+Ahora que tenemos un script capaz de realizar copias de seguridad, vamos a configurar nuestro servidor Linux para que lo ejecute periódicamente y, de este modo, automatizar el proceso de copias de seguridad.
+
+#### ¿Qué es Cron?
+
+El nombre _cron_ proviene del griego _chronos_, que significa "tiempo". En el sistema operativo Linux, cron es un administrador de procesos en segundo plano **(demonio)** que ejecuta scripts o procesos a intervalos regulares (por ejemplo, cada minuto, día, semana o mes). Los procesos que deben ejecutarse y la hora en que deben hacerlo se especifican en el fichero _crontab_.
+
+#### ¿Qué es Crontab?
+
+_Crontab_ es un archivo de texto simple que almacena una lista de comandos que se ejecutarán en un momento especificado por el usuario. _Crontab_ verifica la fecha y hora en que se debe ejecutar el script o comando, comprueba los permisos de ejecución y lo ejecuta en segundo plano. Cada usuario puede tener su propio archivo _crontab_. De hecho, el archivo `/etc/crontab` es el _crontab_ del usuario root. Cuando los usuarios normales (o incluso root) desean generar su propio archivo _crontab_, se utiliza el comando _crontab_.
+
+_Crontab_ es la forma más sencilla de gestionar tareas en cron en sistemas multiusuario, tanto para usuarios comunes como para el administrador (root).
+
+#### Automatización de la ejecución del script
+
 Configura cron para que el script se ejecute automáticamente cada día a las 12 de la noche. Para ello, edita el crontab:
 
 ```sh
