@@ -85,6 +85,28 @@ Consulta el manual de `rsync` con:
 man rsync
 ```
 
+También lo tienes disponible en [esta web](https://man7.org/linux/man-pages/man1/rsync.1.html).
+
+
+### Importancia de la barra `/` en `rsync`
+
+El comando `rsync` distingue si la ruta del directorio origen termina o no con una barra `/`:
+
+- **Sin barra final**: 
+   ```sh
+   rsync -avz foo:src/bar /data/tmp
+   ```
+   Esto copia todos los archivos de `src/bar` (en la máquina `foo`) a un nuevo directorio `bar` dentro de `/data/tmp` en la máquina local.
+
+- **Con barra final**: 
+   ```sh
+   rsync -avz foo:src/bar/ /data/tmp
+   ```
+   Aquí, **no se crea el directorio `bar` dentro de `/data/tmp`**, solo se copia el contenido de `bar` directamente a `/data/tmp`.
+
+En resumen, la barra `/` al final indica que se copiará el contenido del directorio, no el directorio en sí, pero los atributos del directorio se conservan en ambos casos.
+
+
 ### Prueba básica de rsync
 
 1. En la máquina cliente, crea dos directorios, `origen` y `destino`, dentro de tu carpeta personal:
@@ -125,6 +147,7 @@ Instala el **servidor SSH** en la máquina servidor:
 
 ```sh
 sudo dnf install openssh-server -y
+sudo systemctl start sshd
 ```
 
 Copia la carpeta `/home/origen` de la máquina cliente al servidor mediante SSH:
@@ -182,6 +205,24 @@ Ejecuta el script manualmente para verificar que funciona:
 ./copia_seguridad.sh
 ```
 
+#### Explicación del script
+
+1. **`DAY=$(date +%A)`**:
+    
+    - Almacena el día de la semana actual (por ejemplo, lunes, martes, etc.) en la variable `DAY`. El comando `date +%A` devuelve el nombre completo del día de la semana.
+2. **`ssh usuario@192.168.0.37 "if [ -e ~/destino/$DAY ]; then rm -r ~/destino/$DAY ; fi"`**:
+    
+    - A través de una conexión SSH, accede al servidor con la IP `192.168.0.37` usando el usuario `usuario`.
+    - Una vez dentro, verifica si existe una carpeta llamada como el día actual dentro de `~/destino`. Si esa carpeta existe (`if [ -e ~/destino/$DAY ];`), la elimina con `rm -r` (borrado recursivo de directorios).
+3. **`rsync -a --delete --quiet --backup --backup-dir=~/destino/$DAY ~/origen usuario@192.168.0.37:~/destino`**:
+    
+    - **`rsync`** es una herramienta para sincronizar archivos y directorios de manera eficiente.
+    - **`-a`**: Activa el modo archivo, lo que preserva los permisos, fechas y enlaces simbólicos.
+    - **`--delete`**: Elimina en el destino cualquier archivo que ya no exista en el directorio de origen.
+    - **`--quiet`**: Ejecuta el comando en modo silencioso (sin mostrar detalles en la terminal).
+    - **`--backup`**: Hace una copia de seguridad de los archivos que van a ser sobrescritos o eliminados.
+    - **`--backup-dir=~/destino/$DAY`**: Los archivos que van a ser reemplazados o eliminados se almacenan en un directorio llamado como el día de la semana (`~/destino/$DAY`) en el servidor remoto.
+
 ### Automatización con cron
 
 Configura cron para que el script se ejecute automáticamente cada día a las 12 de la noche. Para ello, edita el crontab:
@@ -211,29 +252,33 @@ Con esta actualización, la práctica debería funcionar sin problemas en **Alma
 
 Página del manual:
 
-* [Manual rsync(https://man7.org/linux/man-pages/man1/rsync.1.html)
+* [Manual rsync](https://man7.org/linux/man-pages/man1/rsync.1.html)
 
 Actualizar nombre de máquina:
 
-* https://vitux.com/debian-10-hostname/
-* https://www.vultr.com/docs/how-to-change-your-hostname-on-debian
+* [Cambio de nombre de máquina RedHat](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_networking/assembly_changing-a-hostname_configuring-and-managing-networking#proc_changing-a-hostname-using-nmcli_assembly_changing-a-hostname)
+
+Uso de SSH
+
+
 
 Uso de Rsync:
 
-* https://wiki.archlinux.org/index.php/Rsync_(Espa%C3%B1ol)
-* https://www.linuxtotal.com.mx/index.php?cont=rsync-manual-de-uso
-* https://www.jveweb.net/archivo/2011/02/usando-rsync-y-cron-para-automatizar-respaldos-incrementales.html
+* [Manual Rsync Arch](https://wiki.archlinux.org/index.php/Rsync)
+* [Manual Rsync LinuxTotal](https://www.linuxtotal.com.mx/index.php?cont=rsync-manual-de-uso)
+* [Usando rsync y cron para automatizar respaldos incrementales](https://www.jveweb.net/archivo/2011/02/usando-rsync-y-cron-para-automatizar-respaldos-incrementales.html)
 * [Guía DigitalOcean Rsync](https://www.digitalocean.com/community/tutorials/how-to-use-rsync-to-sync-local-and-remote-directories-es)
 
 Configuración de SSH con certificados:
 
-* https://www.digitalocean.com/community/tutorials/como-configurar-claves-de-ssh-en-debian-9-es
+* [Uso de SSH](https://www.server-world.info/en/note?os=AlmaLinux_9&p=ssh&f=4)
+* [SSH con certificados en Debian 9](https://www.digitalocean.com/community/tutorials/como-configurar-claves-de-ssh-en-debian-9-es)
 
 Cron y crontab:
 
-* https://www.redeszone.net/2017/01/09/utilizar-cron-crontab-linux-programar-tareas/
-https://crontab.guru/
+* [Cron y crontab:](https://www.redeszone.net/2017/01/09/utilizar-cron-crontab-linux-programar-tareas/
+https://crontab.guru/)
 
 Formato de fechas:
 
-* https://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/
+* [Formato de fechas](https://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/)
