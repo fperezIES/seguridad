@@ -6,7 +6,7 @@ En esta práctica vamos a familiarizarnos con las características de las unidad
 Después leeremos algunas de las conclusiones obtenidas por un estudio sobre fallos de discos duros publicado por Google.  
 Finalmente tendrás que contestar a una serie de preguntas relacionadas con unidades de almacenamiento buscando información en Internet.
 
-![Discos durtos](img/smart/hdd.png){width=30%}
+![Discos durtos](img/smart/HDD.png){width=30%}
 
 
 ## S.M.A.R.T

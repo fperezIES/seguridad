@@ -223,6 +223,7 @@ Uso de Rsync:
 * https://wiki.archlinux.org/index.php/Rsync_(Espa%C3%B1ol)
 * https://www.linuxtotal.com.mx/index.php?cont=rsync-manual-de-uso
 * https://www.jveweb.net/archivo/2011/02/usando-rsync-y-cron-para-automatizar-respaldos-incrementales.html
+* [Guía DigitalOcean Rsync](https://www.digitalocean.com/community/tutorials/how-to-use-rsync-to-sync-local-and-remote-directories-es)
 
 Configuración de SSH con certificados:
 

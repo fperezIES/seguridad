@@ -1,6 +1,6 @@
 # Práctica 2: RAID en Windows10 Pro
 
-![Unidades de disco](img/raid/discoswin.png){width=40%}
+![Unidades de disco](img/raid/discosWin.png){width=40%}
 
 En esta práctica vamos a crear unidades RAID en Windows 10.
 
