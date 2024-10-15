@@ -22,7 +22,7 @@ Ejercicios entregables:
 - [2.1 Seguridad física CPD](UD2/1.fisica_CPD.md)
 - [2.2 Almacenamiento de la información](UD2/2.almacenamiento.md)
 - [2.3 Copias de seguridad](UD2/3.backup.md)
-- Eliminación y recuperación de datos
+- [2.4 Borrado seguro y recuperación de datos](UD2/4.borradoyrecuperacion.md)
 
 Ejercicios opcionales:
 
@@ -33,8 +33,8 @@ Ejercicios opcionales:
 Ejercicios entregables:
 
 - [T2.1. RAID 5 con TrueNAS, NAS y SAN](UD2/exercises/TrueNAS_RAID5.md)
-
 - [T2.2 Backup con rsync](UD2/exercises/backup_rsync.md)
+- [T2.3 Recuperación y borrado seguro de ficheros](UD2/exercises/borrado_seguro.md)
 
 ## UD3 - Criptografía
 
