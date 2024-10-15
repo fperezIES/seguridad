@@ -1,7 +1,3 @@
-Aquí tienes el enunciado actualizado con **WebDAV** como destino y una descripción sobre su uso:
-
----
-
 ## Práctica: Configuración y Uso de Duplicati con TrueNAS como Destino de Copias de Seguridad
 
 ### Objetivos:
