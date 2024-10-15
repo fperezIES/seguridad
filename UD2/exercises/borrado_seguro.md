@@ -29,6 +29,7 @@ La práctica se divide en dos partes:
 - **Hiren's BootCD (HBCD)** descargado desde [hirensbootcd.org](https://www.hirensbootcd.org/).
 - **Recuva**, herramienta de recuperación de datos incluida en HBCD.
 - **Segunda unidad de disco virtual** añadida a tu máquina virtual para almacenar datos recuperados.
+- [Ficheros de imágenes](https://drive.google.com/file/d/1woS4RdwI2bYDDV7aSrlYSPVmO8EOTCoj/view?usp=sharing) comprimidos en `.zip` para usar como ficheros de prueba en la práctica
 
 ### Conceptos Clave
 
