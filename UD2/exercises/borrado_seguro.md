@@ -29,7 +29,7 @@ La práctica se divide en dos partes:
 - **Hiren's BootCD (HBCD)** descargado desde [hirensbootcd.org](https://www.hirensbootcd.org/).
 - **Recuva**, herramienta de recuperación de datos incluida en HBCD.
 - **Segunda unidad de disco virtual** añadida a tu máquina virtual para almacenar datos recuperados.
-- [Ficheros de imágenes](https://drive.google.com/file/d/1woS4RdwI2bYDDV7aSrlYSPVmO8EOTCoj/view?usp=sharing) comprimidos en `.zip` para usar como ficheros de prueba en la práctica
+- Descarga estos [ficheros de imágenes](https://drive.google.com/file/d/1woS4RdwI2bYDDV7aSrlYSPVmO8EOTCoj/view?usp=sharing) comprimidos en `.zip` para usar como ficheros de prueba en la práctica
 
 ### Conceptos Clave
 
@@ -44,13 +44,14 @@ La práctica se divide en dos partes:
    - En la configuración de la máquina virtual, agrega una nueva unidad de disco duro virtual.
    - Inicia Windows y formatea la nueva unidad:
      - Ve a **Administración de discos** (`diskmgmt.msc`).
-     - Inicializa y formatea la nueva unidad asignándole una letra de unidad (por ejemplo, `D:`).
+     - Inicializa y formatea la nueva unidad asignándole una letra de unidad (por ejemplo, `E:`).
+     - Para que se pueda realizar la práctica la unidad no debe estar cifrada con `bitlocker`. Si es necesario desactiva el cifrado de `bitlocker` de la nueva unidad.
 
 #### 2. Creación y Borrado de Ficheros
 
-1. **Crear una Carpeta con Tu Apellido**:
-   - En la carpeta `Documentos`, crea una nueva carpeta llamada con tu **apellido**.
-   - **Captura de pantalla**: Muestra la carpeta creada en `Documentos`.
+1. **Crear una Carpeta con Tu Apellido en la nueva unidad**:
+   - En la Nueva unidad `E:`, crea una nueva carpeta llamada con tu **apellido**.
+   - **Captura de pantalla**: Muestra la carpeta creada en la unidad`E:`.
 
 2. **Copiar Ficheros**:
    - Descomprime el archivo `.zip` proporcionado, que contiene varias imágenes.
@@ -69,13 +70,14 @@ La práctica se divide en dos partes:
 1. **Arrancar con Hiren's BootCD (HBCD)**:
    - Configura la máquina virtual para arrancar desde el ISO de HBCD.
    - Inicia HBCD y selecciona el modo **Mini Windows XP** o el entorno disponible.
+   - Si tienes problemas arrancando desde el CD, una opción es desconectar el disco duro principal de la máquina.
 
 2. **Ejecutar Recuva**:
    - En HBCD, ve al menú de utilidades y ejecuta **Recuva**.
 
 3. **Configuración de Recuva**:
    - Al iniciar Recuva, selecciona la opción para buscar **Todos los archivos**.
-   - Indica que la ubicación de los archivos es en una **ubicación específica** y selecciona la unidad donde estaban los ficheros borrados (generalmente `C:`).
+   - Indica que la ubicación de los archivos es en una **ubicación específica** y selecciona la unidad donde estaban los ficheros borrados.
 
 4. **Iniciar el Escaneo**:
    - Inicia el proceso de búsqueda de ficheros borrados.
@@ -90,7 +92,7 @@ La práctica se divide en dos partes:
 
 6. **Recuperar los Archivos `.jpg`**:
    - Selecciona los archivos `.jpg` que Recuva ha encontrado.
-   - Haz clic en **Recuperar** y elige la **segunda unidad de disco** (`D:`) para guardar los archivos recuperados.
+   - Haz clic en **Recuperar** y elige  **otra unidad de disco** para guardar los archivos recuperados. Podría ser una unidad USB, o puedes guardarlo en el escritorio (se guardará en RAM y por lo tanto no permanerán tras el apagado)
 
 #### 4. Evaluación de la Recuperación
 
@@ -138,7 +140,7 @@ La práctica se divide en dos partes:
      - **Task Type**: Selecciona `Run immediately` (Ejecutar inmediatamente).
      - Haz clic en `Add Data` para añadir los datos a borrar.
        - **Target Type**: Elige `Files in Folder`.
-       - **Folder**: Selecciona la carpeta con tu apellido en `Documentos`.
+       - **Folder**: Selecciona la carpeta con tu apellido que contiene los datos.
        - **Include Subfolders**: Asegúrate de que esta opción esté marcada si hay subcarpetas.
    - **Captura de pantalla**: Muestra la configuración de la tarea en Eraser.
 
