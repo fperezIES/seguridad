@@ -26,8 +26,8 @@ Ejercicios entregables:
 
 Ejercicios opcionales:
 
-- [OPT.2.1 RAID AlmaLinux](UD2/exercises/RAID_almalinux.md)
-- [OPT.2.1 RAID Windows 11](UD2/exercises/RAID_windows11.md)
+- [OPT.2.1.1 RAID AlmaLinux](UD2/exercises/RAID_almalinux.md)
+- [OPT.2.1.2 RAID Windows 11](UD2/exercises/RAID_windows11.md)
 - [OPT.2.2 Clonezilla](UD2/exercises/clonezilla.md)
 
 Ejercicios entregables:
