@@ -82,12 +82,13 @@ h5, h6 {
 }
 
 /* Márgenes comunes */
-p, blockquote, ul, ol, dl, table, pre {
+p, blockquote, table, pre {
   margin: 17px 0;
 }
 
 /* Estilos de las listas */
-ul, ol {
+ul, ol, dl {
+  margin: 3px 0;
   padding-left: 30px;
 }
 ul :first-child, ol :first-child {
