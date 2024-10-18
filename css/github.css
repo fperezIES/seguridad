@@ -60,6 +60,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Tamaños de encabezado */
 h1 {
   font-size: 28px;
+  border-bottom: 1px solid #cccccc;
   color: black;
 }
 h2 {
