@@ -5,7 +5,7 @@
     "git.ignoreMissingGitWarning": true,
     "extensions.ignoreRecommendations": false,
 
-    "markdown.styles":["css/GitHub2.css", "css/estilos.css"],
+    "markdown.styles":["css/github.css", "css/normal.css"],
 
     // Page Option. Border Top. units: mm, cm, in, px
     "markdown-pdf.margin.top": "2cm",
