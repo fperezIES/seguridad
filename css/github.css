@@ -21,7 +21,9 @@ body > *:last-child {
 
 /* Estilos de los enlaces */
 a {
-  color: var(--main-link-color, #4183C4);
+  color: var(--main-link-color, #0366d6);
+  text-decoration: none;
+  background-color: transparent;
 }
 a.absent {
   color: var(--error-color, #cc0000);
@@ -60,12 +62,12 @@ h1, h2, h3, h4, h5, h6 {
 /* Tamaños de encabezado */
 h1 {
   font-size: 28px;
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid #eaecef;
   color: black;
 }
 h2 {
   font-size: 24px;
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid #eaecef;
   color: black;
 }
 h3 {
@@ -123,6 +125,8 @@ img {
   height: auto;
   object-fit: cover; /* Mejora para evitar deformaciones */
 }
+
+
 
 /* Código */
 code, tt {
