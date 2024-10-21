@@ -1,5 +1,5 @@
 
-Ejercicio: Fortaleza de contraseñas en Linux
+# Ejercicio: Fortaleza de contraseñas en Linux
 
 ## Introducción
 
@@ -76,11 +76,17 @@ Al igual que en otras distribuciones Linux, AlmaLinux almacena la información d
 
 ## Instalación de John the Ripper en AlmaLinux
 
-1. Antes de instalar cualquier software, actualizamos la información de los repositorios con:
+1. Descargamos y descomprimimos el código:
 
-   ```sh
-   sudo dnf update
-   ```
+```sh
+wget http://www.openwall.com/john/j/john-1.9.0.tar.xz
+tar xvfJ john-1.9.0.tar.xz
+cd john-1.9.0/src
+make clean linux-x86-64
+cd ../run/
+./john --test
+```
+
 
 2. Instalamos **John the Ripper** desde los repositorios de AlmaLinux:
 
@@ -145,9 +151,12 @@ Es importante recordar que el uso de **John the Ripper** para crackear contrase�
 ## Bibliografía
 
 - [Página oficial de John the Ripper password Cracker](https://www.openwall.com/john/)
+- [Documentación GitHub Jtr](https://github.com/openwall/john/tree/bleeding-jumbo/doc)
 - [Tutorial de uso de RedesZone.net](https://www.redeszone.net/seguridad-informatica/john-the-ripper/)
 - [Tutorial de uso de FreeCodeCamp](https://www.freecodecamp.org/news/crack-passwords-using-john-the-ripper-pentesting-tutorial/)
 - [Formato de shadow](https://linuxize.com/post/etc-shadow-file/)
 
-
+<!--
+https://gist.github.com/goffinet/83565ebec963fed0c74d
+-->
 
