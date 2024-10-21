@@ -1,6 +1,6 @@
 # Copias de seguridad con rsync
 
-![Logo rsync](img/rsync/synclogo.jpg){:style="width: 30%;" class="center"}
+![Logo rsync](img/rsync/synclogo.jpg){:style="width: 50%;" class="center"}
 
 La utilidad `rsync` es una herramienta muy versátil para hacer copias de archivos. Permite mantener directorios duplicados transmitiendo solamente los cambios que se han producido desde la última copia. Cuando un archivo ha sido modificado, solamente se transmiten los bloques de datos que contienen los cambios, no el archivo entero. De esta forma, se ahorran recursos de red y se disminuye el tiempo de copia.
 
