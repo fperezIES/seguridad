@@ -48,8 +48,8 @@ A continuación, repasamos algunos comandos útiles que utilizaremos durante la 
 Al igual que en otras distribuciones Linux, AlmaLinux almacena la información de usuarios y contraseñas en los archivos `/etc/passwd` y `/etc/shadow`. Veamos en detalle el contenido y propósito de estos archivos.
 
 1. Crea los siguientes usuarios con las contraseñas indicadas:
-   - Usuario **pablo** con contraseña **123**.
-   - Usuario **pedro** con contraseña **abc**.
+   - Usuario **pablo** con contraseña **123456**.
+   - Usuario **pedro** con contraseña **pedro123**.
 
    Estos usuarios tienen contraseñas comunes y vulnerables, lo que nos permitirá probar JtR más fácilmente.
 
@@ -76,30 +76,25 @@ Al igual que en otras distribuciones Linux, AlmaLinux almacena la información d
 
 ## Instalación de John the Ripper en AlmaLinux
 
+No disponemos de un paquete, así que tenemos que descargar el código y compilarlo.
+
 1. Descargamos, descomprimimos, compilamos y probamos el código:
 
 ```sh
 # Descargamos desde repositorio oficial
-git clone --depth=1 git://github.com/openwall/john
+git clone --depth=1 https://github.com/openwall/john
 # Instalamos requisitos
 sudo dnf install -y openssl-devel
 sudo dnf install make
 sudo dnf groupinstall "Development Tools"
 # Compilamos el código
-cd john
+cd john/src
 ./configure
 make -j
 # Vamos a probar si funciona
 cd ../run/
 ./john --test
 ```
-
-
-2. Instalamos **John the Ripper** desde los repositorios de AlmaLinux:
-
-   ```sh
-   sudo dnf install john
-   ```
 
 3. Verificamos el rendimiento de la herramienta en nuestra máquina con el siguiente comando:
 
@@ -113,13 +108,13 @@ cd ../run/
 
 ## Crackeando contraseñas
 
-Para crackear las contraseñas de los usuarios, primero combinaremos los contenidos de `/etc/passwd` y `/etc/shadow` en un único archivo con el comando `unshadow`:
+Para crackear las contraseñas de los usuarios, primero combinaremos los contenidos de `/etc/passwd` y `/etc/shadow` en un único archivo con el comando `unshadow`, que encontrarás en la misma carpeta que el comando `john`:
 
 ```sh
-sudo unshadow /etc/passwd /etc/shadow > hashes.txt
+sudo ./unshadow /etc/passwd /etc/shadow > hashes.txt
 ```
 
-1. Ejecuta el comando y verifica el contenido del archivo `mispasswords` para los usuarios `pablo` y `pedro`.
+1. Ejecuta el comando y verifica el contenido del archivo `hashes.txt` para los usuarios `pablo` y `pedro`, edita el fichero y deja únicamente las líneas de los usuarios que te interesan.
 
 2. Inicia el proceso de cracking con **John the Ripper**:
 
@@ -129,7 +124,7 @@ sudo unshadow /etc/passwd /etc/shadow > hashes.txt
 
    Este comando ejecuta varios modos de cracking de contraseñas de forma secuencial.
 
-3. Si la contraseña de un usuario es débil, **John the Ripper** la descifrará rápidamente. Si es fuerte, puede tardar más tiempo.
+3. Si la contraseña de un usuario es débil, **John the Ripper** la descifrará rápidamente. Si es fuerte, tardará más tiempo.
 
 ### Consultar las contraseñas crackeadas
 
@@ -159,11 +154,13 @@ Es importante recordar que el uso de **John the Ripper** para crackear contrase�
 
 - [Página oficial de John the Ripper password Cracker](https://www.openwall.com/john/)
 - [Página the GitHub de John the Ripper](https://github.com/openwall/john)
-- [Documentación GitHub John the Ripper](https://github.com/openwall/john/tree/bleeding-jumbo/doc)
-	- [Instrucciones de instalación](https://github.com/openwall/john/blob/bleeding-jumbo/doc/INSTALL)
+	- [Documentación GitHub John the Ripper](https://github.com/openwall/john/tree/bleeding-jumbo/doc)
+		- [Instrucciones de instalación](https://github.com/openwall/john/blob/bleeding-jumbo/doc/INSTALL)
+- [Tutorial Jtr ccatyberciti](https://www.cyberciti.biz/faq/unix-linux-password-cracking-john-the-ripper/)
 - [Tutorial de uso de RedesZone.net](https://www.redeszone.net/seguridad-informatica/john-the-ripper/)
 - [Tutorial de uso de FreeCodeCamp](https://www.freecodecamp.org/news/crack-passwords-using-john-the-ripper-pentesting-tutorial/)
 - [Formato de shadow](https://linuxize.com/post/etc-shadow-file/)
+- [Chuleta de uso de Git](https://education.github.com/git-cheat-sheet-education.pdf)
 
 <!--
 https://gist.github.com/goffinet/83565ebec963fed0c74d
