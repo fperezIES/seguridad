@@ -39,13 +39,13 @@ Ejercicios entregables:
 
 ## UD3 - Criptografía
 
-- [1. Introducciónn a la criptografía](UD3/1.introduccion.md)
-- Funciones Hash
+- [3.1 Introducciónn a la criptografía](UD3/1.introduccion.md)
+	- Funciones Hash
 - Cifrado simétrico
 - Cifrado asimétrico
-- Cifrado híbrido
-- Firma digital
-- Certificados digitales: Infraestructura de clave pública
+	- Cifrado híbrido
+	- Firma digital
+	- Certificados digitales: Infraestructura de clave pública
 
 
 
