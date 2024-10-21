@@ -76,13 +76,20 @@ Al igual que en otras distribuciones Linux, AlmaLinux almacena la información d
 
 ## Instalación de John the Ripper en AlmaLinux
 
-1. Descargamos y descomprimimos el código:
+1. Descargamos, descomprimimos, compilamos y probamos el código:
 
 ```sh
-wget http://www.openwall.com/john/j/john-1.9.0.tar.xz
-tar xvfJ john-1.9.0.tar.xz
-cd john-1.9.0/src
-make clean linux-x86-64
+# Descargamos desde repositorio oficial
+git clone --depth=1 git://github.com/openwall/john
+# Instalamos requisitos
+sudo dnf install -y openssl-devel
+sudo dnf install make
+sudo dnf groupinstall "Development Tools"
+# Compilamos el código
+cd john
+./configure
+make -j
+# Vamos a probar si funciona
 cd ../run/
 ./john --test
 ```
@@ -151,7 +158,9 @@ Es importante recordar que el uso de **John the Ripper** para crackear contrase�
 ## Bibliografía
 
 - [Página oficial de John the Ripper password Cracker](https://www.openwall.com/john/)
-- [Documentación GitHub Jtr](https://github.com/openwall/john/tree/bleeding-jumbo/doc)
+- [Página the GitHub de John the Ripper](https://github.com/openwall/john)
+- [Documentación GitHub John the Ripper](https://github.com/openwall/john/tree/bleeding-jumbo/doc)
+	- [Instrucciones de instalación](https://github.com/openwall/john/blob/bleeding-jumbo/doc/INSTALL)
 - [Tutorial de uso de RedesZone.net](https://www.redeszone.net/seguridad-informatica/john-the-ripper/)
 - [Tutorial de uso de FreeCodeCamp](https://www.freecodecamp.org/news/crack-passwords-using-john-the-ripper-pentesting-tutorial/)
 - [Formato de shadow](https://linuxize.com/post/etc-shadow-file/)
