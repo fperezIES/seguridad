@@ -90,17 +90,11 @@ sudo dnf groupinstall "Development Tools"
 # Compilamos el código
 cd john/src
 ./configure
-make -j
-# Vamos a probar si funciona
+make
+# Comprobamos si funciona: hacemos pruebas de rendimiento
 cd ../run/
 ./john --test
 ```
-
-3. Verificamos el rendimiento de la herramienta en nuestra máquina con el siguiente comando:
-
-   ```sh
-   sudo john --test
-   ```
 
    > **Tareas**:
    > 
@@ -119,7 +113,7 @@ sudo ./unshadow /etc/passwd /etc/shadow > hashes.txt
 2. Inicia el proceso de cracking con **John the Ripper**:
 
    ```sh
-   sudo john hashes.txt
+   sudo ./john hashes.txt
    ```
 
    Este comando ejecuta varios modos de cracking de contraseñas de forma secuencial.
@@ -131,7 +125,7 @@ sudo ./unshadow /etc/passwd /etc/shadow > hashes.txt
 Para ver las contraseñas que ha descifrado John the Ripper, utilizamos el siguiente comando:
 
 ```sh
-sudo john --show hashes.txt
+sudo ./john --show hashes.txt
 ```
 
 > **Tareas**:
