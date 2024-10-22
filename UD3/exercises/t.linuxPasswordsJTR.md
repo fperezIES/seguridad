@@ -56,24 +56,48 @@ Al igual que en otras distribuciones Linux, AlmaLinux almacena la información d
 2. Verifica los usuarios existentes mostrando el contenido del archivo `/etc/passwd`:
 
    ```sh
-   cat /etc/passwd
+   sudo cat /etc/passwd
+   sudo cat /etc/shadow
    ```
+
+El fichero  `/etc/shadow` tiene 9 campos separados por `:`.
+
+`User : Encrypted Password : Date of last change password : Min. password age : Max. password age : Password warning period : Password interactive period : Account expiration date : Reserved field`
+
+En el campo ***encrypted Password*** (segundo campo) podemos distinguir separado por  `$`:
+
+`$ id $ Salt $ Encrypted  Password`
+
+
+|  **Id** 	|  **Hash Algorithm Name**	|   **Length**	|
+|---	|---	|---	|
+|  1 	|   MD5	|  	22 characters 	|
+|  2a 	|  Blow Fish	 	|   	|
+|  5 	|   SHA 256 (since glibc 2.7)	|  43 characters 	|
+|  6 	|   SHA 512 (since glibc 2.7)	|   86 characters	|
+ 
+El `Salt` y el  `Encrypted Password` están formados por **[a-z A-Z 0-9 . /]**
+
+
 
    > **Tareas**:
    > 
    > - Muestra una captura en la que se vea que los usuarios creados aparecen en el archivo `/etc/passwd`.
    > - Investiga el significado de cada campo en una línea del archivo `/etc/passwd`.
-   > - Verifica los permisos de los archivos `/etc/passwd` y `/etc/shadow` con el comando `ls -l`. Explica las diferencias en los permisos y el motivo de su existencia.
-   > - Muestra una captura del archivo `/etc/shadow` para explicar cómo se almacenan las contraseñas (formato hash). ¿Qué tipo de cifrado se utiliza? (Apoya tu respuesta con bibliografía).
+   > - Verifica los permisos de los archivos `/etc/passwd` y `/etc/shadow` con el comando `ls -l`. **Explica las diferencias en los permisos**.
+   > - Muestra una captura del archivo `/etc/shadow` que almacena las contraseñas. ¿Qué tipo de hash se utiliza? 
 
-3. **Hash de contraseñas**: Investiga qué es una función **hash** y su utilidad en la seguridad de contraseñas.
 
-4. **Rainbow Tables**: ¿Qué son las **rainbow tables** y cómo pueden utilizarse para descifrar contraseñas?
-
-5. Crea dos usuarios (`user1` y `user2`) con la misma contraseña (`flower`). Verifica si el hash generado para ambos usuarios es el mismo o diferente, y explica por qué ocurre esto.
-
-6. **Salted hash**: Investiga qué es un **salted hash** y por qué es importante en la seguridad de contraseñas.
-
+> **Contesta a las siguientes preguntas:**
+> 
+> 3. **Hash de contraseñas**: Investiga qué es una función **hash** y su utilidad en la seguridad de contraseñas.
+> 
+> 4. **Rainbow Tables**: ¿Qué son las **rainbow tables** y cómo pueden utilizarse para descifrar contraseñas?
+> 
+> 5. Crea dos usuarios (`user1` y `user2`) con la misma contraseña (`flower`). Verifica si el hash generado para ambos usuarios es el mismo o diferente, y explica por qué ocurre esto.
+> 
+> 6. **Salted hash**: Investiga qué es un **salted hash** y por qué es importante en la seguridad de contraseñas.
+> 
 ## Instalación de John the Ripper en AlmaLinux
 
 No disponemos de un paquete pre-compilado en los repositorios de AlmaLinux, así que tenemos que descargar el código y compilarlo nosotros mismos:
@@ -97,7 +121,7 @@ cd ../run/
 
    > **Tareas**:
    > 
-   > - Muestra el rendimiento de diferentes tipos de cifrado en tu máquina.
+   > - Muestra una captura del rendimiento de diferentes tipos de cifrado en tu máquina.
 
 ## Crackeando contraseñas
 
@@ -107,7 +131,7 @@ Para crackear las contraseñas de los usuarios, primero combinaremos los conteni
 sudo ./unshadow /etc/passwd /etc/shadow > unshadowed.txt
 ```
 
-1. Ejecuta el comando y verifica el contenido del archivo `unshadowed.txt` para los usuarios `pablo` y `pedro`, edita el fichero y deja únicamente las líneas de los usuarios que te interesan.
+1. Ejecuta el comando y verifica el contenido del archivo `unshadowed.txt` para los usuarios `pablo` y `pedro`, **edita el fichero y deja únicamente las líneas de los usuarios que te interesan**.
 
 2. Inicia el proceso de cracking con **John the Ripper**:
 
@@ -118,6 +142,29 @@ sudo ./unshadow /etc/passwd /etc/shadow > unshadowed.txt
    Este comando ejecuta varios modos de cracking de contraseñas de forma secuencial. JtR puede funcionar en varios modos, para saber más consultar la documentación y los tutoriales de la bibliografía.
 
 3. Si la contraseña de un usuario es débil, **John the Ripper** la descifrará rápidamente. Si es fuerte, tardará más tiempo.
+
+
+# Ejecución de varias instancias de JtR (opcional)
+
+Aquí tienes el párrafo modificado con la explicación del símbolo `&`:
+
+En este ejemplo, en lugar de utilizar una sola instancia de JtR, vamos a emplear dos. Esto aumentará la eficiencia, ya que JtR, en su compilación por defecto, se ejecuta en un único hilo. Para poder ejecutar dos instancias de JtR simultáneamente, es necesario utilizar el parámetro de sesión.
+
+> Primero, crea dos copias del archivo generado con `unshadow` y edítalas de manera que en cada copia solo quede la línea correspondiente a uno de los usuarios cuya contraseña deseamos descifrar.
+> 
+> A continuación, ejecutaremos un proceso de JtR para cada archivo, asignando una sesión distinta. Para ello, puedes emplear los siguientes comandos:
+> 
+> ```sh
+> sudo john --session=s1 nombreFichero1 &
+> ```
+> 
+> ```sh
+> sudo john --session=s2 nombreFichero2 &
+> ```
+
+ El símbolo `&` al final de cada comando indica que el proceso se ejecutará en segundo plano (background), lo que permite continuar utilizando la terminal mientras JtR sigue funcionando. De esta manera, ambos procesos se ejecutarán simultáneamente sin bloquear el uso de la terminal.
+
+
 
 ### Consultar las contraseñas crackeadas
 
