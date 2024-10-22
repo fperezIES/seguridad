@@ -119,6 +119,7 @@ cd ../run/
 ./john --test
 ```
 
+
    > **Tareas**:
    > 
    > - Muestra una captura del rendimiento de diferentes tipos de cifrado en tu máquina.
