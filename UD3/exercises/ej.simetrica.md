@@ -160,3 +160,11 @@ rm archivo_confidencial.txt.gpg archivo_descifrado.txt
    time gpg --symmetric archivo_grande.mp4
    ```
 
+
+
+# Bibliografía
+
+* [The GNU Privacy Guard ](https://www.gnupg.org/index.es.html)
+* [Gpg4win](https://www.gpg4win.org/download.html)
+* [RFC4880](https://tools.ietf.org/html/rfc4880)
+* [PGP](https://es.wikipedia.org/wiki/Pretty_Good_Privacy)
