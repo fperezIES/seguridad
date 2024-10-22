@@ -41,7 +41,7 @@ Tareas entregables:
 
 - [3.1 Introducciónn a la criptografía](UD3/1.introduccion.md)
 	- Funciones Hash
-- Cifrado simétrico
+- [3.2 Cifrado simétrico](UD3/2.c_simetrica.md)
 - Cifrado asimétrico
 	- Cifrado híbrido
 	- Firma digital
