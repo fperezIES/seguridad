@@ -11,7 +11,7 @@ Repositorio con apuntes para el módulo Seguridad y Alta Disponibilidad del cicl
 * [1.4 Incidentes](UD1/4.incidentes.md)
 * [1.5 Cumplimiento legal](UD1/5.cumplimiento.md)
 
-Ejercicios entregables:
+Tareas entregables:
 
 - [T1.1. Noticias sobre Ciberseguridad](UD1/exercises/4.1rssSeguridad.md)
 - [T1.2. Caso práctico de Plan de seguridad.](UD1/exercises/caso_practico.md)
@@ -24,14 +24,14 @@ Ejercicios entregables:
 - [2.3 Copias de seguridad](UD2/3.backup.md)
 - [2.4 Borrado seguro y recuperación de datos](UD2/4.borradoyrecuperacion.md)
 
-Ejercicios opcionales:
+Tareas opcionales:
 
 - [OPT2.1.1 RAID AlmaLinux](UD2/exercises/RAID_almalinux.md)
 - [OPT2.1.2 RAID Windows 11](UD2/exercises/RAID_windows11.md)
 - [OPT2.2 Clonezilla](UD2/exercises/clonezilla.md)
 - [OPT2.3 Copias de seguridad con Duplicati](UD2/exercises/backup_duplicati.md)
 
-Ejercicios entregables:
+Tareas entregables:
 
 - [T2.1. RAID 5 con TrueNAS, NAS y SAN](UD2/exercises/TrueNAS_RAID5.md)
 - [T2.2 Backup con rsync](UD2/exercises/backup_rsync.md)
@@ -47,7 +47,10 @@ Ejercicios entregables:
 	- Firma digital
 	- Certificados digitales: Infraestructura de clave pública
 
+Tareas opcionales:
 
+Tareas entregables:
+[T3.1 Contraseñas en Linux: JtR](UD3/exercises/t.linuxPasswordsJtR.md)
 
 ## UD4 - Fortificación hosts
 

@@ -34,13 +34,12 @@
         ```
 3. **Comprobar el hash de la ISO usando SHA256**
     
-    - Para obtener el hash de la ISO, usa el siguiente comando:
-                        
-     ```shell        
+    - Para obtener el hash de la ISO, usa el siguiente comando:    
+     ```shell
         Get-FileHash .\nombre-del-archivo.iso -Algorithm SHA256
-        ```
+    ```
         
-        Nota: Reemplaza `nombre-del-archivo.iso` con el nombre real del archivo descargado.
+    Nota: Reemplaza `nombre-del-archivo.iso` con el nombre real del archivo descargado.
 4. **Comparar el hash**
     
     - Compara el valor que has obtenido con el que figura en el archivo `SHA256SUMS` descargado. Si coinciden, la imagen es íntegra y no ha sido alterada.
@@ -78,10 +77,11 @@ Repite el proceso, pero ahora descarga una imagen ISO de Debian, presta atenció
 
 Descarga la ISO desde [el sitio web oficial](https://www.debian.org/download) y comprueba su integridad.
 
-## 2. **Comparación de Hash de Documentos usando Utilidades del Sistema Operativo**
+---
 
-**Objetivo:**
+# 2. **Comparación de Hash de Documentos usando Utilidades del Sistema Operativo**
 
+#### **Objetivo:**
 
 El propósito de este ejercicio es que los estudiantes utilicen las herramientas integradas en los sistemas operativos (Linux y Windows) para calcular y comparar el hash de documentos. Este ejercicio te permitirá observar cómo las funciones hash son extremadamente sensibles a los cambios en los datos de entrada, una característica esencial para garantizar la integridad de los archivos en sistemas de seguridad.
 
@@ -109,8 +109,6 @@ Estás trabajando en un entorno donde se debe garantizar la integridad de archiv
 
 3. **Paso 3:** Guarda el valor hash generado para el archivo `documento_original.txt`.
 
----
-
 ### **Parte 2: Modificación del Documento y Re-cálculo del Hash**
 
 1. **Paso 1:** Abre el archivo `documento_original.txt` y cambia un solo carácter (puedes cambiar una letra o agregar un espacio adicional). Guarda el archivo modificado con el nombre `documento_modificado.txt`.
@@ -132,9 +130,9 @@ Estás trabajando en un entorno donde se debe garantizar la integridad de archiv
 ---
 ### **Preguntas de Reflexión:**
 
-1. ¿Cómo cambió el valor del hash después de modificar un solo carácter en el archivo?
-2. ¿Por qué crees que un pequeño cambio en el archivo genera un valor hash completamente diferente?
-3. ¿Cómo crees que las funciones hash son útiles para detectar modificaciones no autorizadas en los archivos?
+> 1. ¿Cómo cambió el valor del hash después de modificar un solo carácter en el archivo?
+> 2. ¿Por qué crees que un pequeño cambio en el archivo genera un valor hash completamente diferente?
+> 3. ¿Cómo crees que las funciones hash son útiles para detectar modificaciones no autorizadas en los archivos?
 
 
 
