@@ -135,8 +135,8 @@ img {
 
 /* Código */
 code, tt {
-  margin: 0 2px;
-  padding: 0 5px;
+  margin: 0 0px;
+  padding: 0 0px;
   white-space: pre-wrap;
   border: 0px solid #eaeaea;
   background-color: #f8f8f8;
