@@ -104,18 +104,27 @@ El `Salt` y el  `Encrypted Password` están formados por **[a-z A-Z 0-9 . /]**
 
 No disponemos de un paquete pre-compilado en los repositorios de AlmaLinux, así que tenemos que descargar el código y compilarlo nosotros mismos:
 
+Descargamos desde repositorio oficial:
 ```bash
-# Descargamos desde repositorio oficial
 git clone --depth=1 https://github.com/openwall/john
-# Instalamos requisitos
+```
+
+ Instalamos requisitos:
+```bash
 sudo dnf install -y openssl-devel
 sudo dnf install make
 sudo dnf groupinstall "Development Tools"
-# Compilamos el código
+```
+
+Compilamos el código:
+```sh
 cd john/src
 ./configure
 make
-# Comprobamos si funciona: hacemos pruebas de rendimiento
+```
+
+ Comprobamos si funciona: hacemos pruebas de rendimiento:
+```bash
 cd ../run/
 ./john --test
 ```
