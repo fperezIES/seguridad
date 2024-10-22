@@ -54,10 +54,12 @@ Al igual que en otras distribuciones Linux, AlmaLinux almacena la información d
 
 2. Verifica los usuarios existentes mostrando el contenido del archivo `/etc/passwd`:
 
-   ```sh
-   sudo cat /etc/passwd
-   sudo cat /etc/shadow
-   ```
+```sh
+sudo cat /etc/passwd
+sudo cat /etc/shadow
+```
+
+
 
 El fichero  `/etc/shadow` tiene 9 campos separados por `:`.
 
@@ -102,8 +104,7 @@ El `Salt` y el  `Encrypted Password` están formados por **[a-z A-Z 0-9 . /]**
 
 No disponemos de un paquete pre-compilado en los repositorios de AlmaLinux, así que tenemos que descargar el código y compilarlo nosotros mismos:
 
-
-```sh
+```bash
 # Descargamos desde repositorio oficial
 git clone --depth=1 https://github.com/openwall/john
 # Instalamos requisitos
@@ -118,6 +119,7 @@ make
 cd ../run/
 ./john --test
 ```
+
 
 
    > **Tareas**:
