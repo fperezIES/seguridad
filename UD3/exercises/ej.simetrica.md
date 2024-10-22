@@ -16,6 +16,7 @@ La herramienta GPG puede usarse para cifrado simétrico y asimétrico, pero **en
 
 Para realizar esta práctica usaremos un sistema operativo Linux.
 
+En **GPG**, el modo de cifrado se selecciona automáticamente según el algoritmo de cifrado utilizado, y no es algo que se configure explícitamente con GPG. Se usará el **modo CBC** (Cipher Block Chaining) de forma implicita.
 
 ## Objetivo:
 Aprender a utilizar el cifrado simétrico con **GnuPG** para proteger información confidencial. En esta práctica, los alumnos cifrarán, descifrarán y verificarán la integridad de los archivos cifrados.
