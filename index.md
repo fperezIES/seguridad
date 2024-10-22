@@ -50,7 +50,8 @@ Tareas entregables:
 Tareas opcionales:
 
 Tareas entregables:
-[T3.1 Contraseñas en Linux: JtR](UD3/exercises/t.linuxPasswordsJtR.md)
+
+- [T3.1 Contraseñas en Linux: JtR](UD3/exercises/t.linuxPasswordsJtR.md)
 
 ## UD4 - Fortificación hosts
 
