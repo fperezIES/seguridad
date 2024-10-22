@@ -96,7 +96,8 @@ El `Salt` y el  `Encrypted Password` están formados por **[a-z A-Z 0-9 . /]**
 > 5. Crea dos usuarios (`user1` y `user2`) con la misma contraseña (`flower`). Verifica si el hash generado para ambos usuarios es el mismo o diferente, y explica por qué ocurre esto.
 > 
 > 6. **Salted hash**: Investiga qué es un **salted hash** y por qué es importante en la seguridad de contraseñas.
-> 
+
+ 
 ## Instalación de John the Ripper en AlmaLinux
 
 No disponemos de un paquete pre-compilado en los repositorios de AlmaLinux, así que tenemos que descargar el código y compilarlo nosotros mismos:

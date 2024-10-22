@@ -135,6 +135,13 @@ Estás trabajando en un entorno donde se debe garantizar la integridad de archiv
 > 3. ¿Cómo crees que las funciones hash son útiles para detectar modificaciones no autorizadas en los archivos?
 
 
+# Bibliografía
+
+* [The GNU Privacy Guard](https://www.gnupg.org/index.es.html)
+* [Gpg4win](https://www.gpg4win.org/download.html)
+* [RFC4880](https://tools.ietf.org/html/rfc4880)
+* [PGP](https://es.wikipedia.org/wiki/Pretty_Good_Privacy)
+
 
 <!-- 
 ---
