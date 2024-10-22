@@ -1,11 +1,11 @@
 
-# Ejercicio: Fortaleza de contraseñas en Linux
+# Práctica: Fortaleza de contraseñas en Linux
 
 ## Introducción
 
 En esta práctica utilizaremos la herramienta **John the Ripper** (JtR) para comprobar la fortaleza de las contraseñas de las cuentas de usuario en un sistema Linux.
 
-Para entender el proceso, estudiaremos cómo se almacenan las contraseñas y los usuarios en un sistema operativo basado en Linux, y luego utilizaremos JtR para intentar descifrar las contraseñas de usuarios que hemos creado previamente.
+Para entender el proceso, estudiaremos cómo se almacenan las contraseñas y los usuarios en un sistema operativo basado en Linux, y luego utilizaremos JtR para intentar descubrir las contraseñas de usuarios que hemos creado previamente.
 
 ![JtR logo](../img/John-the-Ripper-Logo.jpg){:style="width: 50%;" class="center"}
 
@@ -76,9 +76,8 @@ Al igual que en otras distribuciones Linux, AlmaLinux almacena la información d
 
 ## Instalación de John the Ripper en AlmaLinux
 
-No disponemos de un paquete, así que tenemos que descargar el código y compilarlo.
+No disponemos de un paquete pre-compilado en los repositorios de AlmaLinux, así que tenemos que descargar el código y compilarlo nosotros mismos:
 
-1. Descargamos, descomprimimos, compilamos y probamos el código:
 
 ```sh
 # Descargamos desde repositorio oficial
@@ -105,18 +104,18 @@ cd ../run/
 Para crackear las contraseñas de los usuarios, primero combinaremos los contenidos de `/etc/passwd` y `/etc/shadow` en un único archivo con el comando `unshadow`, que encontrarás en la misma carpeta que el comando `john`:
 
 ```sh
-sudo ./unshadow /etc/passwd /etc/shadow > hashes.txt
+sudo ./unshadow /etc/passwd /etc/shadow > unshadowed.txt
 ```
 
-1. Ejecuta el comando y verifica el contenido del archivo `hashes.txt` para los usuarios `pablo` y `pedro`, edita el fichero y deja únicamente las líneas de los usuarios que te interesan.
+1. Ejecuta el comando y verifica el contenido del archivo `unshadowed.txt` para los usuarios `pablo` y `pedro`, edita el fichero y deja únicamente las líneas de los usuarios que te interesan.
 
 2. Inicia el proceso de cracking con **John the Ripper**:
 
    ```sh
-   sudo ./john hashes.txt
+   sudo ./john unshadowed.txt
    ```
 
-   Este comando ejecuta varios modos de cracking de contraseñas de forma secuencial.
+   Este comando ejecuta varios modos de cracking de contraseñas de forma secuencial. JtR puede funcionar en varios modos, para saber más consultar la documentación y los tutoriales de la bibliografía.
 
 3. Si la contraseña de un usuario es débil, **John the Ripper** la descifrará rápidamente. Si es fuerte, tardará más tiempo.
 
@@ -125,7 +124,7 @@ sudo ./unshadow /etc/passwd /etc/shadow > hashes.txt
 Para ver las contraseñas que ha descifrado John the Ripper, utilizamos el siguiente comando:
 
 ```sh
-sudo ./john --show hashes.txt
+sudo ./john --show unshadowed.txt
 ```
 
 > **Tareas**:
@@ -150,10 +149,11 @@ Es importante recordar que el uso de **John the Ripper** para crackear contrase�
 - [Página the GitHub de John the Ripper](https://github.com/openwall/john)
 	- [Documentación GitHub John the Ripper](https://github.com/openwall/john/tree/bleeding-jumbo/doc)
 		- [Instrucciones de instalación](https://github.com/openwall/john/blob/bleeding-jumbo/doc/INSTALL)
-- [Tutorial Jtr ccatyberciti](https://www.cyberciti.biz/faq/unix-linux-password-cracking-john-the-ripper/)
-- [Tutorial de uso de RedesZone.net](https://www.redeszone.net/seguridad-informatica/john-the-ripper/)
-- [Tutorial de uso de FreeCodeCamp](https://www.freecodecamp.org/news/crack-passwords-using-john-the-ripper-pentesting-tutorial/)
-- [Formato de shadow](https://linuxize.com/post/etc-shadow-file/)
+- [Tutorial JtR ccatyberciti](https://www.cyberciti.biz/faq/unix-linux-password-cracking-john-the-ripper/)
+- [Tutorial JtR RedesZone.net](https://www.redeszone.net/seguridad-informatica/john-the-ripper/)
+- [Tutorial JtR FreeCodeCamp](https://www.freecodecamp.org/news/crack-passwords-using-john-the-ripper-pentesting-tutorial/)
+- [Formato de shadow slashroot](https://www.slashroot.in/how-are-passwords-stored-linux-understanding-hashing-shadow-utils)
+- [Formato de shadow linuxize](https://linuxize.com/post/etc-shadow-file/)
 - [Chuleta de uso de Git](https://education.github.com/git-cheat-sheet-education.pdf)
 
 <!--
