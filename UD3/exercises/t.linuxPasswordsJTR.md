@@ -131,7 +131,11 @@ Para crackear las contraseñas de los usuarios, primero combinaremos los conteni
 sudo ./unshadow /etc/passwd /etc/shadow > unshadowed.txt
 ```
 
+<<<<<<< HEAD
 1. Ejecuta el comando y verifica el contenido del archivo `unshadowed.txt` para los usuarios `pablo` y `pedro`, **edita el fichero y deja únicamente las líneas de los usuarios que te interesan**.
+=======
+1. Ejecuta el comando y verifica el contenido del archivo `unshadowed.txt` para los usuarios `pablo` y `pedro`, edita el fichero y deja únicamente las líneas de los usuarios que te interesan.
+>>>>>>> origin/main
 
 2. Inicia el proceso de cracking con **John the Ripper**:
 
