@@ -1,4 +1,3 @@
-
 # Práctica: Fortaleza de contraseñas en Linux
 
 ## Introducción
