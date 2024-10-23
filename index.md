@@ -39,13 +39,10 @@ Tareas entregables:
 
 ## UD3 - Criptografía
 
-- [3.1 Introducciónn a la criptografía](UD3/1.introduccion.md)
-	- Funciones Hash
+- [3.1 Introducción a la criptografía](UD3/1.introduccion.md)
 - [3.2 Cifrado simétrico](UD3/2.c_simetrica.md)
-- Cifrado asimétrico
-	- Cifrado híbrido
-	- Firma digital
-	- Certificados digitales: Infraestructura de clave pública
+- 3.3 Cifrado asimétrico
+- 3.4 Infraestructura de clave pública
 
 Tareas opcionales:
 
@@ -55,37 +52,34 @@ Tareas entregables:
 
 ## UD4 - Fortificación hosts
 
-- Control de acceso
-	- Contraseñas
-	- Biometría
-- Bios / Gestores de arranque
-- Cifrado de discos
-- Actualización y verificación de software
-- Monitorización
-- Malware
+- 4.1 Control de acceso y autenticación
+- 4.2 Seguridad en el arranque
+- 4.3 Cifrado y protección de datos
+- 4.4 Actualización, parches y gestión de vulnerabilidades
+- 4.5 Monitorización y auditoría
+- 4.6 Protección contra malware
+
 
 
 ## UD5 - Alta disponibilidad
 
-* Redundancia Hardware
-* Sistemas e alimentación ininterrumpida
-* Balanceo de carga
-- Virtualización y Contenedores
+- 5.1 Redundancia a nivel de hardware
+- 5.2 Sistemas de alimentación ininterrumpida
+- 5.3 Redundancia en redes
+- 5.4 Balanceo de carga
+- 5.5 Virtualización y alta disponibilidad
 
 ## UD6 - Seguridad en redes
 
-* IDS
-- SSL/TLS
-- WLAN
-- SSH
-- VPN
-
-<!--
-- Ideas ejercicios:
-- shodan
--->
+- 6.1 Seguridad en redes inalámbricas (WLAN)
+- 6.2 Seguridad en redes cableadas (LAN)
+- 6.3 Cifrado de comunicaciones (SSL/TLS)
+- 6.4 Seguridad en conexiones remotas (SSH)
+- 6.5 Redes privadas virtuales (VPN)
 
 ## UD 7 - Seguridad perimetral 
 
-- Firewall
-- Proxy
+- 7.1 Firewalls
+- 7.2 Proxies
+- 7.3 Sistemas de detección de intrusiones (IDS)
+
