@@ -50,14 +50,34 @@ gpg --full-generate-key
 Sigue las instrucciones:
 
 1. **Tipo de clave:** Elige `RSA and RSA` (opción por defecto).
-2. **Tamaño de la clave:** Se recomienda 2048 o 4096 bits para mayor seguridad.
-3. **Tiempo de expiración:** Puedes establecer una fecha de caducidad o dejarla sin caducar. Por seguridad establece una fecha.
+2. **Tamaño de la clave:** Se recomienda 3072 o 4096 bits para mayor seguridad.
+3. **Tiempo de expiración:** Puedes establecer una fecha de caducidad o dejarla sin caducar. Por seguridad establece 1 año de expiración.
 4. **Información de usuario:**
    - **Nombre completo**
    - **Dirección de correo electrónico** (se usará para identificar el certificado)
    - **Comentario** (opcional)
 5. **Contraseña:** Crea una contraseña segura para proteger tu clave privada.
 
+
+Si recibes algún error relacionado con `pinentry`, asegurate de que está instalado:
+
+```sh
+sudo dnf install pinentry
+```
+
+Si el sistema operativo que estás utilizando no tiene interfaz gráfica, además tendrás que cambiar la configuración:
+
+```
+sudo nano /etc/gnupg/gpg-agent.conf
+```
+
+Añade o cambia la línea relacionada con el programa pinentry para que quede como la siguiente:
+
+```
+pinentry-program /usr/bin/pinentry-curses
+```
+
+Ahora si vuelves a intentar generar las claves debería funcionar.
 ## Paso 3: Verificar las Claves Generadas
 
 Para listar tus claves públicas:
@@ -95,7 +115,7 @@ gpg --import clave_publica_destinatario.asc
 Para cifrar un archivo para un destinatario específico:
 
 ```bash
-gpg --encrypt --recipient correo_destinatario@example.com archivo.txt
+gpg --encrypt --recipient  correo_destinatario@example.com archivo.txt 
 ```
 
 Esto generará un archivo cifrado `archivo.txt.gpg`.
@@ -122,7 +142,11 @@ Esto crea un archivo `archivo.txt.gpg` firmado.
 
 También es posible generar un documento de firma separado del archivo original:
 
+```bash
+gpg --detach-sign archivo.txt
+```
 
+Este comando creará un archivo archivo.txt.sig que contendrá la firma del fichero archivo.txt
 ## Paso 9: Verificar una Firma Digital
 
 Para verificar la firma de un archivo:
@@ -130,6 +154,14 @@ Para verificar la firma de un archivo:
 ```bash
 gpg --verify archivo.txt.gpg
 ```
+
+Si la firma está separada:
+
+```
+gpg --verify archivo.txt.sig archivo.txt
+```
+
+Estos comandos indicarán `Good` o `BAD`para indicar si la firma es correcta o incorrecta.
 
 ## Paso 10: Cifrar y Firmar Simultáneamente
 
@@ -157,7 +189,7 @@ Supongamos que deseas enviar un archivo cifrado y firmado a `juan@example.com`.
 
 3. **Envía `mensaje.txt.gpg` a Juan.**
 
-Cuando Juan reciba el archivo, podrá verificar tu firma y descifrar el mensaje usando su clave privada.
+Cuando Juan reciba el archivo, podrá verificar tu firma a partir de tu clave pública y podrá descifrar el mensaje usando su clave privada.
 
 ## Consejos de Seguridad
 
