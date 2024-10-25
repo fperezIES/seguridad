@@ -11,7 +11,7 @@ PGP es un criptosistema híbrido que **combina criptografía simétrica y asimé
 
 **Nota:** Aunque GPG permite el cifrado simétrico y asimétrico, **en esta práctica nos centraremos en el cifrado asimétrico**.
 
-Usaremos un sistema operativo Linux.
+Usaremos un sistema operativo Linux preferiblemente.
 
 ## Paso 1: Instalar GPG
 
@@ -78,6 +78,7 @@ pinentry-program /usr/bin/pinentry-curses
 ```
 
 Ahora si vuelves a intentar generar las claves debería funcionar.
+
 ## Paso 3: Verificar las Claves Generadas
 
 Para listar tus claves públicas:
