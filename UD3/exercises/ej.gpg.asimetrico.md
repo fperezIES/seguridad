@@ -97,10 +97,18 @@ gpg --list-secret-keys
 Para compartir tu clave pública con otros, expórtala de la siguiente manera:
 
 ```bash
-gpg --export --armor tu_correo@example.com > clave_publica.asc
+gpg --output clave_publica.asc --export --armor tu_correo@example.com
 ```
 
 Esto crea un archivo `clave_publica.asc` que puedes enviar a otras personas.
+
+Si quieres, puedes hacer una copia de tu clave privada exportándola mediante:
+
+```bash
+gpg --output clave_privada.pgp --armor --export-secret-key username@email
+```
+
+Esto crea un archivo `clave_privada.asc` al que nadie más que tú debería poder acceder.
 
 ## Paso 5: Importar la Clave Pública de un Destinatario
 
@@ -146,7 +154,8 @@ También es posible generar un documento de firma separado del archivo original:
 gpg --detach-sign archivo.txt
 ```
 
-Este comando creará un archivo archivo.txt.sig que contendrá la firma del fichero archivo.txt
+Este comando creará un archivo `archivo.txt.sig` que contendrá la firma del fichero archivo.txt pero separada en un fichero independiente.
+
 ## Paso 9: Verificar una Firma Digital
 
 Para verificar la firma de un archivo:
