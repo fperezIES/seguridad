@@ -130,23 +130,21 @@ Usaremos un sistema operativo Linux.
 
 # Tareas adicionales:
 
-1. **Comparar tiempos de cifrado/descifrado:** Realiza pruebas cifrando archivos más grandes (como un archivo de vídeo o imagen) y compara el tiempo que tarda GnuPG en cifrar y descifrar usando cifrado simétrico y asimétrico. Puedes usar el comando `time` para medirlo:
+14) **Comparar tiempos de cifrado/descifrado:** Realiza pruebas cifrando archivos más grandes (como un archivo de vídeo o imagen) y compara el tiempo que tarda GnuPG en cifrar y descifrar usando cifrado simétrico y asimétrico. Puedes usar el comando `time` para medirlo:
    
    ```bash
    time gpg --symmetric archivo_grande.mp4
    ```
 
+```
+   time gpg –v –a –o /tmp/archivo.cifrado --encrypt --recipient cuenta@correo.es archivo_grande.mp4
+   ```
+   
 
 
+> **Pregunta final:** Después de usar ambos tipos de cifrado (simétrico y asimétrico), ¿qué ventajas observas en el cifrado simétrico frente al asimétrico?
 
 
-**Pregunta final:** Después de usar ambos tipos de cifrado (simétrico y asimétrico), ¿qué ventajas observas en el cifrado simétrico frente al asimétrico?
-
-
-## Ejercicios
-
-### [Ejercicio ](ej.gpg.asimetrico.md)
-### [ej.gpg.firma](ej.gpg.firma.md)
 ## Bibliografía
 
 - [The GNU Privacy Guard ](https://www.gnupg.org/)

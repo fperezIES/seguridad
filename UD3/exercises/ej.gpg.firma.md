@@ -118,7 +118,6 @@ En esta práctica se usará la herramienta GPG para firmar documentos digitalmen
 >    - Explica el proceso de verificación de la firma desde el punto de vista de la seguridad.
 
 
-```
 
 ## Bibliografía
 
