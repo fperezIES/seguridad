@@ -1,7 +1,7 @@
 
-# Ejercicio: Cifrado Asimétrico con GnuPG
+# Ejercicio: Cifrado Asimétrico y firma con GnuPG
 
-Anteriormente, utilizamos GPG (GNU Privacy Guard) para realizar **cifrado simétrico** de mensajes. En esta práctica, vamos a utilizar la misma herramienta para **cifrado asimétrico**.
+Anteriormente, utilizamos GPG (GNU Privacy Guard) para realizar **cifrado simétrico** de mensajes. En esta práctica, vamos a utilizar la misma herramienta para **cifrado asimétrico** y firma de mensajes.
 
 **Pretty Good Privacy (PGP)** es un programa desarrollado por Phil Zimmermann en 1991, diseñado para proteger la información transmitida por Internet mediante **criptografía de clave pública** y facilitar la autenticación de documentos a través de **firmas digitales**. Basado en el diseño de PGP, el estándar **OpenPGP** (RFC4880) fue desarrollado por la Internet Engineering Task Force. GPG, o GnuPG, es una implementación completa y gratuita de este estándar.
 
@@ -120,6 +120,9 @@ gpg --sign archivo.txt
 
 Esto crea un archivo `archivo.txt.gpg` firmado.
 
+También es posible generar un documento de firma separado del archivo original:
+
+
 ## Paso 9: Verificar una Firma Digital
 
 Para verificar la firma de un archivo:
@@ -167,14 +170,16 @@ Cuando Juan reciba el archivo, podrá verificar tu firma y descifrar el mensaje 
 
 # Tareas adicionales:
 
-14) **Comparar tiempos de cifrado/descifrado:** Realiza pruebas cifrando archivos más grandes (como un archivo de vídeo o imagen) y compara el tiempo que tarda GnuPG en cifrar y descifrar usando cifrado simétrico y asimétrico. Puedes usar el comando `time` para medirlo:
+**Comparar tiempos de cifrado/descifrado:**
+
+Realiza pruebas cifrando archivos más grandes (como un archivo de vídeo o imagen) y compara el tiempo que tarda GnuPG en cifrar y descifrar usando cifrado simétrico y asimétrico. Puedes usar el comando `time` para medirlo:
    
    ```bash
-   time gpg --symmetric archivo_grande.mp4
+time gpg --symmetric archivo_grande.mp4
    ```
 
-```
-   time gpg –v –a –o /tmp/archivo.cifrado --encrypt --recipient cuenta@correo.es archivo_grande.mp4
+```shell
+time gpg –v –a –o /tmp/archivo.cifrado --encrypt --recipient cuenta@correo.es archivo_grande.mp4
    ```
    
 
@@ -186,6 +191,7 @@ Cuando Juan reciba el archivo, podrá verificar tu firma y descifrar el mensaje 
 
 - **Mantén tu clave privada segura**. Nunca la compartas ni la subas a servidores de claves.
 - **Revoca y actualiza tu clave** si sospechas que ha sido comprometida.
+- Usa fechas de expiración para limitar el posible uso fraudulento en caso de verse comprometida.
 - Usa siempre una **contraseña segura** para proteger tu clave privada.
 
 ## Bibliografía
