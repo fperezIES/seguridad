@@ -45,7 +45,8 @@ Tareas entregables:
 - 3.4 Infraestructura de Clave Pública
 
 Tareas opcionales:
-
+- [OPT.3.1 Envío de mensaje cifrado usando GPG](UD3/exercises/opt.gpg.simetrico.md)
+- 
 Tareas entregables:
 
 - [T3.1 Contraseñas en Linux: JtR](UD3/exercises/t.hash_pwd_jtr.md)
