@@ -1,5 +1,5 @@
 
-# Ejercicio: Cifrado simétrico con GPG
+# Ejercicio: Cifrado simétrico con GnuPG
 
 En esta práctica vamos a utilizar la herramienta GPG (GNU Privacy Guard) para realizar cifrado simétrico de mensajes.
 
@@ -164,7 +164,10 @@ rm archivo_confidencial.txt.gpg archivo_descifrado.txt
 
 # Bibliografía
 
-* [The GNU Privacy Guard ](https://www.gnupg.org/index.es.html)
+## Bibliografía
+
+- [The GNU Privacy Guard ](https://www.gnupg.org/)
+* [Manual de GnuPG](https://www.gnupg.org/gph/es/manual.html)
 * [Gpg4win](https://www.gpg4win.org/download.html)
 * [RFC4880](https://tools.ietf.org/html/rfc4880)
 * [PGP](https://es.wikipedia.org/wiki/Pretty_Good_Privacy)

@@ -39,10 +39,10 @@ Tareas entregables:
 
 ## UD3 - Criptografía
 
-- [3.1 Introducción a la criptografía](UD3/1.introduccion.md)
-- [3.2 Cifrado simétrico](UD3/2.c_simetrica.md)
-- 3.3 Cifrado asimétrico
-- 3.4 Infraestructura de clave pública
+- [3.1 Introducción a la Criptografía](UD3/1.introduccion.md)
+- [3.2 Criptografía Simétrica](UD3/2.c_simetrica.md)
+- [3.3 Criptografía Asimétrica](UD3/3.c_asimetrica.md)
+- 3.4 Infraestructura de Clave Pública
 
 Tareas opcionales:
 
@@ -58,8 +58,6 @@ Tareas entregables:
 - 4.4 Actualización, parches y gestión de vulnerabilidades
 - 4.5 Monitorización y auditoría
 - 4.6 Protección contra malware
-
-
 
 ## UD5 - Alta disponibilidad
 
