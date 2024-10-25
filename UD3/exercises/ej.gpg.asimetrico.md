@@ -13,120 +13,157 @@ PGP es un criptosistema híbrido que **combina criptografía simétrica y asimé
 
 Usaremos un sistema operativo Linux.
 
-## Pasos a seguir:
+## Paso 1: Instalar GPG
 
-1) Genera un par de claves de criptografía asimétrica: una clave pública y una clave privada.
+### En Linux
 
-   Hay dos métodos para hacerlo:
+La mayoría de las distribuciones de Linux incluyen GPG por defecto. Si no es así, puedes instalarlo usando el gestor de paquetes de tu distribución:
 
-   - Para acceder a todas las opciones disponibles, usa el comando:
-     ```sh
-     gpg --full-generate-key
-     ```
+```bash
+# Para distribuciones basadas en Debian
+sudo apt-get install gnupg
 
-   - O bien, utiliza RSA con una clave predeterminada de 3072 bits:
-     ```sh
-     gpg --gen-key
-     ```
+# Para distribuciones basadas en Red Hat
+sudo dnf install gnupg
+```
 
-   **En esta práctica, usaremos la primera opción.** Durante el proceso, se te harán varias preguntas:
+### En macOS
 
-   - **a. Tipo de clave:** Selecciona el tipo de clave entre cuatro opciones, que corresponden a algoritmos asimétricos (similares a DES o AES en criptografía simétrica). Elegiremos la **opción 2 (DSA y ElGamal)**, ya que permite usar un par de claves para cifrar y otro para firmar.
+Puedes instalar GPG utilizando Homebrew:
 
-   - **b. Tamaño de la clave DSA:** Acepta el tamaño por defecto (2048) pulsando **intro**.
+```bash
+brew install gnupg
+```
 
-   - **c. Periodo de validez de la clave:** Selecciona un periodo de **5 años** escribiendo `5y`. Esto limita la validez de la clave en caso de pérdida o compromiso.
+### En Windows
 
-   - **d. Identificación de la clave:** Ingresa un nombre, dirección de correo y escribe `SMR2` como comentario. **Nota:** La dirección de correo es solo para identificar la clave.
+Descarga e instala Gpg4win desde la página oficial: [https://www.gpg4win.org/](https://www.gpg4win.org/)
 
-   - **e. Confirmación de datos:** Revisa los datos y confirma pulsando **V**ale.
+## Paso 2: Generar un Par de Claves
 
-   - **f. Clave de protección:** Ingresa una **clave fácil de recordar** que protegerá las claves asimétricas generadas.
+Ejecuta el siguiente comando en la terminal:
 
-   **Tras completar el proceso**, GPG generará las claves y las almacenará en el directorio oculto `.gnupg` en tu directorio `HOME`. Las claves públicas estarán en `pubring.gpg` y las privadas en `secring.gpg`.
+```bash
+gpg --full-generate-key
+```
 
-2) Muestra la lista de claves generadas:
+Sigue las instrucciones:
 
-   ```sh
-   gpg --list-keys
+1. **Tipo de clave:** Elige `RSA and RSA` (opción por defecto).
+2. **Tamaño de la clave:** Se recomienda 2048 o 4096 bits para mayor seguridad.
+3. **Tiempo de expiración:** Puedes establecer una fecha de caducidad o dejarla sin caducar. Por seguridad establece una fecha.
+4. **Información de usuario:**
+   - **Nombre completo**
+   - **Dirección de correo electrónico** (se usará para identificar el certificado)
+   - **Comentario** (opcional)
+5. **Contraseña:** Crea una contraseña segura para proteger tu clave privada.
+
+## Paso 3: Verificar las Claves Generadas
+
+Para listar tus claves públicas:
+
+```bash
+gpg --list-keys
+```
+
+Para listar tus claves privadas:
+
+```bash
+gpg --list-secret-keys
+```
+
+## Paso 4: Exportar tu Clave Pública
+
+Para compartir tu clave pública con otros, expórtala de la siguiente manera:
+
+```bash
+gpg --export --armor tu_correo@example.com > clave_publica.asc
+```
+
+Esto crea un archivo `clave_publica.asc` que puedes enviar a otras personas.
+
+## Paso 5: Importar la Clave Pública de un Destinatario
+
+Cuando recibas la clave pública de alguien, impórtala con:
+
+```bash
+gpg --import clave_publica_destinatario.asc
+```
+
+## Paso 6: Cifrar un Mensaje o Archivo
+
+Para cifrar un archivo para un destinatario específico:
+
+```bash
+gpg --encrypt --recipient correo_destinatario@example.com archivo.txt
+```
+
+Esto generará un archivo cifrado `archivo.txt.gpg`.
+
+## Paso 7: Descifrar un Mensaje o Archivo
+
+Para descifrar un archivo que te han enviado:
+
+```bash
+gpg --output archivo_descifrado.txt --decrypt archivo.txt.gpg
+```
+
+Se te pedirá la contraseña de tu clave privada.
+
+## Paso 8: Firmar un Archivo Digitalmente
+
+Para agregar una firma digital a un archivo:
+
+```bash
+gpg --sign archivo.txt
+```
+
+Esto crea un archivo `archivo.txt.gpg` firmado.
+
+## Paso 9: Verificar una Firma Digital
+
+Para verificar la firma de un archivo:
+
+```bash
+gpg --verify archivo.txt.gpg
+```
+
+## Paso 10: Cifrar y Firmar Simultáneamente
+
+Puedes cifrar y firmar un archivo en un solo paso:
+
+```bash
+gpg --encrypt --sign --recipient correo_destinatario@example.com archivo.txt
+```
+
+## Ejemplo Práctico Completo
+
+Supongamos que deseas enviar un archivo cifrado y firmado a `juan@example.com`.
+
+1. **Importa la clave pública de Juan:**
+
+   ```bash
+   gpg --import clave_publica_juan.asc
    ```
 
-   **Nota:** Verás una clave primaria (DSA) y una subordinada (ElGamal).
+2. **Cifra y firma el archivo:**
 
-3) Exporta tu clave pública para que otros puedan enviarte mensajes cifrados. Para ello, usa:
-
-   ```sh
-   gpg –a –o /tmp/tunombre.pub --export tu_email@dominio.com
+   ```bash
+   gpg --encrypt --sign --recipient juan@example.com mensaje.txt
    ```
 
-   Los parámetros `-a` y `-o` especifican que el archivo estará en formato de texto y se guardará en `/tmp`. La clave pública generada puede ser compartida con cualquiera.
+3. **Envía `mensaje.txt.gpg` a Juan.**
 
-4) **Intercambia claves:** Comunica tu clave pública a un compañero y recibe la suya. Si estás fuera de clase, puedes enviarte mensajes a ti mismo iniciando sesión como otro usuario en el mismo ordenador:
+Cuando Juan reciba el archivo, podrá verificar tu firma y descifrar el mensaje usando su clave privada.
 
-   - Para crear un usuario nuevo:
-     ```sh
-     sudo adduser nombreUsuario
-     ```
-   - Para cambiar de usuario:
-     ```sh
-     su nombreUsuario
-     ```
+## Consejos de Seguridad
 
-5) **Importa la clave pública de tu compañero** para poder cifrar mensajes destinados a él:
+- **Protege tu clave privada:** Nunca compartas tu clave privada y utiliza una contraseña segura.
+- Establece siempre una fecha de caducidad para limitar el impacto de un acceso no autorizado a tu clave privada.
+- **Revoca tu clave si es necesario:** Si pierdes el control de tu clave privada, genera un certificado de revocación.
 
-   ```sh
-   gpg --import /tmp/clave_de_otro_alumno.pub
-   ```
 
-6) **Consulta las claves disponibles en tu llavero**:
-
-   ```sh
-   gpg --list-keys
-   ```
-
-7) Crea un archivo llamado `mensaje.txt`:
-
-   ```sh
-   nano mensaje.txt
-   ```
-
-8) Cifra el mensaje utilizando la clave pública del destinatario:
-
-   ```sh
-   gpg –v –a –o /tmp/mensaje.cifrado --encrypt --recipient cuenta@correo.es mensaje.txt
-   ```
-
-   El sistema te pedirá confirmar la identidad de la clave pública. Puedes verificar la **huella digital** del certificado del destinatario con el siguiente comando:
-
-   ```sh
-   gpg --fingerprint
-   ```
-
-9) Muestra el contenido del mensaje cifrado con el comando `cat`:
-
-   ```sh
-   cat /tmp/mensaje.cifrado
-   ```
-
-10) **Envía tu mensaje cifrado** al destinatario. Solo él podrá descifrarlo.
-
-11) Para **descifrar un mensaje recibido**:
-
-   ```sh
-   gpg --decrypt /tmp/mensaje.cifrado
-   ```
-
-   **Nota:** El sistema pedirá la contraseña de la clave privada. Puedes optar por que el sistema recuerde la clave durante un tiempo limitado.
-
-12) Descifra el mensaje y guarda el contenido en un archivo:
-
-   ```sh
-   gpg --decrypt /tmp/mensaje.cifrado > mensaje.descifrado
-   ```
-
-13) Prueba a **modificar el archivo cifrado** para simular un daño y verifica que se produce un error al intentar descifrarlo.
-
---
+---
 
 # Tareas adicionales:
 
@@ -144,6 +181,12 @@ Usaremos un sistema operativo Linux.
 
 > **Pregunta final:** Después de usar ambos tipos de cifrado (simétrico y asimétrico), ¿qué ventajas observas en el cifrado simétrico frente al asimétrico?
 
+
+### Consejos y Buenas Prácticas
+
+- **Mantén tu clave privada segura**. Nunca la compartas ni la subas a servidores de claves.
+- **Revoca y actualiza tu clave** si sospechas que ha sido comprometida.
+- Usa siempre una **contraseña segura** para proteger tu clave privada.
 
 ## Bibliografía
 
