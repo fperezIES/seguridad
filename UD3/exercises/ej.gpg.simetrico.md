@@ -167,7 +167,7 @@ rm archivo_confidencial.txt.gpg archivo_descifrado.txt
 ## Bibliografía
 
 - [The GNU Privacy Guard ](https://www.gnupg.org/)
-* [Manual de GnuPG](https://www.gnupg.org/gph/es/manual.html)
+* [gpg man page](https://www.gnupg.org/documentation/manuals/gnupg24/gpg.1.html)
 * [Gpg4win](https://www.gpg4win.org/download.html)
 * [RFC4880](https://tools.ietf.org/html/rfc4880)
 * [PGP](https://es.wikipedia.org/wiki/Pretty_Good_Privacy)
