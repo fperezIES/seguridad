@@ -24,16 +24,32 @@ Aprender a utilizar el cifrado simétrico con **GnuPG** para proteger informaci�
 
 ## Requisitos previos:
 - Conocimientos básicos sobre el concepto de cifrado simétrico.
-- Sistema operativo con **GnuPG** instalado. La mayoría de las distribuciones de Linux ya lo tienen preinstalado, pero en caso de que no lo tengan, se puede instalar fácilmente usando los siguientes comandos:
+- Sistema operativo con **GnuPG** instalado. 
 
-  - En Ubuntu/Debian:
-    ```bash
-    sudo apt-get install gnupg
-    ```
-  - En Fedora:
-    ```bash
-    sudo dnf install gnupg
-    ```
+### En Linux
+
+La mayoría de las distribuciones de Linux incluyen GPG por defecto. Si no es así, puedes instalarlo usando el gestor de paquetes de tu distribución:
+
+```bash
+# Para distribuciones basadas en Debian
+sudo apt-get install gnupg
+
+# Para distribuciones basadas en Red Hat
+sudo dnf install gnupg
+```
+
+### En macOS
+
+Puedes instalar GPG utilizando Homebrew:
+
+```bash
+brew install gnupg
+```
+
+### En Windows
+
+Descarga e instala Gpg4win desde la página oficial: [https://www.gpg4win.org/](https://www.gpg4win.org/)
+
 
 ## Paso 1: Crear un archivo para cifrar
 Primero, vamos a crear un archivo de texto que será cifrado. Este archivo simulará ser un documento confidencial.

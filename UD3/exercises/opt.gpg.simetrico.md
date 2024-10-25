@@ -12,3 +12,5 @@ Para ello debes:
 * Cifra y firma el mensaje
 
 Finalmente, debes enviar al tu profesor tanto el mensaje cifrado y firmado como tu clave pública para que pueda verificar tu firma.
+
+Puedes obtener más información sobre el uso de GPG con clave pública en este [ejercicio de clase](ej.gpg.asimetrico.md)
