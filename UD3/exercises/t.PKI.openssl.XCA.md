@@ -8,7 +8,7 @@ En esta práctica realizaremos las siguientes actividades:
 - Generar una solicitud de firma de certificado (CSR) para un servidor web que funcionará en varios dominios.
 - Instalar el certificado generado en un servidor web.
 
-![Logo de XCA](img/certmultisite/xca_logo.png){:style="width: 50%;" class="center"}
+![Logo de XCA](../img/certmultisite/xca_logo.png){:style="width: 50%;" class="center"}
 
 Utilizaremos la herramienta **XCA** para la creación, revocación y almacenamiento de certificados digitales. XCA está disponible en los repositorios de muchas distribuciones GNU/Linux y también para Windows. Puedes descargar la versión para Windows desde [la página oficial de descargas de XCA](https://hohnstaedt.de/xca/index.php/download).
 
@@ -59,7 +59,7 @@ Con la base de datos creada, podemos generar y tramitar certificados. El primer 
 - Elige `SHA256` como algoritmo de firma (evita usar MD5 o SHA1 por razones de seguridad).
 - Recuerda pulsar `Aplicar a todos`.
 
-![Creación de certificado de CA](img/certmultisite/xca_ca1_almalinux.png){:class="center"}
+![Creación de certificado de CA](../img/certmultisite/xca_ca1_almalinux.png){:class="center"}
 
 ### 4. Configuración de Extensiones y Uso de Clave
 
@@ -85,7 +85,7 @@ Ejemplo:
 
 Toma una captura de pantalla de los datos introducidos.
 
-![Detalles del Sujeto para la CA](img/certmultisite/xca_ca2_almalinux.png){:class="center"}
+![Detalles del Sujeto para la CA](../img/certmultisite/xca_ca2_almalinux.png){:class="center"}
 
 ### 6. Generación de una Nueva Clave Privada
 
@@ -97,7 +97,7 @@ Toma una captura de pantalla de los datos introducidos.
 
 Pulsa `Aceptar` para completar la creación de la CA.
 
-![Certificado de CA creado](img/certmultisite/xca_ca3_almalinux.png){:class="center"}
+![Certificado de CA creado](../img/certmultisite/xca_ca3_almalinux.png){:class="center"}
 
 ### 8. Exportación del Certificado de la CA
 
@@ -107,7 +107,7 @@ Necesitamos exportar el certificado de la CA para poder importarlo en la lista d
 - Pulsa `Exportar`.
 - Guarda el certificado con la extensión `.crt` y en formato `PEM`.
 
-![Exportando el certificado de la CA](img/certmultisite/xca_ca4_almalinux.png){:class="center"}
+![Exportando el certificado de la CA](../img/certmultisite/xca_ca4_almalinux.png){:class="center"}
 
 ### 9. Importación del Certificado de la CA en el Navegador
 
@@ -118,15 +118,15 @@ Para que los navegadores confíen en los certificados emitidos por nuestra CA, d
 - Busca y selecciona el certificado de tu CA.
 - Marca la opción `Confiar en esta CA para identificar sitios web` y pulsa `Aceptar`.
 
-![Importando la CA en Firefox](img/certmultisite/firefox_CA_import1.png){:class="center"}
+![Importando la CA en Firefox](../img/certmultisite/firefox_CA_import1.png){:class="center"}
 
-![Configuración de confianza en Firefox](img/certmultisite/firefox_CA_import2.png){:class="center"}
+![Configuración de confianza en Firefox](../img/certmultisite/firefox_CA_import2.png){:class="center"}
 
 ### 10. Verificación del Certificado de la CA en el Navegador
 
 Puedes verificar que el certificado de tu CA ha sido importado correctamente buscando por el nombre de la organización que ingresaste.
 
-![CA añadida en Firefox](img/certmultisite/firefox_CA_import3.png){:class="center"}
+![CA añadida en Firefox](../img/certmultisite/firefox_CA_import3.png){:class="center"}
 
 ### 11. Creación de una Solicitud de Firma de Certificado (CSR) para el Servidor Web
 
@@ -157,7 +157,7 @@ Ejemplo:
 - **Unidad Organizativa (OU):** Web
 - **Nombre Común (CN):** www.servidorperez.com
 
-![Creando la solicitud de certificado](img/certmultisite/cert_ssl1_almalinux.png){:class="center"}
+![Creando la solicitud de certificado](../img/certmultisite/cert_ssl1.png){:class="center"}
 
 ### 13. Generación de una Nueva Clave Privada para el CSR
 
@@ -183,7 +183,7 @@ Ejemplo:
 
 **Nota:** Puedes usar comodines (`*`) en los nombres de dominio, por ejemplo, `*.servidorperez.com`, pero ten en cuenta las políticas de uso de certificados en entornos reales.
 
-![Añadiendo nombres alternativos del sujeto](img/certmultisite/cert_ssl2_almalinux.png){width=70%}
+![Añadiendo nombres alternativos del sujeto](../img/certmultisite/cert_ssl2.png){width=70%}
 
 ### 15. Creación de la CSR
 
@@ -200,30 +200,30 @@ Como somos nuestra propia CA, procederemos a firmar la CSR:
   - Selecciona `SHA256` como algoritmo de firma.
   - Elige tu CA en `Usar este Certificado para firmar`.
 
-![Firma de la CSR](img/certmultisite/cert_ssl3_almalinux.png){:class="center"}
+![Firma de la CSR](../img/certmultisite/cert_ssl3.png){:class="center"}
 
 ### 17. Verificación y Ajuste de Extensiones
 
 - Asegúrate de que la opción `Copiar extensiones de la solicitud` esté marcada para incluir las extensiones como los SAN.
 - Si las extensiones no se copian automáticamente, agrégalas manualmente en la pestaña `Extensiones`, siguiendo el mismo procedimiento que en el paso 14.
 
-![Verificación de extensiones](img/certmultisite/cert_ssl4_almalinux.png){:class="center"}
+![Verificación de extensiones](../img/certmultisite/cert_ssl4.png){:class="center"}
 
 ### 18. Generación del Certificado
 
 - Pulsa `Aceptar` para generar el certificado.
 - El certificado aparecerá en la pestaña `Certificados`, asociado a tu CA en la jerarquía.
 
-![Certificado generado](img/certmultisite/cert_ssl5_almalinux.png){:class="center"}
+![Certificado generado](../img/certmultisite/cert_ssl5.png){:class="center"}
 
 ### 19. Exportación del Certificado y la Clave Privada
 
 - Exporta el certificado del servidor en formato PEM con extensión `.crt`.
 - Exporta la clave privada asociada en formato PEM con extensión `.key`.
 
-![Exportando el certificado](img/certmultisite/cert_ssl6_almalinux.png){:class="center"}
+![Exportando el certificado](../img/certmultisite/cert_ssl6.png){:class="center"}
 
-![Exportando la clave privada](img/certmultisite/cert_ssl7_almalinux.png){:class="center"}
+![Exportando la clave privada](../img/certmultisite/cert_ssl7.png){:class="center"}
 
 ### 20. Copia de Archivos al Directorio Adecuado
 
@@ -278,7 +278,7 @@ Asegúrate de que `SSLEngine` esté habilitado:
 SSLEngine on
 ```
 
-![Configuración de Apache](img/certmultisite/apache1_almalinux.png){width=70%}
+![Configuración de Apache](../img/certmultisite/apache1_almalinux.png){width=70%}
 
 ### 23. Apertura del Puerto 443 en el Firewall
 
@@ -311,21 +311,21 @@ sudo nano /etc/hosts
 127.0.0.1   localhost www.servidorperez.com www.cursoperez.com www.servidorperez.es www.cursoperez.es
 ```
 
-![Edición del archivo hosts](img/certmultisite/apache2_almalinux.png){width=70%}
+![Edición del archivo hosts](../img/certmultisite/apache2.png){width=70%}
 
 ### 26. Comprobación del Acceso HTTPS
 
 - Abre tu navegador y accede a `https://www.servidorperez.com`.
 - Deberías ver la página por defecto de Apache sin alertas de seguridad, ya que el certificado es reconocido y válido para ese dominio.
 
-![Página web segura en Firefox](img/certmultisite/apache3_almalinux.png){width=70%}
+![Página web segura en Firefox](../img/certmultisite/apache3.png){width=70%}
 
 ### 27. Prueba con Dominios No Incluidos en el Certificado
 
 - Intenta acceder a `https://www.otrodominio.com` (asegúrate de añadirlo en el archivo hosts apuntando a `127.0.0.1`).
 - El navegador debería mostrar una alerta de seguridad indicando que el certificado no es válido para ese dominio.
 
-![Alerta de seguridad en Firefox](img/certmultisite/apache4_almalinux.png){:class="center"}
+![Alerta de seguridad en Firefox](../img/certmultisite/apache4.png){:class="center"}
 
 ## Conclusión
 
@@ -337,5 +337,3 @@ Has completado la práctica adaptada para AlmaLinux 9, creando una Autoridad de 
 - **Entornos de Producción:** En entornos reales, los certificados deben ser emitidos por una CA reconocida públicamente para que los navegadores los consideren confiables sin necesidad de importarlos manualmente.
 - **Actualización de Paquetes y Dependencias:** Siempre verifica que los paquetes y dependencias estén actualizados para garantizar la compatibilidad y seguridad del sistema.
 - **Políticas de Certificados:** Al usar comodines en certificados SSL/TLS, asegúrate de cumplir con las políticas y estándares establecidos para evitar problemas de seguridad.
-
-¡Enhorabuena por completar la práctica!
