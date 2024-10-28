@@ -42,13 +42,13 @@ Tareas entregables:
 - [3.1 Introducción a la Criptografía](UD3/1.introduccion.md)
 - [3.2 Criptografía Simétrica](UD3/2.c_simetrica.md)
 - [3.3 Criptografía Asimétrica](UD3/3.c_asimetrica.md)
-- 3.4 Infraestructura de Clave Pública
+- [3.4 Infraestructura de Clave Pública](UD3/4.PKI.md)
+
 
 Tareas opcionales:
 - [OPT.3.1 Envío de mensaje cifrado usando GPG](UD3/exercises/opt.gpg.simetrico.md)
-- 
+ 
 Tareas entregables:
-
 - [T3.1 Contraseñas en Linux: JtR](UD3/exercises/t.hash_pwd_jtr.md)
 
 ## UD4 - Fortificación hosts
