@@ -33,9 +33,11 @@ Necesitarás únicamente un navegador web.
      - Los protocolos y suites de cifrado utilizados.
    - Resume tus observaciones para cada sitio, destacando cualquier preocupación o aspecto relevante que hayas identificado.
 
-3. Compara los certificados de los siguientes bancos, ¿tienen Validación Extendida?, ¿qué implicaciones tiene?
+3. Compara los certificados de los siguientes sitios, ¿Qué tipo de validación tiene cada uno?, ¿Crees que son apropiados para el tipo de servicio que ofrecen?
 	- [BBVA](https://www.bbva.es/)
 	- [Santander](https://www.bancosantander.es/) 
+	- [El País](https://elpais.com/)
+	- [El Mundo](https://www.elmundo.es/)
 
 ## Notas Adicionales
 
