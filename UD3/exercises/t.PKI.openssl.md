@@ -1,11 +1,19 @@
-# Práctica: Configuración de una Autoridad Certificadora con OpenSSL y Servidor Web Seguro 
+# Práctica: Autoridad Certificadora con OpenSSL y Servidor Web Seguro 
+
+![](../img/OpenSSL_logo.png){:style="width: 50%;" class="center"}
+
+
+**OpenSSL** es una biblioteca de software de código abierto que permite implementar protocolos de seguridad para encriptar y proteger las comunicaciones en redes. Es fundamental para establecer conexiones seguras a través del protocolo **SSL/TLS**, utilizado para encriptar datos en tránsito y garantizar que solo el receptor autorizado pueda leer la información. OpenSSL se usa para generar y gestionar certificados digitales y claves criptográficas, componentes esenciales en la autenticación y protección de datos en línea.
+
+**Apache**, por otro lado, es uno de los servidores web más utilizados en el mundo. Es un software de código abierto que permite a los administradores de sistemas alojar sitios y aplicaciones web, sirviendo contenido a los usuarios a través de Internet. Apache es altamente configurable y, cuando se integra con OpenSSL, permite habilitar conexiones seguras mediante HTTPS, protegiendo la privacidad y autenticidad de la información que se transmite.
+
+La combinación de **Apache y OpenSSL** es esencial para Internet, ya que posibilita el acceso seguro a los sitios web, resguardando los datos de los usuarios y permitiendo transacciones y comunicaciones confiables en entornos públicos y privados.
 
 ---
 
-**Objetivo:**
+**Objetivos:**
 Aprender a configurar una Infraestructura de Clave Pública (PKI) usando OpenSSL, incluyendo la creación de una Autoridad Certificadora (CA), emisión de certificados digitales y configuración de un servidor web Apache con soporte HTTPS utilizando los certificados generados.
 
----
 
 **Requisitos Previos:**
 
