@@ -10,26 +10,82 @@ En esta práctica realizaremos las siguientes actividades:
 
 ![Logo de XCA](../img/certmultisite/xca_logo.png){:style="width: 50%;" class="center"}
 
-Utilizaremos la herramienta **XCA** para la creación, revocación y almacenamiento de certificados digitales. XCA está disponible en los repositorios de muchas distribuciones GNU/Linux y también para Windows. Puedes descargar la versión para Windows desde [la página oficial de descargas de XCA](https://hohnstaedt.de/xca/index.php/download).
+Utilizaremos la herramienta **XCA** para la creación, revocación y almacenamiento de certificados digitales. XCA está disponible en los repositorios de muchas distribuciones GNU/Linux y también para Windows y Mac. Puedes descargar la versión para Windows desde [la página oficial de descargas de XCA](https://hohnstaedt.de/xca/index.php/download).
 
 En nuestro caso, realizaremos la práctica en una máquina virtual con **AlmaLinux**.
 
 ## Enunciado
 
+### 0. Instalación de entorno gráfico
+
+Hasta ahora no hemos usado entorno gráfico en Alma linux para instalarlo:
+
+Comprobamos los "package groups" que hay disponibles en AlmaLinux:
+
+```
+dnf group list
+```
+
+
+Veremos que hay un grupo disponible llamado `Server with GUI.Para instalarlo:
+
+```
+dnf groupinstall "Server with GUI"
+```
+
+
+Podremos iniciar el modo gráfico con el comando:
+```
+startx
+```
+
+
+Podemos cambiar el modo de arranque a modo gráfico con el comando:
+```
+systemctl set-default graphical
+```
+
+En el próximo reinicio el sistema arrancará en modo gráfico directemente.
+
+#### Guest Additions (Opcional)
+
+Primero actualizamos e instalamos dependencias necesarias:
+
+```shell
+sudo dnf update -y
+sudo dnf install kernel-headers kernel-devel gcc cpp perl make elfutils-libelf-devel
+```
+
+Insertamos la ISO en la unidad virttual: 
+
+`Dispositivos->Insertar imagen CD de los complementos de invitado`
+
+Nos preguntará si queremos ejecutar el CD, le diremos que sí. Si no se ejecutara automáticamente ejecutaríamos el siguiente comando:
+`VBoxLinuxAdditions.run`
+
+Una vez terminado, reinicia.
+
 ### 1. Instalación de XCA en AlmaLinux
 
-Primero, debemos instalar XCA en nuestra máquina virtual con AlmaLinux. XCA está disponible en los repositorios EPEL (Extra Packages for Enterprise Linux), por lo que primero necesitamos habilitar EPEL:
 
-```sh
-sudo dnf install epel-release
-```
+- Install the dependencies
+       ```
+    # Bookworm
+    sudo apt install build-essential libssl-dev pkg-config cmake qttools5-dev python3-sphinxcontrib.qthelp
+    # Bullseye
+    sudo apt install build-essential libssl-dev pkg-config cmake qttools5-dev python3-sphinx
+    # Either Qt5
+    sudo apt install qtbase5-dev qttools5-dev-tools libqt5sql5 libqt5help5 qttools5-dev
+    # Or Qt6
+    sudo apt install qt6-base-dev qt6-tools-dev
+    ```
+    
+- Clone: `git clone https://github.com/chris2511/xca.git`
+- Configure: `cmake -B build xca`
+- Make: `cmake --build build -j5`
+- Install: `sudo cmake --install build`
+- Or install local and copy later as root: `DESTDIR=DEST cmake --install build --prefix /usr`
 
-Luego, actualizamos los repositorios e instalamos XCA:
-
-```sh
-sudo dnf update
-sudo dnf install xca
-```
 
 Ejecutamos XCA:
 
@@ -337,3 +393,11 @@ Has completado la práctica adaptada para AlmaLinux 9, creando una Autoridad de 
 - **Entornos de Producción:** En entornos reales, los certificados deben ser emitidos por una CA reconocida públicamente para que los navegadores los consideren confiables sin necesidad de importarlos manualmente.
 - **Actualización de Paquetes y Dependencias:** Siempre verifica que los paquetes y dependencias estén actualizados para garantizar la compatibilidad y seguridad del sistema.
 - **Políticas de Certificados:** Al usar comodines en certificados SSL/TLS, asegúrate de cumplir con las políticas y estándares establecidos para evitar problemas de seguridad.
+
+
+## Bibliografía
+
+[XCA GitHub](https://github.com/chris2511/xca/)s
+[OpenSSL](https://openssl-library.org/)
+[Vulnerabilidades OpenSSL](https://openssl-library.org/news/vulnerabilities/)
+[XCA](https://hohnstaedt.de/xca/)
