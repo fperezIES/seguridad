@@ -66,7 +66,7 @@ Nos preguntará si queremos ejecutar el CD, le diremos que sí. Si no se ejecuta
 
 Una vez terminado, reinicia.
 
-#### **2. Actualizar el Sistema**
+### **2. Actualizar el Sistema**
 
 ```bash
 sudo dnf update -y
@@ -78,7 +78,7 @@ sudo dnf update -y
 sudo dnf install -y openssl httpd mod_ssl
 ```
 
-#### **4. Configurar el Firewall**
+### **4. Configurar el Firewall**
 
 Permitir el tráfico HTTP y HTTPS:
 
@@ -88,7 +88,7 @@ sudo firewall-cmd --permanent --add-service=https
 sudo firewall-cmd --reload
 ```
 
-#### **5. Iniciar y Habilitar el Servicio Apache**
+### **5. Iniciar y Habilitar el Servicio Apache**
 
 ```bash
 sudo systemctl start httpd
@@ -126,9 +126,9 @@ http://www.servidorfperez.com
 ```
 
 
-Muestra una captura del contenido de tu fichero `/etc/hosts`y de un navegador en el servidor intentando cargar `http://www.servidorfperez.com`
+> Muestra una captura del contenido de tu fichero `/etc/hosts`y de un navegador en el servidor intentando cargar `http://www.servidorfperez.com`
 
-#### **6. Crear Directorios para la CA**
+### **6. Crear Directorios para la CA**
 
 ```bash
  mkdir -p ca/{certs,newcerts,private,csr}
@@ -136,7 +136,7 @@ Muestra una captura del contenido de tu fichero `/etc/hosts`y de un navegador en
 
 
 
-#### **7. Generar la Clave Privada de la CA**
+### **7. Generar la Clave Privada de la CA**
 
 ```bash
 openssl genrsa -aes256 \
@@ -147,7 +147,7 @@ chmod 400 private/rootCA.key.pem
 
 ```
 
-#### **8. Crear el Certificado Raíz de la CA**
+### **8. Crear el Certificado Raíz de la CA**
 
 ```bash
 openssl req -new -x509 \
@@ -162,7 +162,7 @@ chmod 444 certs/rootCA.crt.pem
 Proporciona la información solicitada (país, estado, organización, etc.) cuando se te pida. 
 > Recuerda la organización introducida, toma una captura de la consola después de crear el certificado
 
-#### **9. Generar la Clave Privada para el Servidor Web**
+### **9. Generar la Clave Privada para el Servidor Web**
 
 ```bash
 openssl genrsa -aes256 \
@@ -218,7 +218,7 @@ openssl req -new -sha256 \
 
 > Muestra el contenido de tu fichero `serverCert.conf`
 
-#### **11. Firmar el Certificado del Servidor con la CA**
+### **11. Firmar el Certificado del Servidor con la CA**
 
 ```bash
 openssl x509 -req -days 750 -sha256 -in certs/serverCert.csr.pem \
@@ -247,7 +247,7 @@ sudo chmod 400 /etc/pki/tls/private/serverCert.key.pem
 ```
 
 
-#### **13. Configurar Apache para Usar el Certificado SSL**
+### **13. Configurar Apache para Usar el Certificado SSL**
 
 Editar el archivo de configuración SSL de Apache:
 
@@ -265,7 +265,7 @@ SSLCertificateChainFile /etc/pki/tls/certs/serverCert.crt.pem
 
 Asegúrate de que el módulo SSL está cargado y habilitado.
 
-#### **14. Reiniciar el Servicio Apache**
+### **14. Reiniciar el Servicio Apache**
 
 ```bash
 sudo systemctl restart httpd
@@ -284,18 +284,18 @@ Es posible eliminar la contraseña de la clave privada para que el funcionamient
 
 2. Nos aseguramos de que la clave sólo sea legible por root:  
 
-```bash
+	```bash
 	chmod 400 server.key
-```
+	```
 
 
-#### **14. Probar la Configuración**
+### **14. Probar la Configuración**
 
 - En un navegador web, visita `https://www.serverfperez.com` (reemplaza con tu dominio o dirección IP). 
 - Deberías ver una advertencia de seguridad debido a que el navegador no confía en la CA personalizada.
 - Para eliminar la advertencia, instala el certificado raíz `ca.cert.pem` en el almacén de certificados de confianza del navegador. En firefox: `Settings->Certificates` pulsar sobre el botón `View Certificates...`y en la ventana emergente usar el botón `import`para añadir nuestro certificado raíz.
 
-**Muestra una captura en que se vea tu certificado importado en la configuración del navegador, aparecerá listando bajo el nombre de la organización que hayas puesto al crear el certificado raíz.**
+> Muestra una captura en que se vea tu certificado importado en la configuración del navegador, aparecerá listando bajo el nombre de la organización que hayas puesto al crear el certificado raíz.
 
 <!--
 #### **15. (Opcional) Revocar un Certificado y Actualizar la Lista de Revocación (CRL)**
@@ -336,6 +336,29 @@ Es posible eliminar la contraseña de la clave privada para que el funcionamient
 - **Entornos de Producción:** En entornos reales, los certificados deben ser emitidos por una CA reconocida públicamente para que los navegadores los consideren confiables sin necesidad de importarlos manualmente.
 - **Actualización de Paquetes y Dependencias:** Siempre verifica que los paquetes y dependencias estén actualizados para garantizar la compatibilidad y seguridad del sistema.
 - **Políticas de Certificados:** Si usas comodines en certificados SSL/TLS (EJ: `*.servidorfperez.com`), asegúrate de cumplir con las políticas y estándares establecidos para evitar problemas de seguridad.
+
+## Preguntas para reflexionar
+
+> 1. **¿Por qué es importante configurar una CA y emitir certificados digitales en entornos de red seguros?**
+> 
+> 2. **¿Qué diferencias existen entre una CA pública y una CA privada?**
+> 
+> 3. **¿Cuál es el propósito de cada directorio y archivo dentro de la estructura de la CA (`certs`, `newcerts`, `private`, `csr`)?**
+> 
+> 4. **¿Qué aspectos deben considerarse al elegir la longitud de la clave privada para una CA?**
+> 
+> 5. **¿Por qué crees que es importante proteger con contraseña las claves privadas y cuáles son las implicaciones de remover esta protección en un entorno de producción?**
+> 
+> 6. **¿Qué tipo de información contiene un archivo de configuración de CSR como `serverCert.conf` y cómo influye en la generación del certificado?**
+> 
+> 7. **¿Cómo afecta el fichero `/etc/hosts` a la resolución de nombres y por qué es útil modificarlo en un entorno de pruebas?**
+> 
+> 8. **¿Por qué los navegadores muestran advertencias de seguridad al visitar un sitio con un certificado firmado por una CA privada, y cómo se puede resolver esta advertencia?**
+> 
+> 9. **¿Cuál es la función de una CRL (Lista de Revocación de Certificados) y cuándo debería usarse?**
+> 
+> 10. **En entornos de producción, ¿cuál sería el proceso para obtener un certificado SSL de una CA reconocida públicamente y cómo difiere de la creación de una CA privada?**
+
 
 # Bibliografía
 
