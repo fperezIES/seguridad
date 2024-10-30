@@ -370,9 +370,9 @@ Es posible eliminar la contraseña de la clave privada para que el funcionamient
 
 # Bibliografía
 
-[OpenSSL CA](https://dev.to/pauladj/create-self-signed-certificates-with-openssl-jpa)
-[Configuración SSL Apache](https://httpd.apache.org/docs/2.4/ssl/ssl_faq.html)
-[DigiCert tutoria CSR y configuración Apache ](https://www.digicert.com/kb/csr-ssl-installation/apache-openssl.htm)
-[Tutorial Certificado OpenSSl](https://medium.com/@tbusser/creating-a-browser-trusted-self-signed-ssl-certificate-2709ce43fd15)
-[Crear tu CA con OpenSSL](https://arminreiter.com/2022/01/create-your-own-certificate-authority-ca-using-openssl/)
+- [OpenSSL CA](https://dev.to/pauladj/create-self-signed-certificates-with-openssl-jpa)
+- [Configuración SSL Apache](https://httpd.apache.org/docs/2.4/ssl/ssl_faq.html)
+- [DigiCert tutoria CSR y configuración Apache ](https://www.digicert.com/kb/csr-ssl-installation/apache-openssl.htm)
+- [Tutorial Certificado OpenSSl](https://medium.com/@tbusser/creating-a-browser-trusted-self-signed-ssl-certificate-2709ce43fd15)
+- [Crear tu CA con OpenSSL](https://arminreiter.com/2022/01/create-your-own-certificate-authority-ca-using-openssl/)
 
