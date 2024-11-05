@@ -51,14 +51,22 @@ Tareas opcionales:
 Tareas entregables:
 - [T3.1 Contraseñas en Linux: JtR](UD3/exercises/t.hash_pwd_jtr.md)
 - [T3.2 Configuración de una Autoridad Certificadora con OpenSSL y Servidor Web Seguro ](UD3/exercises/t.PKI.openssl.md)
+
 ## UD4 - Fortificación hosts
 
-- 4.1 Control de acceso y autenticación
-- 4.2 Seguridad en el arranque
-- 4.3 Cifrado y protección de datos
-- 4.4 Actualización, parches y gestión de vulnerabilidades
-- 4.5 Monitorización y auditoría
-- 4.6 Protección contra malware
+[4.1 Acceso: Autenticación, Arranque Seguro y Cifrado](UD4/1.seguridad_acceso.md)
+- 4.2 Actualización, parches y gestión de vulnerabilidades
+- 4.3 Monitorización y auditoría
+- 4.4 Protección contra malware
+
+Ejercicios de clase:
+[EJ.4.1 Reinicio de contraseñas](UD4/exercises/ej.resetPass.md)
+
+Tareas opcionales:
+[OPT.4.1 SSH con doble factor](UD4/exercises/ej.ssh_2step.md)
+
+Tareas entregables:
+
 
 ## UD5 - Alta disponibilidad
 

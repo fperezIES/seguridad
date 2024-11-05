@@ -48,3 +48,4 @@
 
 - **Desafíos en IoT**: Cifrado, autenticación, segmentación
 - **Configuración segura de dispositivos IoT**: Mejores prácticas
+
