@@ -35,11 +35,25 @@ Luego, vuelve a instalar el servicio ssh:
 
 ```sh
 sudo dnf install openssh-server
+
+sudo systemctl start sshd
+
+sudo systemctl enable sshd
 ```
 
 Asegúrate de que el servicio `sshd` está activo en tu máquina virtual Linux, de que no existen reglas de *firewall* bloqueando el puerto 22/tcp (**sshd**), y que hay visibilidad de red entre la máquina anfitrión y la máquina virtual.
 
-Configura tu máquina virtual en **modo puente** con tu tarjeta de red o en **modo red solo-anfitrión**. En ambos casos, verifica la conectividad mediante `ping` y `ssh`.
+```sh
+sudo firewall-cmd --permanent --add-port=22/tcp
+
+sudo firewall-cmd --reload
+
+sudo firewall-cmd --list-ports
+
+```
+
+
+Configura tu máquina virtual en **modo puente** con tu tarjeta de red o en **modo red solo-anfitrión**. En ambos casos, verifica la conectividad mediante `ping` y/o `ssh`.
 
 Desde un equipo con Windows 10, puedes usar el cliente ssh integrado. Si no está habilitado, puedes activarlo en las características de Windows o descargar un cliente ssh, como `Putty` desde [https://www.putty.org/](https://www.putty.org/).
 
@@ -48,6 +62,7 @@ Desde un equipo con Windows 10, puedes usar el cliente ssh integrado. Si no est�
     ```sh
     sudo dnf install -y epel-release
     sudo dnf install -y google-authenticator
+    sudo dnf install -y qrencode
     ```
 
 2. Una vez instalado `google-authenticator` en Linux, ejecuta la utilidad `google-authenticator` con el usuario que quieras proteger con 2FA:
@@ -74,17 +89,26 @@ Desde un equipo con Windows 10, puedes usar el cliente ssh integrado. Si no est�
 
 5. A partir de aquí, sigue respondiendo a las preguntas que aparecerán en consola:
 
-    ```sh
-    Enter code from app (-1 to skip): -1
+    ```sh   
+	Do you want me to update your "/home/fperez/.google_authenticator" file? (y/n) y
 
-    Do you want me to update your "/home/usuario/.google_authenticator" file? (y/n) y
+	Do you want to disallow multiple uses of the same authentication
+	token? This restricts you to one login about every 30s, but it increases
+	your chances to notice or even prevent man-in-the-middle attacks (y/n) y
 
-    Do you want to disallow multiple uses of the same authentication
-    token? This restricts you to one login about every 30s, but it increases
-    your chances to notice or even prevent man-in-the-middle attacks (y/n) y
-
-    Do you want to enable rate-limiting? (y/n) y
-    ```
+	By default, a new token is generated every 30 seconds by the mobile app.
+	In order to compensate for possible time-skew between the client and the server,
+	we allow an extra token before and after the current time. This allows for a
+	time skew of up to 30 seconds between authentication server and client. If you
+	experience problems with poor time synchronization, you can increase the window
+	from its default size of 3 permitted codes (one previous code, the current
+	code, the next code) to 17 permitted codes (the 8 previous codes, the current
+	code, and the 8 next codes). This will permit for a time skew of up to 4 minutes
+	between client and server.
+	Do you want to do so? (y/n) y
+	
+	Do you want to enable rate-limiting? (y/n) y
+```
 
 6. Al completar estos pasos, se habrá generado el archivo `.google_authenticator` en tu directorio `home`. Puedes visualizarlo con un editor de texto o usando `cat` para examinar su contenido.
 
@@ -140,6 +164,10 @@ Adjunta una breve memoria en formato PDF con capturas de pantalla del proceso re
 
 
 # Bibliografía
+
+- [Tutorial SSH con Google Authenticator CentOS 9](https://green.cloud/docs/configure-google-authenticator-ssh-on-centos-9/)
+
+- [https://www.a2hosting.com/kb/getting-started-guide/accessing-your-account/enabling-two-factor-authentication-for-ssh/](https://www.a2hosting.com/kb/getting-started-guide/accessing-your-account/enabling-two-factor-authentication-for-ssh/)
 
 - Tutorial SSH con google Authenticator en Almalinux **9**: [https://reintech.io/blog/implementing-two-factor-authentication-ssh-almalinux-9](https://reintech.io/blog/implementing-two-factor-authentication-ssh-almalinux-9)
 
