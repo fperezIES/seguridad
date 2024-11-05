@@ -42,11 +42,11 @@ Vamos a modificar el script de arranque para conseguir privilegios de administra
 
 Para ello arranca o reinicia tu Debian. Cuando aparezca el menú de arranque **GRUB**. Teniendo seleccionada la primera opción, pulsa la tecla `e` en el teclado antes de que el sistema arranque. Con este paso podremos editar los parámetros del kernel antes de que el sistema arranque.
 
-![Menú GRUB](../img/resetPass/deb10_grub.jpg)
+![Menú GRUB](../img/resetPass/deb10_grub.jpg){:style="width: 80%;" class="center"}
 
 Esto hará que se muestre una pantalla como la que se muestra a continuación. Localiza la línea que empieza con  `linux` que precede la sección `/boot/vmlinuz-*` que también especifica el UUID.
 
-![Menú GRUB](../img/resetPass/deb10_grup_kernel_params.jpg)
+![Menú GRUB](../img/resetPass/deb10_grup_kernel_params.jpg){:style="width: 80%;" class="center"}
 
 Lleva el cursor al final de esta línea, justo antes de `ro quiet` y añade el parámetro `init=/bin/bash`
 
@@ -86,11 +86,11 @@ El proceso es muy sencillo:
 * Sigue el asistente para reiniciar la contraseña
 * Reinicia la máquina y haz login con la cuenta a la que has cambiado la contraseña 
 
-![Lacesoft Password Recovery](../img/resetPass/HBCD_lacesoft.png)
+![Lacesoft Password Recovery](../img/resetPass/HBCD_lacesoft.png){:style="width: 80%;" class="center"}
 
 Tienes un tutorial completo en el siguiente enlace: [https://www.lazesoft.com/how-to-reset-administrator-password.html](https://www.lazesoft.com/how-to-reset-administrator-password.html)
 
-![Lacesoft Password Recovery](../img/resetPass/HBCD_user_reset.png)
+![Lacesoft Password Recovery](../img/resetPass/HBCD_user_reset.png){:style="width: 80%;" class="center"}
 
 > 4 ) Para realizar este procedimiento en una máquina física necesitarías grabar la imagen en un DVD o preparar un USB de arranque. ¿Cómo se puede preparar un USB de arranque a partir de un fichero ISO?.
 
