@@ -53,7 +53,7 @@ Desde un equipo con Windows 10, puedes usar el cliente ssh integrado. Si no est�
 2. Una vez instalado `google-authenticator` en Linux, ejecuta la utilidad `google-authenticator` con el usuario que quieras proteger con 2FA:
 
     ```sh
-    alumno@pc:~$ google-authenticator
+    google-authenticator
     ```
 
 3. La aplicación te hace una serie de preguntas. Se recomienda que respondas de la siguiente manera:
@@ -66,7 +66,7 @@ Desde un equipo con Windows 10, puedes usar el cliente ssh integrado. Si no est�
 
    ![Código QR Google Authenticator](../img/2step/googleAuth1.png)
    
-   Abre la app Google Authenticator, pulsa el botón + para añadir una cuenta y escanea el QR (también puedes introducir la clave secreta manualmente). En la aplicación aparecerá una clave de acceso que se actualiza cada 30 segundos.
+   Abre la app Google Authenticator en tu teléfono, pulsa el botón + para añadir una cuenta y escanea el QR (también puedes introducir la clave secreta manualmente). En la aplicación aparecerá una clave de acceso que se actualiza cada 30 segundos.
 
 4. Introduce el código que muestra el teléfono para confirmar la configuración correcta y revisa los códigos de emergencia (de un solo uso) que te permitirán acceder en caso de no disponer del móvil.
 
@@ -136,20 +136,10 @@ auth requisite pam_google_authenticator.so
 
 ## Actividad Final
 
-Adjunta una breve memoria en formato PDF con capturas de pantalla del proceso realizado y súbela al Moodle en la actividad correspondiente.
+Adjunta una breve memoria en formato PDF con capturas de pantalla del proceso realizado y súbela al Aules en la actividad correspondiente.
 
-## Bibliografía
 
-- Tutorial SSH con Google Authenticator en AlmaLinux 9: [https://reintech.io/blog/implementing-two-factor-authentication-ssh-almalinux-9](https://reintech.io/blog/implementing-two-factor-authentication-ssh-almalinux-9)
-
-- Google Authenticator:
-    * [General](https://support.google.com/accounts/answer/1066447?sjid=1517607344428081015-EU)
-    * [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2)
-    * [iOS](https://apps.apple.com/app/google-authenticator/id388497605)
-
-- PAM en GNU/Linux: [https://www.debian.org/doc/manuals/debian-reference/ch04.es.html](https://www.debian.org/doc/manuals/debian-reference/ch04.es.html)
-
-## Bibliografía
+# Bibliografía
 
 - Tutorial SSH con google Authenticator en Almalinux **9**: [https://reintech.io/blog/implementing-two-factor-authentication-ssh-almalinux-9](https://reintech.io/blog/implementing-two-factor-authentication-ssh-almalinux-9)
 
