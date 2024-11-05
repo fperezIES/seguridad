@@ -63,7 +63,7 @@ Ejercicios de clase:
 [EJ.4.1 Reinicio de contraseñas](UD4/exercises/ej.resetPass.md)
 
 Tareas opcionales:
-[OPT.4.1 SSH con doble factor](UD4/exercises/ej.ssh_2step.md)
+[OPT.4.1 SSH con doble factor](UD4/exercises/opt.ssh_2step.md)
 
 Tareas entregables:
 
