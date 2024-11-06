@@ -25,6 +25,8 @@ Para seguir esta práctica se necesita:
 
 # Enunciado
 
+### Reinstalar ssh (opcional)
+
 Si ya tienes instalada una versión de ssh y quieres restablecer su configuración a los valores predeterminados, desinstala el servicio ssh mediante el siguiente comando. El uso de `remove` eliminará el paquete sin conservar la configuración.
 
 ```sh
@@ -55,7 +57,9 @@ sudo firewall-cmd --list-ports
 
 Configura tu máquina virtual en **modo puente** con tu tarjeta de red o en **modo red solo-anfitrión**. En ambos casos, verifica la conectividad mediante `ping` y/o `ssh`.
 
-Desde un equipo con Windows 10, puedes usar el cliente ssh integrado. Si no está habilitado, puedes activarlo en las características de Windows o descargar un cliente ssh, como `Putty` desde [https://www.putty.org/](https://www.putty.org/).
+Desde un equipo con Windows, puedes usar el cliente ssh integrado. Si no está habilitado, puedes activarlo en las características de Windows o descargar un cliente ssh, como `Putty` desde [https://www.putty.org/](https://www.putty.org/).
+
+### Instalación de google-authenticator
 
 1. En una terminal de Linux, instala el paquete `libpam-google-authenticator` en el sistema usando el siguiente comando:
 
@@ -120,43 +124,94 @@ Desde un equipo con Windows 10, puedes usar el cliente ssh integrado. Si no est�
     sudo nano /etc/pam.d/sshd
     ```
 
-    Comenta la línea `@include common-auth` y añade las siguientes líneas:
+    Añade la siguiente línea en la parte **superior** del fichero:
 
     ```sh
-    #@include common-auth
-    auth requisite pam_unix.so nullok
-    auth requisite pam_google_authenticator.so
+auth required pam_google_authenticator.so nullok
     ```
 
     > **Nota**: La opción `nullok` permite a los usuarios iniciar sesión con usuario y contraseña hasta completar la configuración de 2FA. Una vez configurado el 2FA para todos, se recomienda eliminar `nullok` para forzar el uso de 2FA.
 
-8. Edita el archivo de configuración de ssh `/etc/ssh/sshd_config` y habilita `ChallengeResponseAuthentication`:
+8. Edita el archivo de configuración de ssh `/etc/ssh/sshd_config.d/50-redhat.conf` y habilita `ChallengeResponseAuthentication`:
 
     ```sh
     ChallengeResponseAuthentication yes
     ```
 
-9. Reinicia el servicio ssh:
+9. Edita el fichero de configuración '/etc/ssh/sshd_config' y haz los siguientes cambios:
+
+Busca y modifica las siguientes líneas:
+
+	```sh
+	KbdInteractiveAuthentication yes
+	UsePAM yes
+	```
+
+Añade al **final** la siguiente línea:
+
+```sh
+AuthenticationMethods password,publickey keyboard-interactive
+```
+
+
+10. Reinicia el servicio ssh:
 
     ```sh
     sudo systemctl restart sshd
     ```
 
-10. Ahora, desde otro equipo (por ejemplo, desde la máquina anfitrión), conecta por ssh y verifica que el sistema solicita primero la contraseña y luego el código de verificación de Google Authenticator:
+11. Ahora, desde otro equipo (por ejemplo, desde la máquina anfitrión), conecta por ssh y verifica que el sistema solicita primero el código de Google Authenticator y luego la contraseña :
 
     ```sh
     $ ssh usuario@192.168.100.124
-    Password: *****
     Verification code: ******
+    Password: *****
     ```
 
-Para implementar condiciones específicas, puedes usar el módulo `pam_succeed_if`, que permite aplicar reglas condicionales en `/etc/pam.d/sshd`. Por ejemplo, en el siguiente ejemplo no se solicitará 2FA a los usuarios del grupo `invitados`:
+
+Probablemente te fallará. El motivo es que SELinux está interfiriendo en el funcionamiento de google-authenticator.
+
+Para ver los logs relacionados con sshd ejecuta:
 
 ```sh
-auth requisite pam_unix.so nullok
-auth [success=done default=ignore] pam_succeed_if.so user ingroup invitados
-auth requisite pam_google_authenticator.so
+ sudo cat /var/log/audit/audit.log | grep "sshd"
 ```
+
+`/var/log/audit/audit.log`: Este archivo es mantenido por el servicio de auditoría de Linux y contiene registros detallados de eventos importantes del sistema, como accesos, cambios de configuración, fallos de autenticación, y acciones de SELinux.
+
+Verás algo similar a:
+
+```sh
+type=USER_AUTH msg=audit(1730851779.213:558): pid=19367 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:authentication grantors=? acct="fperez" exe="/usr/sbin/sshd" hostname=192.168.100.104 addr=192.168.100.104 terminal=ssh res=failed'UID="root" AUID="unset"
+type=USER_AUTH msg=audit(1730851781.270:559): pid=19365 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=challenge-response acct="fperez" exe="/usr/sbin/sshd" hostname=? addr=192.168.10.104 terminal=ssh res=failed'UID="root" AUID="unset"
+```
+
+### Revisar SELinux
+
+SELinux podría estar bloqueando el acceso al módulo `pam_google_authenticator.so` o al archivo `.google_authenticator` en el directorio del usuario `fperez`.
+
+1. Cambia temporalmente a modo `permissive` para probar:
+
+   ```bash
+   sudo setenforce 0
+   ```
+
+2. Intenta iniciar sesión de nuevo por ssh. Si funciona, es probable que SELinux esté interfiriendo. En ese caso, genera una política específica. 
+
+   ```bash
+   sudo ausearch -c 'sshd' --raw | audit2allow -M googleauth_mfa
+   sudo semodule -i googleauth_mfa.pp
+   ```
+
+El primer comando crea un archivo de módulo de política (`googleauth_mfa.pp`) en el directorio actual. Esta política incluirá permisos adicionales para que `sshd` pueda realizar las acciones necesarias que SELinux estaba bloqueando.
+
+El segundo comando activa la política.
+
+3. Vuelve a activar SELinux en modo `enforcing`:
+
+   ```bash
+   sudo setenforce 1
+   ```
 
 ## Actividad Final
 
@@ -164,6 +219,10 @@ Adjunta una breve memoria en formato PDF con capturas de pantalla del proceso re
 
 
 # Bibliografía
+
+- [Configuraciones específicas de Almalinux](https://forums.almalinux.org/t/problem-with-mfa-activation/2321/2)
+
+- Tutorial  Arch linux:[https://wiki.archlinux.org/title/Google_Authenticator](https://wiki.archlinux.org/title/Google_Authenticator)
 
 - [Tutorial SSH con Google Authenticator CentOS 9](https://green.cloud/docs/configure-google-authenticator-ssh-on-centos-9/)
 
