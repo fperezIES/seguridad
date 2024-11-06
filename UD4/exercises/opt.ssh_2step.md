@@ -4,19 +4,19 @@ title: Autenticación de doble factor por SSH
 ---
 
 
-# Autenticación de Doble Factor por SSH
+# Autenticación de Doble Factor por SSH en AlmaLinux
 
 <!-- Adaptado del curso de seguridad del CEFIRE 2020 -->
 
-# Introducción
+##1 Introducción
 
-## Objetivos
+### Objetivos
 
-Configurar un sistema de autenticación de doble factor mediante *Google Authenticator* en el acceso *ssh* a un sistema GNU/Linux.
+Configurar un sistema de autenticación de doble factor mediante *Google Authenticator* en el acceso *ssh* a un sistema Almalinux 9.
 
 ![Logo Google Authenticator](../img/2step/googleAuth.png){:style="width: 30%;" class="center"}
 
-## Preparación
+### Preparación
 
 Para seguir esta práctica se necesita:
 
@@ -134,25 +134,23 @@ auth required pam_google_authenticator.so nullok
 
 8. Edita el archivo de configuración de ssh `/etc/ssh/sshd_config.d/50-redhat.conf` y habilita `ChallengeResponseAuthentication`:
 
-    ```sh
+   ```sh
     ChallengeResponseAuthentication yes
+   ```
+
+9. Edita el fichero de configuración `/etc/ssh/sshd_config` y haz los siguientes cambios:
+ Busca y modifica las siguientes líneas:
+
+   ```sh
+    bdInteractiveAuthentication yes
+    UsePAM yes
     ```
 
-9. Edita el fichero de configuración '/etc/ssh/sshd_config' y haz los siguientes cambios:
-
-Busca y modifica las siguientes líneas:
-
-	```sh
-	KbdInteractiveAuthentication yes
-	UsePAM yes
-	```
-
-Añade al **final** la siguiente línea:
+ Añade al **final** la siguiente línea:
 
 ```sh
-AuthenticationMethods password,publickey keyboard-interactive
-```
-
+	AuthenticationMethods password,publickey keyboard-interactive
+	```
 
 10. Reinicia el servicio ssh:
 
@@ -163,13 +161,13 @@ AuthenticationMethods password,publickey keyboard-interactive
 11. Ahora, desde otro equipo (por ejemplo, desde la máquina anfitrión), conecta por ssh y verifica que el sistema solicita primero el código de Google Authenticator y luego la contraseña :
 
     ```sh
-    $ ssh usuario@192.168.100.124
+    ssh usuario@192.168.100.124
     Verification code: ******
     Password: *****
     ```
 
 
-Probablemente te fallará. El motivo es que SELinux está interfiriendo en el funcionamiento de google-authenticator.
+**Probablemente te fallará.** El motivo es que **SELinux** está interfiriendo en el funcionamiento de google-authenticator.
 
 Para ver los logs relacionados con sshd ejecuta:
 
@@ -207,6 +205,17 @@ El primer comando crea un archivo de módulo de política (`googleauth_mfa.pp`) 
 
 El segundo comando activa la política.
 
+- **`sudo ausearch -c 'sshd' --raw`**:
+    
+    - **`ausearch`**: Es una herramienta para buscar eventos específicos en los registros de auditoría de SELinux.
+    - **`-c 'sshd'`**: Filtra los eventos relacionados con el comando o proceso `sshd`, que es el demonio de SSH. Esto busca todos los eventos de SELinux en los que el proceso `sshd` haya sido bloqueado.
+    - **`--raw`**: Muestra los resultados en un formato sin procesar, adecuado para ser pasado a otro comando (en este caso, `audit2allow`).
+- **`| audit2allow -M googleauth_mfa`**:
+    
+    - **`audit2allow`**: Es una herramienta que convierte los mensajes de auditoría de SELinux en una política personalizada que permitirá las acciones previamente bloqueadas.
+    - **`-M googleauth_mfa`**: Crea un módulo de política con el nombre `googleauth_mfa`. Este módulo incluirá reglas de SELinux basadas en los eventos registrados en el log, permitiendo las acciones de `sshd` que antes fueron bloqueadas.
+
+
 3. Vuelve a activar SELinux en modo `enforcing`:
 
    ```bash
@@ -215,7 +224,7 @@ El segundo comando activa la política.
 
 ## Actividad Final
 
-Adjunta una breve memoria en formato PDF con capturas de pantalla del proceso realizado y súbela al Aules en la actividad correspondiente.
+Adjunta una breve memoria en formato PDF con capturas de pantalla del proceso realizado: Muestra capturas de los ficheros de configuración y de la autenticación por ssh usando doble factor. Súbela l Aules en la actividad correspondiente. 
 
 
 # Bibliografía
@@ -230,7 +239,8 @@ Adjunta una breve memoria en formato PDF con capturas de pantalla del proceso re
 
 - Tutorial SSH con google Authenticator en Almalinux **9**: [https://reintech.io/blog/implementing-two-factor-authentication-ssh-almalinux-9](https://reintech.io/blog/implementing-two-factor-authentication-ssh-almalinux-9)
 
-* Google authenticator: [https://support.google.com/accounts/answer/1066447?sjid=1517607344428081015-EU](https://support.google.com/accounts/answer/1066447?sjid=1517607344428081015-EU)
+* Google authenticator: 
+	* [https://support.google.com/accounts/answer/1066447?sjid=1517607344428081015-EU](https://support.google.com/accounts/answer/1066447?sjid=1517607344428081015-EU)
 	* Android: [https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2)
 	* iOS: [https://apps.apple.com/app/google-authenticator/id388497605](https://apps.apple.com/app/google-authenticator/id388497605)
 	
