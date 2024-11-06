@@ -1,14 +1,10 @@
 
----
-title: Autenticación de doble factor por SSH
----
-
 
 # Autenticación de Doble Factor por SSH en AlmaLinux
 
 <!-- Adaptado del curso de seguridad del CEFIRE 2020 -->
 
-##1 Introducción
+## Introducción
 
 ### Objetivos
 
@@ -150,7 +146,7 @@ auth required pam_google_authenticator.so nullok
 
 ```sh
 	AuthenticationMethods password,publickey keyboard-interactive
-	```
+```
 
 10. Reinicia el servicio ssh:
 
