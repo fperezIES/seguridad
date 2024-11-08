@@ -138,7 +138,7 @@ auth required pam_google_authenticator.so nullok
  Busca y modifica las siguientes líneas:
 
    ```sh
-    bdInteractiveAuthentication yes
+    KbdInteractiveAuthentication yes
     UsePAM yes
     ```
 

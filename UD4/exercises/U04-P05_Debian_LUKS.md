@@ -79,3 +79,4 @@ Finalmente, intentaremos cambiar la contraseña de root modificando la entrada d
 
 * [https://gitlab.com/cryptsetup/cryptsetup](https://gitlab.com/cryptsetup/cryptsetup)
 
+- https://wiki.archlinux.org/title/Dm-crypt_(Espa%C3%B1ol)/Encrypting_an_entire_system_(Espa%C3%B1ol)
