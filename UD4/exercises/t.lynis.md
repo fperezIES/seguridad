@@ -12,7 +12,7 @@ Linux es considerado un sistema operativo más seguro que Windows. Esto se debe 
 
 Lynis es una herramienta de auditoría muy completa que podemos utilizar en Linux. Está disponible para distribuciones tan populares como Ubuntu, Fedora, Debian y OpenSUSE. Básicamente, lo que hace es analizar todo el software instalado en nuestro equipo y buscar posibles problemas que debamos corregir. De esta forma, sabremos si tenemos que realizar cambios, instalar actualizaciones, etc.
 
-![Logo CISOFY](img/lynis/lynis.png){:style="width: 40%;" class="center"}
+![Logo CISOFY](../img/lynis/lynis.png){:style="width: 40%;" class="center"}
 
 **Lynis** es una herramienta muy interesante para ayudarnos a auditar y fortificar nuestro servidor. Es muy sencilla de usar y, una vez descargada, tan solo debemos ejecutarla para que analice el software instalado en busca de problemas de configuración o de seguridad, proporcionándonos recomendaciones. Se distribuye bajo licencia GPL v3, por lo que cualquiera puede utilizarla para analizar su distribución sin ningún coste.
 
