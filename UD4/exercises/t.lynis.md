@@ -4,7 +4,7 @@ title: Auditoría de seguridad de servidores Linux
 
 <!-- Tomada de curso seguridad del CEFIRE 2020 -->
 
-# Auditoria de seguridad de servidores Linux
+# Auditoria de seguridad de servidores Linux (Lynis)
 
 # Introducción
 
