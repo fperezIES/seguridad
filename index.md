@@ -6,7 +6,7 @@ Repositorio con apuntes para el módulo Seguridad y Alta Disponibilidad del cicl
 ## UD1 - Introducción a la seguridad informática 
 
 * [1.1 Introducción a la seguridad informática](UD1/1.introduccion.md)
-* [1.2 Vulnerabilidades y Amenazas](2.amenazas.md)
+* [1.2 Vulnerabilidades y Amenazas](UD1/2.amenazas.md)
 * [1.3 Auditorías: estándares y gestión de riesgos](UD1/3.auditorias.md)
 * [1.4 Incidentes](UD1/4.incidentes.md)
 * [1.5 Cumplimiento legal](UD1/5.cumplimiento.md)
@@ -55,7 +55,7 @@ Tareas entregables:
 ## UD4 - Fortificación hosts
 
 - [4.1 Acceso: Autenticación, Arranque Seguro y Cifrado](UD4/1.seguridad_acceso.md)
-- [4.2 Protección contra malware](UD4/2.malware.md))
+- [4.2 Protección contra malware](UD4/2.malware.md)
 - 4.3 Actualización, parches y gestión de vulnerabilidades
 - 4.4 Monitorización y auditoría
 
