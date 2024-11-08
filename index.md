@@ -65,10 +65,11 @@ Ejercicios de clase:
 - [EJ.4.2 Comprobación de ficheros y URLs con VirtusTotal.com](UD4/exercises/ej.virustotal.md)
 
 Tareas opcionales:
-- [OPT.4.1 SSH con doble factor](UD4/exercises/opt.ssh_2step.md)
+
 
 Tareas entregables:
-- [Auditoria de seguridad de servidores Linux](UD4/exercises/t.lynis.md)
+- [T4.1 SSH con doble factor](UD4/exercises/opt.ssh_2step.md)
+- [T4.2 Auditoria de seguridad de servidores Linux (Lynis)](UD4/exercises/t.lynis.md)
 
 ## UD5 - Alta disponibilidad
 

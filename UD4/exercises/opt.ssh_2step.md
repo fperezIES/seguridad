@@ -79,13 +79,13 @@ Desde un equipo con Windows, puedes usar el cliente ssh integrado. Si no está h
 
    La aplicación generará una **clave secreta** (`secret key`) y mostrará un **código QR**. 
 
-   ![Código QR Google Authenticator](../img/2step/googleAuth1.png)
+   ![Código QR Google Authenticator](../img/2step/googleAuth1.png){:style="width: 60%;" class="center"}
    
    Abre la app Google Authenticator en tu teléfono, pulsa el botón + para añadir una cuenta y escanea el QR (también puedes introducir la clave secreta manualmente). En la aplicación aparecerá una clave de acceso que se actualiza cada 30 segundos.
 
 4. Introduce el código que muestra el teléfono para confirmar la configuración correcta y revisa los códigos de emergencia (de un solo uso) que te permitirán acceder en caso de no disponer del móvil.
 
-   ![Códigos de emergencia](../img/2step/googleAuth2.png)
+   ![Códigos de emergencia](../img/2step/googleAuth2.png){:style="width: 60%;" class="center"}
 
 5. A partir de aquí, sigue respondiendo a las preguntas que aparecerán en consola:
 

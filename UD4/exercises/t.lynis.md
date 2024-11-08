@@ -41,16 +41,18 @@ Finalmente, se nos presenta un completo informe de todos los pasos realizados co
 
 # Enunciado
 
-Analiza la seguridad de un servidor Linux en el que estén habilitados, como mínimo, un servidor SSH y un servidor Apache, utilizando la herramienta Lynis.
+> Analiza la seguridad de un servidor Linux en el que estén habilitados, como mínimo, un servidor SSH y un servidor Apache, utilizando la herramienta Lynis.
 
 **Revisa la bibliografía antes de empezar.**
 
-Debes crear una memoria para la práctica que contenga:
 
+Debes crear una memoria para la práctica que contenga:
 1. ¿Cómo has instalado Lynis?
 2. ¿Cómo has ejecutado Lynis?
 3. El informe generado por Lynis.
-4. Un análisis del informe obtenido en el que expliques, bajo tu punto de vista, los problemas más importantes que se han encontrado.
+4. Un análisis del informe obtenido en el que expliques, bajo tu punto de vista, los problemas más importantes que se has encontrado.
+	- Detalla y explica las mejoras sugeridas relacionadas con las contraseñas y autenticación de usuairos.
+	- Detalla y explica las mejoras sugeridas relacionadas con SSH.
 5. ¿Cómo podrías mitigar los problemas de seguridad detectados por Lynis en tu servidor?
 6. ¿Crees que es suficiente con realizar una auditoría de seguridad puntual, o debería ser un proceso continuo? Justifica tu respuesta.
 
@@ -58,6 +60,8 @@ Debes crear una memoria para la práctica que contenga:
 ## Investigación opcional
 
 Para ampliar la práctica, investiga brevemente sobre otras herramientas de auditoría como **OpenSCAP** o **Chkrootkit**. Compara sus funcionalidades básicas con Lynis y escribe una breve reflexión sobre cuál de ellas crees que podría complementar mejor las funciones de auditoría de seguridad en un servidor Linux.
+
+
 
 ### Escenario práctico opcional
 
@@ -69,10 +73,29 @@ Si tienes acceso a un entorno de pruebas, puedes realizar una auditoría de segu
 * [https://cisofy.com/documentation/lynis/get-started/](https://cisofy.com/documentation/lynis/get-started/)
 * [Habilitar repositorios EPEL (Extra Packages for Enterprise Linux (EPEL) en Almalinux](https://reintech.io/blog/installing-using-epel-repository-almalinux-9#google_vignette)
 - [Tutorial Lynis  Almalinux](https://www.techrepublic.com/article/how-to-run-a-security-audit-on-almalinux-with-lynis/)
-	
+- [https://www.linuxtotal.com.mx/index.php?cont=info_seyre_011](https://www.linuxtotal.com.mx/index.php?cont=info_seyre_011)
+
 * [https://packages.cisofy.com/community/#debian-ubuntu](https://packages.cisofy.com/community/#debian-ubuntu)
 * [https://www.redeszone.net/tutoriales/seguridad/lynis-auditoria-seguridad-linux/](https://www.redeszone.net/tutoriales/seguridad/lynis-auditoria-seguridad-linux/)
 * [https://computernewage.com/2016/09/03/lynis-auditoria-seguridad-linux/](https://computernewage.com/2016/09/03/lynis-auditoria-seguridad-linux/)
 
 
 
+<!--
+
+
+Para instalar Lynis en Almalinux:
+
+```sh
+sudo dnf install epel-release -y
+sudo dnf install lynis -y
+```
+
+Para ejecutar una auditoría:
+
+```sh
+sudo lynis audit system
+```
+
+
+-->
