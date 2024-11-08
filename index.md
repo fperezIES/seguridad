@@ -61,14 +61,14 @@ Tareas entregables:
 
 
 Ejercicios de clase:
-[EJ.4.1 Reinicio de contraseñas](UD4/exercises/ej.resetPass.md)
-[EJ.4.2 Comprobación de ficheros y URLs con VirtusTotal.com](UD4/exercises/ej.virustotal.md)
+- [EJ.4.1 Reinicio de contraseñas](UD4/exercises/ej.resetPass.md)
+- [EJ.4.2 Comprobación de ficheros y URLs con VirtusTotal.com](UD4/exercises/ej.virustotal.md)
 
 Tareas opcionales:
-[OPT.4.1 SSH con doble factor](UD4/exercises/opt.ssh_2step.md)
+- [OPT.4.1 SSH con doble factor](UD4/exercises/opt.ssh_2step.md)
 
 Tareas entregables:
-
+- [Auditoria de seguridad de servidores Linux](UD4/exercises/t.lynis.md)
 
 ## UD5 - Alta disponibilidad
 
