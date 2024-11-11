@@ -29,7 +29,7 @@ Para facilitar el análisis y discusión del informe, reflexiona sobre las sigui
 
 4. **Sectores de Alto Riesgo**: ¿Qué sectores de la industria fueron más atacados según el informe? ¿Cuáles crees que son las razones detrás de este enfoque en sectores específicos?
 
-5. **Tendencias de Ransomware**: ¿Por qué el ransomware sigue siendo una amenaza significativa? ¿Qué papel juega en la detección de compromisos?
+5. **Tendencias de Ransomware**: ¿Por qué el ransomware sigue siendo una amenaza significativa? ¿Cómo han sido detectados principalmente estos ataques?
 
 6. **Uso de Inteligencia Artificial en ataques**: El informe destaca el uso de IA en simulaciones de ataques (red y purple team). ¿Cómo crees que la IA podría influir en las tácticas de los atacantes y en las estrategias de defensa de las organizaciones?
 
@@ -38,7 +38,7 @@ Para facilitar el análisis y discusión del informe, reflexiona sobre las sigui
 
 ## Referencias
 
-- [Informe M-Trends]([https://cloud.google.com/security/resources/m-trends](https://cloud.google.com/security/resources/m-trends))
+- [Informe M-Trends](https://cloud.google.com/security/resources/m-trends)
 
 - [MITRE ATT&CK Matrix](https://attack.mitre.org/)
 	- [Get Started](https://attack.mitre.org/resources/)
