@@ -55,7 +55,7 @@ def hello_world():
 
 ---
 
-## Diapositiva con framentos
+## Diapositiva con fragmentos
 
 * Este se muestra desde el principio
 * Este se muestra después <!-- .element: class="fragment" data-fragment-index="1" -->

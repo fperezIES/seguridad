@@ -47,7 +47,7 @@ Finalmente, se nos presenta un completo informe de todos los pasos realizados co
 
 
 Debes crear una memoria para la práctica que contenga:
-1. ¿Cómo has instalado Lynis?
+1. ¿Cómo has instalado Lynis? (Recuerda que Almalinux es similar a otras distribuciones como: CentOS, Fedora RHEL, Rocky...)
 2. ¿Cómo has ejecutado Lynis?
 3. El informe generado por Lynis.
 4. Un análisis del informe obtenido en el que expliques, bajo tu punto de vista, los problemas más importantes que se has encontrado.

@@ -133,6 +133,7 @@ Tras completar esta práctica, reflexiona sobre los siguientes puntos:
 - [https://askubuntu.com/questions/24006/how-do-i-reset-a-lost-administrative-password](https://askubuntu.com/questions/24006/how-do-i-reset-a-lost-administrative-password)
 - [https://geekland.eu/proteger-el-grub-con-contrasena/](https://geekland.eu/proteger-el-grub-con-contrasena/)
 - [http://www.gnu.org/software/grub/](https://geekland.eu/proteger-el-grub-con-contrasena/)
+- [Reinicio de contraseña root en Almalinux](https://glesys.se/kb/artikel/how-to-reset-your-root-password-in-almalinux-9)
 
 ### Creación de boot USB a partir de ISOs
 
