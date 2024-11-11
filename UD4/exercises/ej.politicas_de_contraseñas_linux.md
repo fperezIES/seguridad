@@ -1,29 +1,12 @@
-
-# Establecimiento de Políticas de Contraseñas y Gestión de Permisos en AlmaLinux 9
-
-## Índice
-
-1. [Introducción](#introducción)
-3. [Establecimiento de Políticas de Contraseñas en AlmaLinux 9](#establecimiento-de-políticas-de-contraseñas-en-almalinux-9)
-   - 2.1 [Introducción a la Seguridad de Contraseñas](#21-introducción-a-la-seguridad-de-contraseñas)
-   - 2.2 [Configuración de Políticas con PAM](#22-configuración-de-políticas-con-pam)
-   - 2.3 [Parámetros Clave de Configuración](#23-parámetros-clave-de-configuración)
-   - 2.4 [Ejemplos de Configuración](#24-ejemplos-de-configuración)
-   - 2.5 [Aplicación y Verificación de Políticas](#25-aplicación-y-verificación-de-políticas)
-4. [Sistema de Permisos en Linux](#sistema-de-permisos-en-linux)
-   - 3.1 [Fundamentos de Propietario, Grupo y Otros](#31-fundamentos-de-propietario-grupo-y-otros)
-   - 3.2 [Permisos Básicos](#32-permisos-básicos)
-   - 3.3 [Visualización de Permisos](#33-visualización-de-permisos)
-   - 3.4 [Cambio de Propietario de Fichero](#34-cambio-de-propietario-de-fichero)
-   - 3.5 [Cambio de Permisos](#35-cambio-de-permisos)
-   - 3.6 [Utilidad y Gestión de Grupos](#36-utilidad-y-gestión-de-grupos)
-5. [Conclusión](#conclusión)
+Aquí tienes el texto mejorado, con un apartado sobre el número de intentos antes de bloquear una cuenta:
 
 ---
 
+# Establecimiento de Políticas de Contraseñas y Gestión de Permisos en AlmaLinux 9
+
 ## Introducción
 
-En este documento, exploraremos cómo establecer políticas de contraseñas adecuadas en AlmaLinux 9 y comprenderemos el sistema de permisos en Linux. Estos conceptos son esenciales para garantizar la seguridad y el correcto funcionamiento de un sistema operativo Linux en entornos tanto personales como empresariales.
+En este documento, exploraremos cómo establecer políticas de contraseñas adecuadas en AlmaLinux 9 y comprenderemos el sistema de permisos en Linux. La configuración adecuada de políticas de contraseñas y el entendimiento del sistema de permisos en Linux son fundamentales para mantener la seguridad y el control de acceso en AlmaLinux 9. A través de PAM y la gestión cuidadosa de propietarios, grupos y permisos, los administradores pueden proteger eficazmente los recursos del sistema y garantizar que solo los usuarios autorizados tengan acceso a información y funcionalidades sensibles.
 
 ## Establecimiento de Políticas de Contraseñas en AlmaLinux 9
 
@@ -53,7 +36,31 @@ Al configurar políticas de contraseñas, los siguientes parámetros son esencia
 - `remember`: Cantidad de contraseñas antiguas a recordar para evitar reutilización.
 - `maxrepeat`: Máximo de caracteres repetidos consecutivos.
 
-### 2.4 Ejemplos de Configuración
+### 2.4 Parámetros de Bloqueo de Cuenta por Intentos Fallidos
+
+Para evitar intentos de acceso no autorizados por fuerza bruta, es importante definir un límite de intentos fallidos antes de bloquear temporalmente una cuenta. Esto se configura mediante el módulo `pam_faillock.so`.
+
+#### Configuración de `pam_faillock` para Intentos Fallidos
+
+Edita el archivo `/etc/pam.d/system-auth` y añade o modifica las siguientes líneas en la sección de autenticación:
+
+```bash
+auth required pam_faillock.so preauth silent deny=3 unlock_time=600
+auth [default=die] pam_faillock.so authfail deny=3 unlock_time=600
+```
+
+- `deny=3`: Número máximo de intentos fallidos antes de bloquear la cuenta (en este caso, 3 intentos).
+- `unlock_time=600`: Tiempo (en segundos) que la cuenta permanecerá bloqueada antes de desbloquearse automáticamente (600 segundos equivalen a 10 minutos).
+
+> **Nota**: Estos valores pueden ajustarse según las políticas de seguridad de la organización.
+
+Para restablecer el contador de intentos fallidos de un usuario, usa:
+
+```bash
+faillock --user usuario --reset
+```
+
+### 2.5 Ejemplos de Configuración de Políticas de Contraseña
 
 #### Establecer Longitud Mínima de Contraseña
 
@@ -98,7 +105,7 @@ Para establecerlo globalmente, edite `/etc/login.defs`:
 PASS_MAX_DAYS 90
 ```
 
-### 2.5 Aplicación y Verificación de Políticas
+### 2.6 Aplicación y Verificación de Políticas
 
 Después de configurar las políticas, pruebe cambiando la contraseña de un usuario:
 
@@ -126,7 +133,7 @@ Cada archivo y directorio en Linux tiene asociado un propietario, un grupo y per
 
 ### 3.3 Visualización de Permisos
 
-Use `ls -l` para listar archivos con detalles:
+Usa `ls -l` para listar archivos con detalles:
 
 ```bash
 ls -l
@@ -267,13 +274,9 @@ Mostrar los grupos a los que pertenece un usuario:
 groups juan
 ```
 
-## Conclusión
 
-La configuración adecuada de políticas de contraseñas y el entendimiento del sistema de permisos en Linux son fundamentales para mantener la seguridad y el control de acceso en AlmaLinux 9. A través de PAM y la gestión cuidadosa de propietarios, grupos y permisos, los administradores pueden proteger eficazmente los recursos del sistema y garantizar que solo los usuarios autorizados tengan acceso a información y funcionalidades sensibles.
 
----
-
-**Referencias Adicionales:**
+## Referencias Adicionales
 
 - Manual de PAM: `man pam`
 - Manual de chown: `man chown`

@@ -31,7 +31,7 @@ Esta práctica tiene como objetivo guiarte a través del proceso de cifrado de u
 
 **¡Cuidado!** El cifrado y manipulación de discos puede llevar a la pérdida de datos si no se realiza correctamente. Asegúrate de realizar copias de seguridad de cualquier información importante antes de proceder.
 
----
+
 
 ## Pasos de la Práctica
 
@@ -183,7 +183,7 @@ sudo umount /mnt/mi_disco_cifrado
 sudo cryptsetup luksClose mi_disco_cifrado
 ```
 
----
+
 
 ## Conclusión
 
@@ -195,7 +195,7 @@ En esta práctica, has aprendido a cifrar una partición de disco utilizando LUK
 - **Contraseñas Robustas:** Utiliza contraseñas fuertes y mantenlas en un lugar seguro.
 - **Respaldos:** Siempre realiza copias de seguridad antes de manipular particiones y sistemas de archivos.
 
----
+
 
 ## Consideraciones Adicionales
 
