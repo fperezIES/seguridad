@@ -1,6 +1,3 @@
-Aquí tienes el texto mejorado, con un apartado sobre el número de intentos antes de bloquear una cuenta:
-
----
 
 # Establecimiento de Políticas de Contraseñas y Gestión de Permisos en AlmaLinux 9
 
