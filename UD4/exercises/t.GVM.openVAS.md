@@ -1,16 +1,12 @@
 ---
 title: Auditoría de seguridad de servidores
 ---
-
-
-
-
 # Auditoría de seguridad con GVM/OpenVAS
 
 Greenbone Vulnerability Management (**GVM**), anteriormente conocido como **OpenVAS**, es una solución de código abierto diseñada para la gestión y evaluación de vulnerabilidades en redes y sistemas informáticos. Proporciona herramientas para identificar, clasificar y gestionar posibles brechas de seguridad, ayudando a las organizaciones a proteger sus infraestructuras contra amenazas conocidas. GVM es ampliamente utilizado por profesionales de seguridad para realizar análisis exhaustivos y asegurar que los sistemas estén actualizados y seguros frente a vulnerabilidades explotables.
 
 
-![Logo Greenbone](../img/GVM/greenbone_logo.png){:style="width: 40%;" class="center"}
+![Logo Greenbone](../img/GVM/GVM_logo.png){:style="width: 40%;" class="center"}
 
 
 
