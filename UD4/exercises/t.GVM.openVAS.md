@@ -5,12 +5,12 @@ title: Auditoría de seguridad de servidores
 
 
 
-# Greenbone Vulnerability Manager  (Anteriormente OpenVAS)
+# Auditoría de seguridad con GVM/OpenVAS
 
 Greenbone Vulnerability Management (**GVM**), anteriormente conocido como **OpenVAS**, es una solución de código abierto diseñada para la gestión y evaluación de vulnerabilidades en redes y sistemas informáticos. Proporciona herramientas para identificar, clasificar y gestionar posibles brechas de seguridad, ayudando a las organizaciones a proteger sus infraestructuras contra amenazas conocidas. GVM es ampliamente utilizado por profesionales de seguridad para realizar análisis exhaustivos y asegurar que los sistemas estén actualizados y seguros frente a vulnerabilidades explotables.
 
 
-![Logo Greenbone](img/GVM/greenbone_logo.png){:style="width: 40%;" class="center"}
+![Logo Greenbone](../img/GVM/greenbone_logo.png){:style="width: 40%;" class="center"}
 
 
 
@@ -182,7 +182,7 @@ Veremos una salida similar a:
 
 Ahora podremos acceder a la interfaz web a través de  [https://127.0.0.1:9392](https://127.0.0.1:9392)  (Nota: Se debería lanzar el navegador Firefox de forma automática, si no lo hiciera podremos hacerlo de forma manual)
 
-![GVM login page](img/GVM/GVM_1_login.png){:style="width: 70%;" class="center"}
+![GVM login page](../img/GVM/GVM_1_login.png){:style="width: 70%;" class="center"}
 
 Recuerda que la cuenta es `admin`y la contraseña se generó al ejecutar el comando `sudo gvm-setup`.
 
@@ -208,7 +208,7 @@ Kali Linux muestra un indicador de CPU en la la barra de tareas, mientras observ
 Debemos usar el menú `scans->tasks`, crearemos una nueva tarea utilizando el wizard y la ejecutaremos.
 Podemos escanear varias máquinas.
 
-![GVM login page](img/GVM/GVM_2_task_wizard.png){:style="width: 70%;" class="center"}
+![GVM login page](../img/GVM/GVM_2_task_wizard.png){:style="width: 70%;" class="center"}
 
 
 
@@ -257,7 +257,7 @@ sudo gvm-check-setup
 
 Si alguna vez te encuentres con un problema como el siguiente:
 
-![GVM login page](img/GVM/GVM_3_task_problem.png){:style="width: 70%;" class="center"}
+![GVM login page](../img/GVM/GVM_3_task_problem.png){:style="width: 70%;" class="center"}
 
 
 Parece que el problema está relacionado con el cambio de Feed Owner, que debería realizarse ejecutando los comandos `gvmd` con el usuario `gvm`
