@@ -251,6 +251,20 @@ sudo gvm-check-setup
 
 ### Problema 2: Problemas al crear una tarea
 
+
+#### Failed to find port_list '33d0cd82-57c6-11e1-8ed1-406186ea4fc5'
+
+
+This occurs because the feeds have not completed their sync. Basically you will need to wait until the feeds complete their synchronization and then the port data will show up
+
+Prueba a ejecutar el siguiente comando y vuelve a probar:
+
+```sh
+sudo -u _gvm greenbone-feed-sync --type GVMD_DATA
+sudo -u _gvm gvmd --rebuild-gvmd-data=all
+```
+
+
 Si alguna vez te encuentres con un problema como el siguiente:
 
 ![GVM login page](../img/GVM/GVM_3_task_problem.png){:style="width: 70%;" class="center"}
@@ -268,18 +282,18 @@ sudo runuser -u _gvm -- gvmd --get-users --verbose
 
 Obtendremos algo similar a:
 
-`admin ea55b1d6-1d15-4a0a-891c-64cfea123276`
+admin 5fac1198-14eb-4c95-b5ef-54db7d6b3ae1
 
 En el siguiente comando debemos sustituir `uid` por el valor que hemos obtenido al ejecutar el comando anterior.
 
-
 ```sh
-sudo runuser -u _gvm -- gvmd --modify-setting  78eceaec-3385-11ea-b237-28d24461215b --value <uid>
+sudo runuser -u _gvm -- gvmd --modify-setting 78eceaec-3385-11ea-b237-28d24461215b --value <uid>
 ```
 
 Con el resultado del ejemplo anterior el comando quedaría de la siguiente forma:
 
-`sudo runuser -u _gvm -- gvmd --modify-setting 8eceaec-3385-11ea-b237-28d24461215b --value ea55b1d6-1d15-4a0a-891c-64cfea123276`
+`sudo runuser -u _gvm -- gvmd --modify-setting 78eceaec-3385-11ea-b237-28d24461215b --value 5fac1198-14eb-4c95-b5ef-54db7d6b3ae1
+`
 
 Reiniciamos GVM:
 
@@ -315,8 +329,10 @@ sudo gvm-start
 - Faltan opciones en WebUI: [https://forum.greenbone.net/t/gui-not-showing-all-options-kali/19215/10](https://forum.greenbone.net/t/gui-not-showing-all-options-kali/19215/10)
 * Solución al problema al crear tareas (Kali purple): [https://forum.greenbone.net/t/scan-config-cant-be-created-failed-to-find-config-daba56c8-73ec-11df-a475-002264764cea/8938/28](https://forum.greenbone.net/t/scan-config-cant-be-created-failed-to-find-config-daba56c8-73ec-11df-a475-002264764cea/8938/28)
 * Solución al problema al crear tareas usando Kali standard (Actualizar feeds y esperar): [https://www.youtube.com/watch?v=DoNaGl1XHYE&t=470s](https://www.youtube.com/watch?v=DoNaGl1XHYE&t=470s)
+- [Error al crear tarea: "Failed to find port ..."]( https://forum.greenbone.net/t/cannot-start-a-scan-task-with-task-wizard-failed-to-find-port-list-33d0cd82-57c6-11e1-8ed1-406186ea4fc5/13128/7)
 - [GitHub greenbone-feed-sync](https://github.com/greenbone/greenbone-feed-sync)
 
+- [Failed to find port_list...](https://greenbone.github.io/docs/latest/22.4/source-build/troubleshooting.html#failed-to-find-config)
 ## Vídeo Instalación GVM
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_eLI8XuXf4I?si=q9foJXGcl3GKEuL4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
