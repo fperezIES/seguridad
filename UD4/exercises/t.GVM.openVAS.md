@@ -235,14 +235,14 @@ Es posible encontrar problemas durante la instalación y configuración. Debes h
 - Actualizar los feeds.
 - Arrancar GVM y **esperar un buen rato** para que se importen las nuevas vulnerabilidades.
 
-Después sigue las indicaciones para solucionar problemas que econtrarás en el siguiente enlace: [https://greenbone.github.io/docs/latest/22.4/kali/troubleshooting.html](https://greenbone.github.io/docs/latest/22.4/kali/troubleshooting.html)
+Después sigue las indicaciones para solucionar problemas que encontrarás en el siguiente enlace: [https://greenbone.github.io/docs/latest/22.4/kali/troubleshooting.html](https://greenbone.github.io/docs/latest/22.4/kali/troubleshooting.html)
 
 ### Problema 1: Falta de pestañas en interfaz web
 
 No has actualizado los paquetes antes de instalar, actualiza y sigue las instrucciones de este enlace:
-https://greenbone.github.io/docs/latest/22.4/kali/troubleshooting.html
+[https://greenbone.github.io/docs/latest/22.4/kali/troubleshooting.html](https://greenbone.github.io/docs/latest/22.4/kali/troubleshooting.html)
 
-Ve comprobando si está todo correcto con el comando:
+Ve comprobando si está todo correcto con el siguiente comando que te irá indicando los elementos que todavía no estén correctos.
 
 
 ```sh
@@ -255,8 +255,6 @@ sudo gvm-check-setup
 #### Failed to find port_list '33d0cd82-57c6-11e1-8ed1-406186ea4fc5'
 
 
-This occurs because the feeds have not completed their sync. Basically you will need to wait until the feeds complete their synchronization and then the port data will show up
-
 Prueba a ejecutar el siguiente comando y vuelve a probar:
 
 ```sh
@@ -264,13 +262,14 @@ sudo -u _gvm greenbone-feed-sync --type GVMD_DATA
 sudo -u _gvm gvmd --rebuild-gvmd-data=all
 ```
 
+#### Feed owner
 
-Si alguna vez te encuentres con un problema como el siguiente:
+Si alguna vez te encuentres con un problema como el siguiente, o algún error relacionado con "Feed owner" puedes solucionarlo con las instrucciones que tienes a continuación.
 
 ![GVM login page](../img/GVM/GVM_3_task_problem.png){:style="width: 70%;" class="center"}
 
 
-Parece que el problema está relacionado con el cambio de Feed Owner, que debería realizarse ejecutando los comandos `gvmd` con el usuario `gvm`
+Parece que el problema está relacionado con el cambio de **Feed Owner,** que debería realizarse ejecutando los comandos `gvmd` con el usuario `gvm`
 
 Si te sucede esto se puede solucionar siguiendo los siguientes pasos: 
 
