@@ -237,11 +237,21 @@ Es posible encontrar problemas durante la instalación y configuración. Debes h
 - Haber actualizado el sistema.
 - Haber comprobado la corrección de la instalación.
 - Actualizar los feeds.
-- Arrancar GVM y esperar un buen rato para que se importen las nuevas vulnerabilidades.
+- Arrancar GVM y **esperar un buen rato** para que se importen las nuevas vulnerabilidades.
+
+Después sigue las indicaciones para solucionar problemas que econtrarás en el siguiente enlace: [https://greenbone.github.io/docs/latest/22.4/kali/troubleshooting.html](https://greenbone.github.io/docs/latest/22.4/kali/troubleshooting.html)
 
 ### Problema 1: Falta de pestañas en interfaz web
 
-Actualizar PostgreSQL siguiendo estas instrucciones:[ https://greenbone.github.io/docs/latest/22.4/kali/troubleshooting.html](https://greenbone.github.io/docs/latest/22.4/kali/troubleshooting.html)
+No has actualizado los paquetes antes de instalar, actualiza y sigue las instrucciones de este enlace:
+https://greenbone.github.io/docs/latest/22.4/kali/troubleshooting.html
+
+Ve comprobando si está todo correcto con el comando:
+
+
+```sh
+sudo gvm-check-setup
+```
 
 ### Problema 2: Problemas al crear una tarea
 
