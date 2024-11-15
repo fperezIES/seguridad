@@ -517,7 +517,7 @@ sudo runuser -u _gvm greenbone-feed-sync --type cert
 Ahora, se debe volver a ejecutar el comando `gvm-check-setup` para comprobar si ahora está todo correcto. 
 
 
-## Problema 2: Falta de pestañas en interfaz web
+## Problema 3: Falta de pestañas en interfaz web
 
 No has actualizado los paquetes antes de instalar, actualiza y sigue las instrucciones de este enlace:
 [https://greenbone.github.io/docs/latest/22.4/kali/troubleshooting.html](https://greenbone.github.io/docs/latest/22.4/kali/troubleshooting.html)
@@ -529,7 +529,7 @@ Ve comprobando si está todo correcto con el siguiente comando que te irá indic
 sudo gvm-check-setup
 ```
 
-## Problema 2: Problemas al crear una tarea
+## Problema 4: Problemas al crear una tarea
 
 
 #### Failed to find port_list '33d0cd82-57c6-11e1-8ed1-406186ea4fc5'
