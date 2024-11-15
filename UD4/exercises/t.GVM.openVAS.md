@@ -12,14 +12,14 @@ Greenbone Vulnerability Management (**GVM**), anteriormente conocido como **Open
 
 # Enunciado
 
-En esta ocasión vamos a intentar usar GVM para auditar varias **máquinas remotas**, pueden ser tanto **linux** como windows. **Para** instalar la herramienta instalaremos una nueva máquina virtual con [Kali Linux](https://www.kali.org/get-kali/#kali-platforms).
+En esta ocasión vamos a intentar usar GVM para auditar varias **máquinas remotas**, pueden ser tanto **linux** como windows. **Para** instalar la herramienta instalaremos una nueva máquina virtual con [Kali Linux][getkali]
 
 
 > **Revisa la bibliografía antes de empezar.**
 
 ## Instala la herramienta GVM
 
-GVM es una herramienta que se ejecuta en una máquina diferente al objetivo a escanear, así que es necesario disponer de otra máquina para poder utilizarla. En esta ocasión se propone usar una máquina virutal en la que instalaremos la distribución  [Kali Linux](https://www.kali.org/get-kali/) para usar la herramienta **GVM**. 
+Debido a que GVM es una herramienta que se ejecuta en una máquina distinta al objetivo que se desea escanear, es necesario disponer de otra máquina para utilizarla. En esta ocasión, se propone utilizar una máquina virtual en la que instalaremos la distribución[ Kali Linux][getkali] para emplear la herramienta GVM.
 
 ### Requisitos:
 
@@ -583,6 +583,7 @@ sudo gvm-start
 
 
 [troubleshooting]:https://greenbone.github.io/docs/latest/22.4/kali/troubleshooting.html
+[getkali]:https://www.kali.org/get-kali/
 
 # Bibliografía
 
