@@ -56,9 +56,8 @@ Tareas entregables:
 
 - [4.1 Acceso: Autenticación, Arranque Seguro y Cifrado](UD4/1.seguridad_acceso.md)
 - [4.2 Protección contra malware](UD4/2.malware.md)
-- 4.3 Actualización, parches y gestión de vulnerabilidades
+- [4.3 Actualización, parches y gestión de vulnerabilidades](UD4/slides/3.actualizacion_vulnerabilidades.md)
 - 4.4 Monitorización y auditoría
-
 
 Ejercicios de clase:
 - [EJ.4.1 Reinicio de contraseñas](UD4/exercises/ej.resetPass.md)

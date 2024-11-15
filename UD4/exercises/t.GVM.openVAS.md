@@ -28,12 +28,10 @@ Mínimos:
 - Random-Access Memory: 4GB    
 - Hard Disk: 20GB free
 
-
 Recomendados:
 - CPU Cores: 4    
 - Random-Access Memory: 8GB    
 - Hard Disk: 60GB free
-
 
 ### Actualización del sistema
 
@@ -587,6 +585,7 @@ sudo gvm-start
 
 # Bibliografía
 
+* [GreenBone Community Edition](https://community.greenbone.net/)
 * Greenbone Community Edition: [Documentación](https://greenbone.github.io/docs/latest/)
 	*  [Arquitectura OpenVAS](https://greenbone.github.io/docs/latest/background.html)
 * Desarrollador Greenbone:  [https://www.greenbone.net/](https://www.greenbone.net/)
@@ -617,13 +616,24 @@ sudo gvm-start
 
 
 
-## Vídeo Instalación GVM
+## Vídeo tutoriales GVM
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/_eLI8XuXf4I?si=q9foJXGcl3GKEuL4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+Introducción a Greenbone:
 
-## Vídeo utilización GVM
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Wqff4BDphDI?si=oGK08xGYE3XFirbq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Q-O4lPCGEXw?si=t5zfUQRyRq0dgG50" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Instalación usando docker (no recomendado):
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2mPOsBVDS2E?si=XhqH53kmK7o3zCWS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Primer escaneo:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MH4vVhHPm4s?si=C0JW7AyUGUUs9hVZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Configuración de filtros.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4V7VQAxwtxM?si=tc1ZVHdKkrw5rPgA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
 ## Vídeo comparación Nessus y GVM
