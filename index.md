@@ -57,11 +57,14 @@ Tareas entregables:
 - [4.1 Acceso: Autenticación, Arranque Seguro y Cifrado](UD4/1.seguridad_acceso.md)
 - [4.2 Protección contra malware](UD4/2.malware.md)
 - [4.3 Actualización, parches y gestión de vulnerabilidades](UD4/slides/3.actualizacion_vulnerabilidades.md)
-- 4.4 Monitorización
+- [4.4 Monitorización](UD4/4.monitorizacion.md)
 
 Ejercicios de clase:
-- [EJ.4.1 Reinicio de contraseñas](UD4/exercises/ej.resetPass.md)
-- [EJ.4.2 Comprobación de ficheros y URLs con VirtusTotal.com](UD4/exercises/ej.virustotal.md)
+- [EJ4.1 Reinicio de contraseñas](UD4/exercises/ej.resetPass.md)
+- [EJ4.2 Cifrado de Discos LUKS en AlmaLinux](UD4/exercises/ej.cifrado_LUKS.md)
+- [EJ4.4 Políticas de Contraseñas y Gestión de Permisos en AlmaLinux](UD4/exercises/ej.politicas_de_contraseñas_linux.md)
+- [EJ4.5 Comprobación de ficheros y URLs con VirtusTotal.com](UD4/exercises/ej.virustotal.md)
+- [EJ4.6 Análisis del informe de ciberseguridad "M-Trends"](UD4/exercises/ej.Informe_mandiant2024.md)
 
 Tareas opcionales:
 
@@ -70,6 +73,8 @@ Tareas entregables:
 - [T4.1 SSH con doble factor](UD4/exercises/opt.ssh_2step.md)
 - [T4.2 Auditoria de seguridad de servidores Linux (Lynis)](UD4/exercises/t.lynis.md)
 - [T4.3 Auditoría de seguridad con GVM/OpenVAS](UD4/exercises/t.GVM.openVAS.md)
+
+
 ## UD5 - Alta disponibilidad
 
 - 5.1 Redundancia a nivel de hardware
