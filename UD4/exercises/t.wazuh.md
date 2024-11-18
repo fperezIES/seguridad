@@ -101,9 +101,9 @@ Adicionalmente puedes optar por instalar y configurar el agente manualmente sigu
 - Instrucciones de la instalación del [agente en windows](windowsagent)
 
 
-## Prueba las capacidades
+## Prueba las capacidades de Wazuh
 
-Para tomar contacto con la herramienta tienes varios casos de uso práctico en la sección [Proof of Concept guide][proofofconcept]. Puedes ver algunos ejemplos demostrados en el **vídeo** incluido en los recursos adicionales.
+Para tomar contacto con la herramienta tienes varios casos de uso práctico en la sección [Proof of Concept guide][proofofconcept]. Puedes ver algunos ejemplos demostrados en el **vídeo** incluido en los recursos adicionales al final de este documento.
 
 
 ## ¿Qué tienes que entregar?
