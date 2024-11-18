@@ -40,14 +40,14 @@ Aunque existe la posibilidad de usar una máquina virtual preconfigurada y conte
 | **25–50**  | 8 vCPU  | 8 GiB   | 100 GB                |
 | **50–100** | 8 vCPU  | 8 GiB   | 200 GB                |
 
-Es posible instalar el servicio en una máquina virtual con un mínimo de 4 GiB de RAM. 
+Es posible instalar el servicio en una máquina virtual con un mínimo de 4 GiB de RAM. Se recomienda Almalinux o Ubuntu.
 
 1. Descargamos y ejecutamos el asistente de instalaicón de Wazuh (Tarda un buen rato):
 
 ```sh
 curl -sO https://packages.wazuh.com/4.9/wazuh-install.sh && sudo bash ./wazuh-install.sh -a
 ```
-Si obtienes un error por no cumplir los requisitos mínimos, puedes forzar la instalación añadiendo el parámetro `-i` al comando
+Si obtienes un error por no cumplir los requisitos mínimos, puedes forzar la instalación añadiendo el parámetro `-i` al comando anterior.
 
 
 Es importante tomar nota de la **contraseña** que se muestras al final.
@@ -57,9 +57,18 @@ Una vez terminada la instalaicón podemos acceder a la interfaz web:
 https://IP_servidor_wazuh
 ```
 
+Wazuh Manager usa los puertos 1514/tcp and 1515/tcp para comunicarse con los agentes. Therefore, you are required to allow both ports in your Linux firewall.
+
+```sh
+sudo firewall-cmd --permanent --add-port={1514,1515}/tcp
+
+sudo firewall-cmd --reload
+
+```
+
 **PROBLEMAS CONOCIDOS**
 
- A veces al iniciar vía web en una máquina virtual, nos da un error que dice  “Wazuh Dasbioard is not ready yet” o un error de timeout al verificar la versión del API.
+ A veces, al iniciar vía web en una máquina virtual, nos da un error que dice  “Wazuh Dasbioard is not ready yet” o un error de timeout al verificar la versión del API.
 
  Para solucionarlo basta reiniciar los servicios  de wazuh:
  
@@ -82,7 +91,9 @@ Para añadir **agentes**, desde la interfaz web:
 
 1. Haz click en el menú superior derecho **☰** -> **Server management** -> **Endpoints Summary**.
 2. Haz click en el botón "Deploy new agent" y elige las opciones y rellena los datos según tu necesidad.
-3. Copia el comando indicado y ejecútalo en la máquina a monitorizar.
+3. Copia el comando indicado al final de la pantalla y ejecútalo en la máquina a monitorizar.
+
+Recuerda que en windows debes ejecutar los comandos en una ventana de powershell ejecutada con permisos de administrador.
 
 Adicionalmente puedes optar por instalar y configurar el agente manualmente siguiendo las guías para ello:
 
@@ -90,18 +101,25 @@ Adicionalmente puedes optar por instalar y configurar el agente manualmente sigu
 - Instrucciones de la instalación del [agente en windows](windowsagent)
 
 
-## Pruebas a realizar
+## Prueba las capacidades
 
-Para tomar contacto con la herramienta tienes varios casos de uso práctico en la sección [Proof of Concept guide][proofofconcept]. Puedes ver algunos ejemplos demostrados en el vídeo incluído en la bibliografía.
+Para tomar contacto con la herramienta tienes varios casos de uso práctico en la sección [Proof of Concept guide][proofofconcept]. Puedes ver algunos ejemplos demostrados en el **vídeo** incluido en los recursos adicionales.
 
-Elige dos de las guías de "Proof of concept guide" y ponlas en práctica.
 
+## ¿Qué tienes que entregar?
+
+Un pdf en el que muestres pruebas de haber realizado lo siguiente:
+
+- Instalación del  servidor Wazuh.
+- Instalación de un mínimo de dos agentes, preferiblemente uno en windows y otro en linux.
+- Probar un mínimo de dos casos de la guía [Proof of Concept guide][proofofconcept]. Indicar qué dos casos se han elegido y mostrar evidencias de su comprobación.
 
 [quickstart]:https://documentation.wazuh.com/current/quickstart.html
 [agentlinux]:https://documentation.wazuh.com/current/installation-guide/wazuh-agent/wazuh-agent-package-linux.html
 [windowsagent]::https://documentation.wazuh.com/current/installation-guide/wazuh-agent/wazuh-agent-package-windows.html
 [proofofconcept]:https://documentation.wazuh.com/current/proof-of-concept-guide/index.html
 [enrollagents]:https://documentation.wazuh.com/current/cloud-service/getting-started/enroll-agents.html
+
 ## Recursos adicionales
 
 - **Sitio oficial de Wazuh**: [https://wazuh.com/](https://wazuh.com/)
@@ -111,6 +129,8 @@ Elige dos de las guías de "Proof of concept guide" y ponlas en práctica.
 	  - [Agentes][https://documentation.wazuh.com/current/installation-guide/wazuh-agent/index.html]
 	  - [Arquitectura](https://documentation.wazuh.com/current/getting-started/architecture.html)
 	  - [Proof of Concept guide][proofofconcept]
+
+- [Guía de instalación en Rocky Linux](https://centlinux.com/install-wazuh-server-on-linux/)
 
 ## Tutorial de Wazuh
 
