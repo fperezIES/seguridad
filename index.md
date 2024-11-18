@@ -73,7 +73,7 @@ Tareas entregables:
 - [T4.1 SSH con doble factor](UD4/exercises/opt.ssh_2step.md)
 - [T4.2 Auditoria de seguridad de servidores Linux (Lynis)](UD4/exercises/t.lynis.md)
 - [T4.3 Auditoría de seguridad con GVM/OpenVAS](UD4/exercises/t.GVM.openVAS.md)
-
+- [T4.4 Wazuh](UD4/exercises/t.wazuh.md)
 
 ## UD5 - Alta disponibilidad
 
