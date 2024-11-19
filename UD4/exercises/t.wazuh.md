@@ -116,7 +116,7 @@ Un pdf en el que muestres pruebas de haber realizado lo siguiente:
 
 [quickstart]:https://documentation.wazuh.com/current/quickstart.html
 [agentlinux]:https://documentation.wazuh.com/current/installation-guide/wazuh-agent/wazuh-agent-package-linux.html
-[windowsagent]::https://documentation.wazuh.com/current/installation-guide/wazuh-agent/wazuh-agent-package-windows.html
+[windowsagent]:https://documentation.wazuh.com/current/installation-guide/wazuh-agent/wazuh-agent-package-windows.html
 [proofofconcept]:https://documentation.wazuh.com/current/proof-of-concept-guide/index.html
 [enrollagents]:https://documentation.wazuh.com/current/cloud-service/getting-started/enroll-agents.html
 
@@ -124,11 +124,11 @@ Un pdf en el que muestres pruebas de haber realizado lo siguiente:
 
 - **Sitio oficial de Wazuh**: [https://wazuh.com/](https://wazuh.com/)
 - **Documentación de Wazuh**: [https://documentation.wazuh.com/current/index.html](https://documentation.wazuh.com/current/index.html)
-	  - [Guía rápida de inicio][quickstart]
-	  - [Guía de agentes][enrollagents]
-	  - [Agentes][https://documentation.wazuh.com/current/installation-guide/wazuh-agent/index.html]
-	  - [Arquitectura](https://documentation.wazuh.com/current/getting-started/architecture.html)
-	  - [Proof of Concept guide][proofofconcept]
+	- [Guía rápida de inicio][quickstart]
+	- [Guía de agentes][enrollagents]
+	- [Agentes][https://documentation.wazuh.com/current/installation-guide/wazuh-agent/index.html]
+	- [Arquitectura](https://documentation.wazuh.com/current/getting-started/architecture.html)
+	- [Proof of Concept guide][proofofconcept]
 
 - [Guía de instalación en Rocky Linux](https://centlinux.com/install-wazuh-server-on-linux/)
 
