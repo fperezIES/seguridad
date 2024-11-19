@@ -98,7 +98,7 @@ Recuerda que en windows debes ejecutar los comandos en una ventana de powershell
 Adicionalmente puedes optar por instalar y configurar el agente manualmente siguiendo las guías para ello:
 
 - Instrucciones de instalación del [agente en linux][linuxagent]
-- Instrucciones de la instalación del [agente en windows](windowsagent)
+- Instrucciones de la instalación del [agente en windows][windowsagent]
 
 
 ## Prueba las capacidades de Wazuh
@@ -126,7 +126,7 @@ Un pdf en el que muestres pruebas de haber realizado lo siguiente:
 - **Documentación de Wazuh**: [https://documentation.wazuh.com/current/index.html](https://documentation.wazuh.com/current/index.html)
 	- [Guía rápida de inicio][quickstart]
 	- [Guía de agentes][enrollagents]
-	- [Agentes][https://documentation.wazuh.com/current/installation-guide/wazuh-agent/index.html]
+	- [Agentes](https://documentation.wazuh.com/current/installation-guide/wazuh-agent/index.html)
 	- [Arquitectura](https://documentation.wazuh.com/current/getting-started/architecture.html)
 	- [Proof of Concept guide][proofofconcept]
 
