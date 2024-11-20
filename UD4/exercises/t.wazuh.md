@@ -115,7 +115,7 @@ Un pdf en el que muestres pruebas de haber realizado lo siguiente:
 - Probar un mínimo de dos casos de la guía [Proof of Concept guide][proofofconcept]. Indicar qué dos casos se han elegido y mostrar evidencias de su comprobación.
 
 [quickstart]:https://documentation.wazuh.com/current/quickstart.html
-[agentlinux]:https://documentation.wazuh.com/current/installation-guide/wazuh-agent/wazuh-agent-package-linux.html
+[linuxagent]:https://documentation.wazuh.com/current/installation-guide/wazuh-agent/wazuh-agent-package-linux.html
 [windowsagent]:https://documentation.wazuh.com/current/installation-guide/wazuh-agent/wazuh-agent-package-windows.html
 [proofofconcept]:https://documentation.wazuh.com/current/proof-of-concept-guide/index.html
 [enrollagents]:https://documentation.wazuh.com/current/cloud-service/getting-started/enroll-agents.html
