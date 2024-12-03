@@ -18,8 +18,10 @@ En esta práctica aprenderemos a configurar una máquina en alta disponibilidad.
 
 Es comúnmente utilizado en entornos de nube y virtualización, integrándose fácilmente con plataformas como Proxmox y OpenStack. Su capacidad de autogestión y autorreparación lo hace altamente confiable para entornos críticos.
 
+Ceph proporciona un sistema de almacenamiento distribuido que permite que los datos estén replicados en múltiples nodos, eliminando puntos únicos de fallo. Al integrarse con Proxmox, se asegura que las máquinas virtuales tengan acceso a un almacenamiento compartido altamente disponible, lo cual es esencial para la migración en vivo y la recuperación automática en caso de fallos.
 
-### 1. Instalación de los nosdos
+
+## 1. Instalación de los nosdos
 
  Instala  3 nodos con la última versión de Proxmox. Necesitarás 3 máquinas virtuales: PVE1, PVE2, y PVE3
 	- Descarga la ISO de Proxmox VE desde la [página oficial](https://www.proxmox.com).
@@ -36,14 +38,14 @@ Puede que recibas un aviso como el siguiente durante la instalación:
 Significa que las máquinas virtuales funcionarán muy lentas por que el procesador no soporta aceleración para la virtualización, es un problema o del procesador o de configuración del VirtualBox. En cualquier caso no impide realizar la práctica, podemos ignorarlo. En un entorno de producción isntalariamos Proxmox en máquinas físicas.
 
 
-### 2. Configurar la red    
+## 2. Configurar la red    
 
 * Durante la instalación tienes la posibilidad de configurar la interfaz de red.
 	![](img/Captura%20de%20pantalla%202024-12-03%20a%20las%2010.49.34.png){:style="width: 60%;" class="center"}{:style="width: 60%;" class="center"}
 	
 -  Posteriormente, en cada nodo puedes configurar la interfaz de red en `/etc/network/interfaces` 
     
-## 2. Unir los nodos al clúster
+## 3. Unir los nodos al clúster
 
 Hay que crear el cluster desde el nodo principal y unir el resto al cluster, se puede realizar mediante la interfaz web de proxmox o usando comandos. **Puedes ver cómo usar la interfaz web en el primer vídeo que se muestra al final de la práctica**.
 
@@ -58,26 +60,25 @@ Una vez unidos, los nodos aparecerán bajo `Datacenter`.
 Alternativamente, también es posible crear el cluster usando comandos:
 
    - Accede al nodo principal (Node1) y crea el clúster:
-        
+    
     ```
     pvecm create CLUSTER-NAME
     ```
-        
+    
    - En los nodos secundarios (Node2 y Node3), únete al clúster: 
-        
+    
     ```
     pvecm add IP-NODO-PRINCIPAL
     ```
-        
+    
    - Verifica que los nodos están en el clúster:
-        
+    
     ```        
     pvecm status
     ```
 
 
-
-## 3. Crear almacenamiento distribuido Ceph 
+## 4. Crear almacenamiento distribuido Ceph 
 
 **El primer vídeo también muestra como configurar el almacenamiento distribuido Ceph.** Se recomienda ver esta parte antes de realizar la práctica. 
 
@@ -110,7 +111,7 @@ Ahora vamos a crear nuestro Pool, Desde cualquier nodo `PVE1->Ceph->Pool->Create
 
 
 
-### 4. Crear una Máquina Virtual 
+### 5. Crear una Máquina Virtual 
 
 Ahora vamos a instalar una máquina virtual, se recomienda instalar una máquina sin entorno gráfico porque necesitará menos recursos. 
 
@@ -129,26 +130,31 @@ Si al arrancar recibes un error de "TASK ERROR: KVM virtualisation configured, b
 Puedes ver la interfaz de la máquina pulsando en el botón 'Console'
 
 
-Una vez instalada, puedes migrar la máquina de un nodo a otro sin detenerla, tal como se muestra en el primer vídeo.
+> Una vez instalada, puedes migrar la máquina de un nodo a otro sin detenerla, tal como se muestra en el primer vídeo: click con botón derecho sobre la máquina y usa la opción `migrate`
 
 ### 5. Configurar alta disponibilidad (HA) para la máquina 
 
-En el segundo vídeo se muestra como configurar una máquina virtual en alta disponibilidad, de forma que si un nodo cae, se levantará en alguno de los otros nodos.
-		
-1. **Configurar Alta Disponibilidad (HA)**:
-    
-    - Ve a **Datacenter->HA->Add** y añade la máquina virtual al grupo HA.
+En el **segundo vídeo** se muestra como configurar una máquina virtual en alta disponibilidad, de forma que si un nodo cae, se levantará en alguno de los otros nodos.
+
+1. ** Crea un grupo de HA**
+	- Ve a **Datacenter->HA->Groups** add y añade los 3 nodos al grupo.
+2. **Configurar Alta Disponibilidad (HA)**:    
+    - Ve a **Datacenter->HA->Add** y añade la máquina virtual al grupo HA, selecciona el grupo que has creado anteriormente.
     - Configura las políticas de HA, como el tiempo de espera para reiniciar en otro nodo.
-3. **Probar la alta disponibilidad**:
-    
+3. **Probar la alta disponibilidad**:    
     - Apaga uno de los nodos donde está corriendo la máquina virtual.
     - Observa cómo se migra automáticamente a otro nodo del clúster.
 
 
- Haz un ping a la máquina Linux desde un ordenador externo. Y apaga físicamente el nodo de Proxmox sobre el que está corriendo. El ping debería pararse durante unos segundos y volver a funcionar en unos segundos.
+>  Haz un ping a la máquina Linux desde un ordenador externo. Y apaga físicamente el nodo de Proxmox sobre el que está corriendo. El ping debería pararse durante unos segundos y volver a funcionar en unos segundos.
 
-Conéctate por SSH a la máquina linux, comprueba si se rompe la conexión si se migra la máquina de nodo y también si se apaga el nodo en que está ejecutandose la máquina.
+> Conéctate por SSH a la máquina linux, comprueba si se rompe la conexión si se migra la máquina de nodo y también si se apaga el nodo en que está ejecutandose la máquina.
 
+## Actividad
+
+Redacta una memoria con pruebas de instalación y configuración del cluster y la máquina virtual.
+
+Haz las pruebas de migración y HA
 
 
 [proxmox]: https://www.proxmox.com/
@@ -174,10 +180,12 @@ Conéctate por SSH a la máquina linux, comprueba si se rompe la conexión si se
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-qk_P9SKYK4?si=SZAqf7vwzwXT8I_j" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Configuración de HA 
-En este caso usa NFS como sistema de ficheros, nosotros usaremos Ceph. Sólo nos fijaremos en cómo configura HA.
+En este caso usa NFS como sistema de ficheros, nosotros usaremos Ceph. Sólo nos fijaremos en cómo configura HA:
 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bR3VnmiTMCc?si=3q-vAOqk7aBVla5D" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+En este vídeo se muestra funcionamiento de máquinas virtuales en HA con Proxmox:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JfZuZ6zE7AI?si=ZVeZYVm9ebhDDOj8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
