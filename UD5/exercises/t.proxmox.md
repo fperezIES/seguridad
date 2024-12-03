@@ -24,12 +24,13 @@ Ceph proporciona un sistema de almacenamiento distribuido que permite que los da
 ## 1. Instalación de los nosdos
 
  Instala  3 nodos con la última versión de Proxmox. Necesitarás 3 máquinas virtuales: PVE1, PVE2, y PVE3
-	- Descarga la ISO de Proxmox VE desde la [página oficial](https://www.proxmox.com).
-	- Cada nodo debe tener como mínimo **2048 MiB de RAM**.
-	- Añade **dos discos duros a cada nodo**. Uno será para instalar Proxmox y el otro para añadirlo al almacenamiento distribuido **Ceph**. (20 GiB debería ser suficiente para nuestras pruebas)
-	- Realiza la instalación básica en cada servidor y configura una dirección IP estática.
-	- Recuerda quitar la ISO del DVD al terminar la instalación.
-	- Debes utilizar un modo de red que permita que todos los nodos se puedan conectar entre sí. (Modo puente, Red NAT o red host). La interfaz es web, así que tú también tendrás que poder conectarte a las máquinas. Si es posible, el **Modo puente** es la configuración más sencilla. Otra opción es usar una Red NAT y añadir un segundo adaptador de red en red host para conectarnos a la interfaz web.
+ 
+ - Descarga la ISO de Proxmox VE desde la [página oficial](https://www.proxmox.com).
+- Cada nodo debe tener como mínimo **2048 MiB de RAM**.
+- Añade **dos discos duros a cada nodo**. Uno será para instalar Proxmox y el otro para añadirlo al almacenamiento distribuido **Ceph**. (20 GiB debería ser suficiente para nuestras pruebas)
+- Realiza la instalación básica en cada servidor y configura una dirección IP estática.
+- Recuerda quitar la ISO del DVD al terminar la instalación.
+- Debes utilizar un modo de red que permita que todos los nodos se puedan conectar entre sí. (Modo puente, Red NAT o red host). La interfaz es web, así que tú también tendrás que poder conectarte a las máquinas. Si es posible, el **Modo puente** es la configuración más sencilla. Otra opción es usar una Red NAT y añadir un segundo adaptador de red en red host para conectarnos a la interfaz web.
 
 Puede que recibas un aviso como el siguiente durante la instalación:
 
