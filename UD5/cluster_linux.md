@@ -1,11 +1,3 @@
-
-**IP virtual**
- **failover**
- **replicación de datos**
-
-
-
-
 # **Alta disponibilidad en Linux**
 
 La alta disponibilidad (HA, por sus siglas en inglés) es un enfoque que busca minimizar el tiempo de inactividad de servicios críticos en un sistema. En entornos Linux, se implementa mediante herramientas y configuraciones que aseguran que los servicios sigan funcionando incluso ante fallos en hardware, software o red.
@@ -18,19 +10,18 @@ A continuación, exploramos los conceptos, componentes y tecnologías clave para
 1. **Disponibilidad**:    
     - La medida del tiempo en que un sistema está operativo y accesible.
     - **99.999% ("cinco nueves")** de disponibilidad es un estándar común, lo que significa menos de 5 minutos de inactividad por año.
-    - 
+    
 1. **Failover**:    
     - Proceso automático que transfiere un servicio de un nodo fallido a otro nodo activo del clúster.
     
 1. **Clúster de Alta Disponibilidad**:    
     - Un conjunto de nodos (servidores) configurados para trabajar juntos, compartiendo cargas y respaldándose mutuamente.
     
-1. **Split-Brain**:
-    
+1. **Split-Brain**:    
     - Situación donde los nodos pierden comunicación entre sí y actúan de manera independiente, lo que puede provocar conflictos.
-5. **Quórum**:
     
-    - El número mínimo de nodos que deben estar operativos para que el clúster tome decisiones críticas.
+1. **Quórum**:    
+    - El número mínimo de nodos que deben estar operativos para que el cluster tome decisiones críticas.
 
 ---
 
@@ -89,6 +80,8 @@ Distribuyen el tráfico entre varios nodos:
 ### **5. Virtualización y Contenedores**
 
 Plataformas como **Proxmox**, **VMware** y **Kubernetes** integran funciones de alta disponibilidad para servicios virtualizados y basados en contenedores.
+
+
 
 ---
 
@@ -254,13 +247,13 @@ La alta disponibilidad en Linux es una habilidad esencial en ciberseguridad y ad
 
 ## **Resumen de la Colaboración**
 
-|**Función**|**Corosync**|**Pacemaker**|
-|---|---|---|
-|**Comunicación**|Gestiona la comunicación entre nodos del clúster.|No gestiona la comunicación directa, se apoya en Corosync.|
-|**Detección de nodos**|Detecta nodos activos y fallos en ellos.|Usa esta información para tomar decisiones sobre los recursos.|
-|**Gestión de quórum**|Asegura que las decisiones se tomen solo con quórum suficiente.|Actúa según las políticas definidas basándose en el estado de Corosync.|
-|**Gestión de recursos**|No gestiona recursos directamente.|Controla los recursos y los reasigna en caso de fallos.|
-|**Recuperación de fallos**|Detecta fallos de nodos mediante heartbeats.|Realiza el failover de los recursos a nodos activos.|
+| **Función**                | **Corosync**                                                    | **Pacemaker**                                                           |
+| -------------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| **Comunicación**           | Gestiona la comunicación entre nodos del cluster.               | No gestiona la comunicación directa, se apoya en Corosync.              |
+| **Detección de nodos**     | Detecta nodos activos y fallos en ellos.                        | Usa esta información para tomar decisiones sobre los recursos.          |
+| **Gestión de quórum**      | Asegura que las decisiones se tomen solo con quórum suficiente. | Actúa según las políticas definidas basándose en el estado de Corosync. |
+| **Gestión de recursos**    | No gestiona recursos directamente.                              | Controla los recursos y los reasigna en caso de fallos.                 |
+| **Recuperación de fallos** | Detecta fallos de nodos mediante heartbeats.                    | Realiza el failover de los recursos a nodos activos.                    |
 
 ---
 

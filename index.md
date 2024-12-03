@@ -77,11 +77,15 @@ Tareas entregables:
 
 ## UD5 - Alta disponibilidad
 
+* [5.1 Introducción a alta disponibilidad](UD5/1.intro_ha.md)
 - 5.1 Redundancia a nivel de hardware
 - 5.2 Sistemas de alimentación ininterrumpida
 - 5.3 Redundancia en redes
 - 5.4 Balanceo de carga
 - 5.5 Virtualización y alta disponibilidad
+
+ 
+- [T4.1 VM en HA con Proxmox](UD5/exercises/t.proxmox.md)
 
 ## UD6 - Seguridad en redes
 

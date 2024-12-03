@@ -46,6 +46,8 @@ El objetivo de esta práctica es aprender a configurar un sistema de RAID 5 en u
    - Una vez dentro de Windows 11, abre el menú de **Inicio**, busca **Administración de discos** y ábrelo.
    - Verás los tres discos adicionales que has añadido, aparecerán como discos no asignados.
 
+%% TODO: Espacios de almacenamiento Windows 10 %%
+
 5. **Convertir los discos a dinámicos**:
    - Haz clic derecho en cada uno de los discos adicionales y selecciona **Convertir a disco dinámico**.
 

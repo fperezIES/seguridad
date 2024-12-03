@@ -180,8 +180,6 @@ rm archivo_confidencial.txt.gpg archivo_descifrado.txt
 
 # Bibliografía
 
-## Bibliografía
-
 - [The GNU Privacy Guard ](https://www.gnupg.org/)
 * [gpg man page](https://www.gnupg.org/documentation/manuals/gnupg24/gpg.1.html)
 * [Gpg4win](https://www.gpg4win.org/download.html)
