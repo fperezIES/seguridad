@@ -86,6 +86,7 @@ Tareas entregables:
 
  
 - [T4.1 VM en HA con Proxmox](UD5/exercises/t.proxmox.md)
+- [T4.2 Balanceador de carga](UD5/exercises/t.balanceador.md)
 
 ## UD6 - Seguridad en redes
 
