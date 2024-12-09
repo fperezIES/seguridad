@@ -139,7 +139,9 @@ Puede que sea necesario que abras los puertos a los que quieras conectarte en el
 2. Cambia la política de balanceo de `roundrobin` a `leastconn` en la configuración de HAProxy. ¿Qué diferencias observas?
 
 
+## Opcional
 
+Busca cómo utilizar Nginx como balanceador de carga y configuralo para realizar estas función.
 
 
 # Bibliografía
