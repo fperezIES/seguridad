@@ -78,10 +78,9 @@ Tareas entregables:
 ## UD5 - Alta disponibilidad
 
 * [5.1 Introducción a alta disponibilidad](UD5/1.intro_ha.md)
-- 5.1 Redundancia a nivel de hardware
-- 5.2 Sistemas de alimentación ininterrumpida
-- 5.3 Redundancia en redes
-- 5.4 Balanceo de carga
+* [5.2. Alta disponibilidad en redes](UD5/2.redes_ha.md)
+- 5.3 Redundancia a nivel de hardware
+- 5.4 Sistemas de alimentación ininterrumpida
 - 5.5 Virtualización y alta disponibilidad
 
  
