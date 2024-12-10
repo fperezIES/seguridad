@@ -97,7 +97,7 @@ server static 127.0.0.1:4331 check
 backend app
 balance roundrobin
 server app1 192.168.1.101:80 check
-server app2 192.168.1.101:80 check
+server app2 192.168.1.102:80 check
 ```
     
     - Reemplaza las IPs (`192.168.1.101` y `192.168.1.102`) con las IPs de tus máquinas backend.
