@@ -86,7 +86,7 @@ Tareas entregables:
  
 - [T4.1 VM en HA con Proxmox](UD5/exercises/t.proxmox.md)
 - [T4.2 Balanceador de carga](UD5/exercises/t.balanceador.md)
-
+- [T4.3 Puerta de enlace en alta disponibilidad (VRRP) con Keepalived](UD5/exercises/t.vrrp.keepalived.md)
 ## UD6 - Seguridad en redes
 
 - 6.1 Seguridad en redes inalámbricas (WLAN)
