@@ -1,7 +1,7 @@
 
 # Máquinas virtuales en alta disponibilidad con Proxmox
 
-![](img/Proxmox_logo_standard_hex_400px.png){:style="width: 60%;" class="center"}
+![](img/proxmox_logo.png){:style="width: 60%;" class="center"}
 
 ## Introducción
 
@@ -42,7 +42,7 @@ Significa que las máquinas virtuales funcionarán muy lentas por que el procesa
 ## 2. Configurar la red    
 
 * Durante la instalación tienes la posibilidad de configurar la interfaz de red.
-	![](img/Captura%20de%20pantalla%202024-12-03%20a%20las%2010.49.34.png){:style="width: 60%;" class="center"}{:style="width: 60%;" class="center"}
+	![](img/proxmox_network_config.png){:style="width: 60%;" class="center"}{:style="width: 60%;" class="center"}
 	
 -  Posteriormente, en cada nodo puedes configurar la interfaz de red en `/etc/network/interfaces` 
     

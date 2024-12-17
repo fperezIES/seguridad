@@ -413,3 +413,10 @@ En ambos nodos:
 ---
 
 Esta configuración permite a tus alumnos entender cómo funcionan los conceptos de **IP virtual**, **failover**, y **replicación de datos**, proporcionando un entorno práctico para explorar alta disponibilidad. 
+````
+
+Bibliografía
+
+https://puerto53.com/linux/configuracion-de-un-cluster-de-mysql-en-linux-con-pacemaker-y-replica-de-datos-con-drbd/
+
+https://docs.redhat.com/es/documentation/red_hat_enterprise_linux/6/html/cluster_administration/s1-creating-cluster-ccs-ca
